@@ -1,10 +1,14 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import StartPage from './components/StartPage/StartPage';
 
 const App = () => {
     return (
-        <div className="App">
-            <header className="App-header">asd</header>
-        </div>
+        <Routes>
+            <Route path="/" element={<StartPage />} />
+            {/* <Route path="/class" element={<AppClass />} /> */}
+            {/* <Route path="/function" element={<AppFunc />} /> */}
+        </Routes>
     );
 };
 
