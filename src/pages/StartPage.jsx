@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from '../components/UI-components/startPage/Button';
+import Button from '../components/AppStartPage/Button';
 
 const StyledPage = styled.div`
     display: flex;

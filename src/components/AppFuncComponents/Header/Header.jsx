@@ -10,16 +10,20 @@ const StyledHeader = styled.header`
     align-items: center;
 `;
 
+const StyledTitle = styled.h2`
+    text-shadow: 0px 0px 10px white;
+`;
+
 const StyledNav = styled.nav`
     display: flex;
     gap: 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
 `;
 
 const Header = () => {
     return (
         <StyledHeader>
-            <h2>FUNCTIONAL COMPONENTS CALCULATOR</h2>
+            <StyledTitle>FUNCTIONAL COMPONENTS CALCULATOR</StyledTitle>
             <StyledNav>
                 <li>
                     <Link to="../">Главная</Link>
