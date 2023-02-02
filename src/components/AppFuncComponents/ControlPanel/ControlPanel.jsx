@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import TogglerDivide from './TogglerDivide';
 
 const StyledControlPanel = styled.div`
     display: flex;
@@ -15,6 +16,7 @@ const ControlPanel = () => {
     return (
         <StyledControlPanel>
             <h1>Controls</h1>
+            <TogglerDivide />
         </StyledControlPanel>
     );
 };

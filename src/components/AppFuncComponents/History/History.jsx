@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const StyledHistory = styled.div`
@@ -19,14 +20,20 @@ const StyledList = styled.ul`
     font-weight: bold;
 `;
 
+const StyledListItem = styled.li`
+    border-top: 1px solid white;
+    padding: 5px;
+`;
+
 const History = () => {
+    const formulas = useSelector((state) => state.display.formulas);
     return (
         <StyledHistory>
             <h1>History</h1>
             <StyledList>
-                <li>199 / 3</li>
-                <li>300 + 1</li>
-                <li>33344 * 2</li>
+                {formulas.map((formula) => (
+                    <StyledListItem>{formula}</StyledListItem>
+                ))}
             </StyledList>
         </StyledHistory>
     );

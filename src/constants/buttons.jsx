@@ -1,4 +1,4 @@
-const DIGITS = [
+const BUTTONS = [
     {
         name: 'one',
         dig: '1',
@@ -41,15 +41,15 @@ const DIGITS = [
     },
     {
         name: 'plus',
-        dig: '+',
+        dig: ' + ',
     },
     {
         name: 'minus',
-        dig: '-',
+        dig: ' - ',
     },
     {
         name: 'equal',
-        dig: '=',
+        dig: ' = ',
     },
     {
         name: 'C',
@@ -65,11 +65,15 @@ const DIGITS = [
     },
     {
         name: 'divide',
-        dig: '/',
+        dig: ' / ',
+    },
+    {
+        name: 'remainder',
+        dig: ' % ',
     },
     {
         name: 'multiply',
-        dig: '*',
+        dig: ' * ',
     },
     {
         name: 'sr',
@@ -80,5 +84,27 @@ const DIGITS = [
         dig: '.',
     },
 ];
-
-export default DIGITS;
+const DRAW = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'dot',
+];
+const DRAW_HISTORY = [
+    'divide',
+    'plus',
+    'minus',
+    'multiply',
+    'equal',
+    'remainder',
+];
+const REGISTER_COMMAND = ['divie', 'plus', 'minus', 'multiply'];
+const MAX_DISPLAY_LENGTH = 9;
+export { DRAW, DRAW_HISTORY, BUTTONS, REGISTER_COMMAND, MAX_DISPLAY_LENGTH };

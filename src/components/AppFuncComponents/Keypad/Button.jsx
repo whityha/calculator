@@ -8,9 +8,9 @@ const StyledButton = styled.button`
     font-size: 1.3rem;
 `;
 
-const Button = ({ children, area }) => {
+const Button = ({ children, area, onClick, name }) => {
     return (
-        <StyledButton area={area} type="button">
+        <StyledButton area={area} name={name} type="button" onClick={onClick}>
             {children}
         </StyledButton>
     );

@@ -1,5 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import HistoryDisplay from './HistoryDisplay';
 
 const StyledDisplay = styled.div`
     display: flex;
@@ -22,9 +24,12 @@ const StyledDisplay = styled.div`
 `;
 
 const Display = () => {
+    const value = useSelector((state) => state.display.value);
+
     return (
         <StyledDisplay>
-            <h1>100</h1>
+            <HistoryDisplay />
+            <h1>{value}</h1>
         </StyledDisplay>
     );
 };
