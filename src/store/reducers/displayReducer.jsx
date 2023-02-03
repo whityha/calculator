@@ -40,10 +40,11 @@ export default createReducer(initialState, {
                     state.value += payload.dig;
                 break;
             case 'dot':
-                if (!state.value) state.value = payload.dig;
+                if (currentCondition) state.value = payload.dig;
+                else if (dotCondition) break;
+                else if (!state.value) state.value = payload.dig;
                 else if (state.value === '0' && lengthCondition)
                     state.value += payload.dig;
-                else if (dotCondition) break;
                 else if (lengthCondition) state.value += payload.dig;
                 break;
             default:
