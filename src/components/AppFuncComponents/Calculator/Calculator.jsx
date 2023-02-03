@@ -10,7 +10,6 @@ import {
     drawDisplay,
     clear,
     drawHistoryDisplay,
-    registerCommand,
 } from '../../../store/actions/displayActions';
 
 const Calculator = () => {
@@ -34,7 +33,6 @@ const Calculator = () => {
                         dig,
                     })
                 );
-                dispatch(registerCommand());
             };
         return () => {};
     };
