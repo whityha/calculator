@@ -59,7 +59,6 @@ export default createReducer(initialState, {
         calc.isRegistered = false;
     },
     [clear]: (state, { payload }) => {
-        console.log(payload.deep);
         switch (payload.deep) {
             case 'display':
                 state.value = 0;
@@ -70,10 +69,13 @@ export default createReducer(initialState, {
                 calc.clear();
                 break;
             case 'deep':
-                state.value = 0;
-                state.historyValue = '';
-                calc.clear();
-                state.formulas = [];
+                // eslint-disable-next-line no-restricted-globals, no-alert
+                if (confirm('Действительно очистить всё?')) {
+                    state.value = 0;
+                    state.historyValue = '';
+                    calc.clear();
+                    state.formulas = [];
+                }
                 break;
             case 'clearHistory':
                 state.formulas = [];

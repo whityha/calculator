@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TogglerDivide from './TogglerDivide';
 import ClearButton from './ClearButton';
+import DeepClearButton from './DeepClearButton';
 
 const StyledControlPanel = styled.div`
     display: flex;
@@ -20,6 +21,7 @@ const ControlPanel = () => {
             <h1>Controls</h1>
             <TogglerDivide />
             <ClearButton />
+            <DeepClearButton />
         </StyledControlPanel>
     );
 };
