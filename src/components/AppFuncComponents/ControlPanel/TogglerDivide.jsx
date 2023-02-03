@@ -1,49 +1,69 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    setActualDig,
-    setException,
-} from '../../../store/actions/controlsActions';
+import { setActualDig } from '../../../store/actions/controlsActions';
 
 const StyledTogglerDivide = styled.div`
     display: flex;
-    flex-direction: column;
     gap: 2rem;
     align-items: center;
     padding: 1rem;
 `;
 
 const StyledLabel = styled.label`
+    display: block;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
+    input[type='radio']:checked + span {
+        outline: 5px solid #4789c0;
+    }
+    input + span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        background: #ffffff;
+        color: black;
+        line-height: 30px;
+        text-align: center;
+    }
 `;
 
 const InputRadio = (props) => {
-    const { id, name, type } = props;
+    const { children, id, name, type } = props;
     const dispatch = useDispatch();
     const actualDig = useSelector((state) => state.control.actualDig);
-    const exception = useSelector((state) => state.control.exception);
-    const setActual = (actual) => {
+    const setActual = (actual) => () => {
         dispatch(setActualDig(actual));
     };
-    const setExc = (exc) => {
-        dispatch(setException(exc));
-    };
-    const makeToggle = () => {
-        setActual(exception);
-        setExc(actualDig);
-    };
-    return <input onChange={makeToggle} id={id} name={name} type={type} />;
+    return (
+        <>
+            <input
+                checked={actualDig === id}
+                style={{ display: 'none' }}
+                onChange={setActual(id)}
+                id={id}
+                name={name}
+                type={type}
+            />
+            <span> {children} </span>
+        </>
+    );
 };
 
 const TogglerDivide = () => {
     return (
         <StyledTogglerDivide>
             <StyledLabel htmlFor="divide">
-                / <InputRadio id="divide" name="toggler" type="radio" />
+                <InputRadio id="divide" name="toggler" type="radio">
+                    /
+                </InputRadio>
             </StyledLabel>
             <StyledLabel htmlFor="remainder">
-                % <InputRadio id="remainder" name="toggler" type="radio" />
+                <InputRadio id="remainder" name="toggler" type="radio">
+                    %
+                </InputRadio>
             </StyledLabel>
         </StyledTogglerDivide>
     );

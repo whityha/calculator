@@ -1,12 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
 import initialState from '../initialState';
-import { setActualDig, setException } from '../actions/controlsActions';
+import { setActualDig } from '../actions/controlsActions';
 
 export default createReducer(initialState, {
     [setActualDig]: (state, action) => {
+        state.exception = state.actualDig;
         state.actualDig = action.payload;
-    },
-    [setException]: (state, action) => {
-        state.exception = action.payload;
     },
 });
