@@ -4,6 +4,7 @@ import {
     drawDisplay,
     clear,
     drawHistoryDisplay,
+    clearHistory,
 } from '../actions/displayActions';
 import {
     AddCommand,
@@ -107,5 +108,8 @@ export default createReducer(initialState, {
                 break;
             default:
         }
+    },
+    [clearHistory]: (state) => {
+        state.formulas = [];
     },
 });
