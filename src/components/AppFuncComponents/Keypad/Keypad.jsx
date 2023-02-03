@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import Button from './Button';
-import { BUTTONS } from '../../../constants/buttons';
+import BUTTONS from '../../../constants/buttons';
 
 const StyledKeypad = styled.div`
     grid-area: keypad;

@@ -84,27 +84,4 @@ const BUTTONS = [
         dig: '.',
     },
 ];
-const DRAW = [
-    'zero',
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
-    'six',
-    'seven',
-    'eight',
-    'nine',
-    'dot',
-];
-const DRAW_HISTORY = [
-    'divide',
-    'plus',
-    'minus',
-    'multiply',
-    'equal',
-    'remainder',
-];
-const REGISTER_COMMAND = ['divie', 'plus', 'minus', 'multiply'];
-const MAX_DISPLAY_LENGTH = 9;
-export { DRAW, DRAW_HISTORY, BUTTONS, REGISTER_COMMAND, MAX_DISPLAY_LENGTH };
+export default BUTTONS;

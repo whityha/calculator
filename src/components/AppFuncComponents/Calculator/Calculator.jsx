@@ -5,7 +5,12 @@ import Keypad from '../Keypad/Keypad';
 import ControlPanel from '../ControlPanel/ControlPanel';
 import History from '../History/History';
 import { calc } from '../../../command/command';
-import { DRAW_HISTORY, DRAW } from '../../../constants/buttons';
+import {
+    DRAW_HISTORY,
+    DRAW,
+    CLEAR_DISPLAY,
+    CLEAR_DISPLAY_ALL,
+} from '../../../constants/options';
 import {
     drawDisplay,
     clear,
@@ -23,7 +28,10 @@ const Calculator = () => {
                         dig,
                     })
                 );
-        if (name === 'CE' || name === 'C') return () => dispatch(clear(dig));
+        if (CLEAR_DISPLAY.includes(name))
+            return () => dispatch(clear({ deep: 'display' }));
+        if (CLEAR_DISPLAY_ALL.includes(name))
+            return () => dispatch(clear({ deep: 'displayAll' }));
 
         if (DRAW_HISTORY.includes(name))
             return () => {

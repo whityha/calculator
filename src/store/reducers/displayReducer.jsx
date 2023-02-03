@@ -4,7 +4,6 @@ import {
     drawDisplay,
     clear,
     drawHistoryDisplay,
-    clearHistory,
 } from '../actions/displayActions';
 import {
     AddCommand,
@@ -14,7 +13,7 @@ import {
     ReminderCommand,
     calc,
 } from '../../command/command';
-import { MAX_DISPLAY_LENGTH } from '../../constants/buttons';
+import { MAX_DISPLAY_LENGTH } from '../../constants/options';
 
 export default createReducer(initialState, {
     [drawDisplay]: (state, { payload }) => {
@@ -60,13 +59,26 @@ export default createReducer(initialState, {
         calc.isRegistered = false;
     },
     [clear]: (state, { payload }) => {
-        if (payload === 'C') {
-            state.value = 0;
-        }
-        if (payload === 'CE') {
-            state.value = 0;
-            state.historyValue = '';
-            calc.clear();
+        console.log(payload.deep);
+        switch (payload.deep) {
+            case 'display':
+                state.value = 0;
+                break;
+            case 'displayAll':
+                state.value = 0;
+                state.historyValue = '';
+                calc.clear();
+                break;
+            case 'deep':
+                state.value = 0;
+                state.historyValue = '';
+                calc.clear();
+                state.formulas = [];
+                break;
+            case 'clearHistory':
+                state.formulas = [];
+                break;
+            default:
         }
     },
     [drawHistoryDisplay]: (state, { payload }) => {
@@ -100,7 +112,7 @@ export default createReducer(initialState, {
                 changeHistory();
                 break;
             case 'equal':
-                if (!calc.isEqual && calc.current) {
+                if (!calc.isEqual && calc.current && calc.formula) {
                     state.value = calc.equal();
                     state.formulas.push(calc.formula + state.value);
                     changeHistory();
@@ -108,8 +120,5 @@ export default createReducer(initialState, {
                 break;
             default:
         }
-    },
-    [clearHistory]: (state) => {
-        state.formulas = [];
     },
 });

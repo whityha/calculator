@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { clearHistory } from '../../../store/actions/displayActions';
+import { clear } from '../../../store/actions/displayActions';
 
 const StyledButton = styled.button`
     color: black;
@@ -11,9 +11,9 @@ const StyledButton = styled.button`
 
 const ClearButton = () => {
     const dispatch = useDispatch();
-    const clear = () => dispatch(clearHistory());
+    const clearHistory = () => dispatch(clear({ deep: 'clearHistory' }));
     return (
-        <StyledButton type="button" onClick={clear}>
+        <StyledButton type="button" onClick={clearHistory}>
             Очистить историю
         </StyledButton>
     );
