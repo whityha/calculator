@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { switchTheme } from '../../../store/actions/controlsActions';
 
 const StyledSwitcher = styled.div`
     width: 50px;
     height: 20px;
     border-radius: 100px;
-    background: white;
+    background: ${(props) => props.theme.background.secondary};
+    outline: 1px solid ${(props) => props.theme.background.border};
     cursor: pointer;
 `;
 const StyledHandler = styled.span`
@@ -13,13 +16,19 @@ const StyledHandler = styled.span`
     width: 20px;
     height: 20px;
     border-radius: 100px;
-    background: #9dabe5;
+    background: ${(props) => props.theme.color.secondary};
+    float: ${(props) => props.position};
 `;
 
 const Switcher = () => {
+    const dispatch = useDispatch();
+    const handleSwitcher = () => {
+        dispatch(switchTheme());
+    };
+    const color = useSelector((state) => state.control.theme);
     return (
-        <StyledSwitcher>
-            <StyledHandler />
+        <StyledSwitcher onClick={handleSwitcher}>
+            <StyledHandler position={color === 'light' ? 'right' : 'left'} />
         </StyledSwitcher>
     );
 };

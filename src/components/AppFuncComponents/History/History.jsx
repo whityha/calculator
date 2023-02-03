@@ -8,7 +8,7 @@ const StyledHistory = styled.div`
     gap: 50px;
     align-items: center;
     grid-area: history;
-    border-left: 2px solid white;
+    border-left: 2px solid ${(props) => props.theme.background.secondary};
     padding: 1rem;
 `;
 
@@ -21,7 +21,7 @@ const StyledList = styled.ul`
 `;
 
 const StyledListItem = styled.li`
-    border-top: 1px solid white;
+    border-top: 1px solid ${(props) => props.theme.background.secondary};
     padding: 5px;
 `;
 

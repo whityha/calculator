@@ -23,8 +23,8 @@ const StyledLabel = styled.label`
         width: 100%;
         height: 100%;
         border-radius: 100px;
-        background: #ffffff;
-        color: black;
+        background: ${(props) => props.theme.background.secondary};
+        color: ${(props) => props.theme.color.secondary};
         line-height: 30px;
         text-align: center;
     }

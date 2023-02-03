@@ -4,4 +4,5 @@ export default {
     formulas: [],
     actualDig: 'divide',
     exception: 'remainder',
+    theme: 'light',
 };

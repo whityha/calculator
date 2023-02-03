@@ -6,12 +6,12 @@ import Switcher from './Switcher';
 const StyledHeader = styled.header`
     display: flex;
     grid-area: header;
-    color: white;
     align-items: center;
 `;
 
 const StyledTitle = styled.h2`
-    text-shadow: 0px 0px 10px white;
+    text-shadow: 0px 0px 10px ${(props) => props.theme.color.primary};
+    color: ${(props) => props.theme.color.primary};
     margin-right: auto;
 `;
 
@@ -20,6 +20,9 @@ const StyledNav = styled.nav`
     gap: 1rem;
     font-size: 1rem;
     margin-right: 100px;
+    li {
+        color: ${(props) => props.theme.color.primary};
+    }
 `;
 
 const Header = () => {

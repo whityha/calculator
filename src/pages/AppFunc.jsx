@@ -5,7 +5,7 @@ import Header from '../components/AppFuncComponents/Header/Header';
 
 const StyledApp = styled.div`
     height: 100vh;
-    background: #040b27;
+    background: ${(props) => props.theme.background.primary};
 `;
 
 const StyledWrapperApp = styled.div`

@@ -9,8 +9,8 @@ const StyledControlPanel = styled.div`
     flex-direction: column;
     align-items: center;
     grid-area: controls;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
+    border-left: 2px solid ${(props) => props.theme.background.secondary};
+    border-right: 2px solid ${(props) => props.theme.background.secondary};
     padding: 1rem;
     gap: 2rem;
 `;

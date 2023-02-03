@@ -15,7 +15,7 @@ const StyledDisplay = styled.div`
         display: block;
         width: 90%;
         height: 2px;
-        background: white;
+        background: ${(props) => props.theme.background.secondary};
         position: absolute;
         bottom: 0;
         left: 50%;

@@ -7,7 +7,7 @@ export default createGlobalStyle`
         box-sizing: border-box;
         list-style-type: none;
         text-decoration: none;
-        color: white;        
+        color: ${(props) => props.theme.color.primary};     
         font-family: 'Montserrat';
     }
     body {

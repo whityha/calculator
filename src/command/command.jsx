@@ -104,8 +104,6 @@ class CalculatorCommand {
     }
 }
 
-export const calc = new CalculatorCommand(0);
-
 export class AddCommand {
     constructor(valueToAdd) {
         this.value = Number(valueToAdd);
@@ -200,3 +198,5 @@ export class DivideCommand {
         return `${this.value} ÷ ${this.currentValue}`;
     }
 }
+
+export const calc = new CalculatorCommand(0);
