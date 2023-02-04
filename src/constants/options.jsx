@@ -20,15 +20,15 @@ const DRAW_HISTORY = [
     'equal',
     'remainder',
 ];
-const CLEAR_DISPLAY = ['C'];
-const CLEAR_DISPLAY_ALL = ['CE'];
+const CLEAR = ['C'];
+const CLEAR_DISPLAY = ['CE'];
 const CHANGE_SIGN = ['plusmn'];
 
 export {
     DRAW,
     DRAW_HISTORY,
+    CLEAR,
     CLEAR_DISPLAY,
-    CLEAR_DISPLAY_ALL,
     MAX_DISPLAY_LENGTH,
     CHANGE_SIGN,
 };

@@ -31,8 +31,8 @@ const History = () => {
         <StyledHistory>
             <h1>History</h1>
             <StyledList>
-                {formulas.map((formula) => (
-                    <StyledListItem>{formula}</StyledListItem>
+                {formulas.map(({ formula, id }) => (
+                    <StyledListItem key={id}>{formula}</StyledListItem>
                 ))}
             </StyledList>
         </StyledHistory>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { clear } from '@actions/displayActions';
+import { clearHistory, clearAll } from '@actions/displayActions';
 import TogglerDivide from './TogglerDivide';
 import Button from './Button';
 
@@ -22,14 +22,14 @@ const Title = styled.h1`
 
 const ControlPanel = () => {
     const dispatch = useDispatch();
-    const clearHistory = () => dispatch(clear({ deep: 'clearHistory' }));
-    const clearAll = () => dispatch(clear({ deep: 'deep' }));
+    const clearHis = () => dispatch(clearHistory());
+    const clear = () => dispatch(clearAll());
     return (
         <StyledControlPanel>
             <Title>Controls</Title>
             <TogglerDivide />
-            <Button onClick={clearHistory}>Clear history</Button>
-            <Button onClick={clearAll}>Clear ALL</Button>
+            <Button onClick={clearHis}>Clear history</Button>
+            <Button onClick={clear}>Clear ALL</Button>
         </StyledControlPanel>
     );
 };
