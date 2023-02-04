@@ -12,7 +12,7 @@ const App = () => {
     return (
         <ThemeProvider theme={theme[variant]}>
             <Routes>
-                <Route path="/" element={<StartPage color="black" />} />
+                <Route path="/" element={<StartPage />} />
                 {/* <Route path="/class" element={<AppClass />} /> */}
                 <Route path="/function" element={<AppFunc />} />
             </Routes>

@@ -1,11 +1,5 @@
 /* eslint-disable max-classes-per-file */
-const fixNumber = (result) =>
-    result
-        .toFixed(3)
-        .toString()
-        .split('')
-        .filter((item) => item !== 0)
-        .join('');
+const fixNumber = (result) => result.toFixed(3);
 
 class CalculatorCommand {
     constructor(props) {

@@ -70,18 +70,16 @@ export default createReducer(initialState, {
                 calc.clear();
                 break;
             case 'deep':
-                // eslint-disable-next-line no-restricted-globals, no-alert
-                if (confirm('Действительно очистить всё?')) {
-                    state.value = 0;
-                    state.historyValue = '';
-                    calc.clear();
-                    state.formulas = [];
-                }
+                state.value = 0;
+                state.historyValue = '';
+                calc.clear();
+                state.formulas = [];
                 break;
             case 'clearHistory':
                 state.formulas = [];
                 break;
             default:
+                break;
         }
     },
     [drawHistoryDisplay]: (state, { payload }) => {

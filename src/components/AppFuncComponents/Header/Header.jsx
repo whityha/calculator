@@ -31,10 +31,10 @@ const Header = () => {
             <StyledTitle>FUNCTIONAL COMPONENTS CALCULATOR</StyledTitle>
             <StyledNav>
                 <li>
-                    <Link to="../">Главная</Link>
+                    <Link to="../">Main</Link>
                 </li>
                 <li>
-                    <Link to="../class">Классовый калькулятор</Link>
+                    <Link to="../class">Class calculator</Link>
                 </li>
             </StyledNav>
             <Switcher />

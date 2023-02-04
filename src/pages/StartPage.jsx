@@ -23,7 +23,9 @@ const StartPage = (props) => {
     const { color } = props;
     return (
         <StyledPage color={color}>
-            <h1>Проверим работоспособность калькуляторов</h1>
+            <h1 style={{ color: 'white' }}>
+                Проверим работоспособность калькуляторов
+            </h1>
             <StyledButtonsBlock>
                 <Link to="class">
                     <Button type="button">КЛАССОВЫЙ КАЛЬКУЛЯТОР</Button>

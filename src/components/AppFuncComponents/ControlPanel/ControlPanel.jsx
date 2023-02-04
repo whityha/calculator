@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import TogglerDivide from './TogglerDivide';
-import ClearButton from './ClearButton';
-import DeepClearButton from './DeepClearButton';
+import Button from './Button';
+import { clear } from '../../../store/actions/displayActions';
 
 const StyledControlPanel = styled.div`
     display: flex;
@@ -15,13 +16,20 @@ const StyledControlPanel = styled.div`
     gap: 2rem;
 `;
 
+const Title = styled.h1`
+    color: ${(props) => props.theme.color.primary};
+`;
+
 const ControlPanel = () => {
+    const dispatch = useDispatch();
+    const clearHistory = () => dispatch(clear({ deep: 'clearHistory' }));
+    const clearAll = () => dispatch(clear({ deep: 'deep' }));
     return (
         <StyledControlPanel>
-            <h1>Controls</h1>
+            <Title>Controls</Title>
             <TogglerDivide />
-            <ClearButton />
-            <DeepClearButton />
+            <Button onClick={clearHistory}>Clear history</Button>
+            <Button onClick={clearAll}>Clear ALL</Button>
         </StyledControlPanel>
     );
 };
