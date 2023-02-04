@@ -1,10 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
-import initialState from '../initialState';
 import {
     drawDisplay,
     clear,
     drawHistoryDisplay,
-} from '../actions/displayActions';
+    changeSign,
+} from '@actions/displayActions';
 import {
     AddCommand,
     MultiplyCommand,
@@ -12,7 +12,8 @@ import {
     SubtractCommand,
     ReminderCommand,
     calc,
-} from '../../command/command';
+} from '@command/command';
+import initialState from '../initialState';
 import { MAX_DISPLAY_LENGTH } from '../../constants/options';
 
 export default createReducer(initialState, {
@@ -81,6 +82,17 @@ export default createReducer(initialState, {
             default:
                 break;
         }
+    },
+    [changeSign]: (state) => {
+        const currentCondition = calc.current === 0;
+        const positive = (str) => str[0] !== '-';
+        if (currentCondition) state.value = calc.isRegistered ? '-' : '-0';
+        else {
+            state.value = positive(state.value)
+                ? `-${state.value}`
+                : state.value.slice(1);
+        }
+        calc.current = state.value;
     },
     [drawHistoryDisplay]: (state, { payload }) => {
         const changeHistory = () => {

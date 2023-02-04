@@ -4,6 +4,7 @@ import {
     drawDisplay,
     clear,
     drawHistoryDisplay,
+    changeSign,
 } from '@actions/displayActions';
 import { calc } from '@command/command';
 import {
@@ -11,6 +12,7 @@ import {
     DRAW,
     CLEAR_DISPLAY,
     CLEAR_DISPLAY_ALL,
+    CHANGE_SIGN,
 } from '@constants/options';
 import Display from '../Display/Display';
 import Keypad from '../Keypad/Keypad';
@@ -32,7 +34,10 @@ const Calculator = () => {
             return () => dispatch(clear({ deep: 'display' }));
         if (CLEAR_DISPLAY_ALL.includes(name))
             return () => dispatch(clear({ deep: 'displayAll' }));
-
+        if (CHANGE_SIGN.includes(name))
+            return () => {
+                dispatch(changeSign(name));
+            };
         if (DRAW_HISTORY.includes(name))
             return () => {
                 dispatch(

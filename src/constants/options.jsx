@@ -22,6 +22,7 @@ const DRAW_HISTORY = [
 ];
 const CLEAR_DISPLAY = ['C'];
 const CLEAR_DISPLAY_ALL = ['CE'];
+const CHANGE_SIGN = ['plusmn'];
 
 export {
     DRAW,
@@ -29,4 +30,5 @@ export {
     CLEAR_DISPLAY,
     CLEAR_DISPLAY_ALL,
     MAX_DISPLAY_LENGTH,
+    CHANGE_SIGN,
 };

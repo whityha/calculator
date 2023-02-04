@@ -83,5 +83,9 @@ const BUTTONS = [
         name: 'dot',
         dig: '.',
     },
+    {
+        name: 'plusmn',
+        dig: '±',
+    },
 ];
 export default BUTTONS;

@@ -11,8 +11,9 @@ const StyledKeypad = styled.div`
         'C seven eight nine multiply'
         'minus four five six ${(props) => props.area}'
         'plus one two three equal'
-        'dot sl zero sr CE';
-    grid-template-rows: 50px 50px 50px 50px;
+        'dot sl zero sr CE'
+        'plusmn plusmn plusmn plusmn plusmn';
+    grid-template-rows: 50px 50px 50px 50px 50px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding: 1rem;
 `;
