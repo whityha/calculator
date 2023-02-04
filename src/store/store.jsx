@@ -16,6 +16,7 @@ import controlReducer from './reducers/controlReducer';
 const persistConfig = {
     key: 'root',
     storage,
+    whitelist: ['control'],
 };
 
 const rootReducers = combineReducers({
