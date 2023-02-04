@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+        "@constants": ["./constants"],
+        "@actions": ["./store/actions"],
+        "@command": ["./command"]
+      }
+    },
+    "exclude": ["node_modules"]
+  }

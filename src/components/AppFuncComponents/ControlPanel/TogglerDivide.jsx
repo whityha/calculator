@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { setActualDig } from '../../../store/actions/controlsActions';
+import { setActualDig } from '@actions/controlsActions';
 
 const StyledTogglerDivide = styled.div`
     display: flex;

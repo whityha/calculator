@@ -28,5 +28,17 @@
         ],
         "react/prop-types": "off",
         "no-param-reassign": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["@constants", "./src/constants"],
+                    ["@actions", "./src/store/actions"],
+                    ["@command", "./src/command"]                    
+                ],
+                "extensions": [".js", ".jsx", ".json"]
+            }
+        }
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
+import { clear } from '@actions/displayActions';
 import TogglerDivide from './TogglerDivide';
 import Button from './Button';
-import { clear } from '../../../store/actions/displayActions';
 
 const StyledControlPanel = styled.div`
     display: flex;
