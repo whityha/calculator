@@ -35,7 +35,8 @@
                 "map": [
                     ["@constants", "./src/constants"],
                     ["@actions", "./src/store/actions"],
-                    ["@command", "./src/command"]                    
+                    ["@command", "./src/command"],
+                    ["@components", "./src/components"]                    
                 ],
                 "extensions": [".js", ".jsx", ".json"]
             }

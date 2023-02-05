@@ -4,7 +4,8 @@
       "paths": {
         "@constants": ["./constants"],
         "@actions": ["./store/actions"],
-        "@command": ["./command"]
+        "@command": ["./command"],
+        "@components": ["./components"]
       }
     },
     "exclude": ["node_modules"]
