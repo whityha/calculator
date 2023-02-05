@@ -23,17 +23,16 @@ const StyledLabel = styled.label`
         width: 100%;
         height: 100%;
         border-radius: 100px;
-        background: ${(props) => props.theme.background.secondary};
-        color: ${(props) => props.theme.color.secondary};
+        background: ${({ theme }) => theme.background.secondary};
+        color: ${({ theme }) => theme.color.secondary};
         line-height: 30px;
         text-align: center;
     }
 `;
 
-const InputRadio = (props) => {
-    const { children, id, name, type } = props;
+const InputRadio = ({ children, id, name, type }) => {
     const dispatch = useDispatch();
-    const actualDig = useSelector((state) => state.control.actualDig);
+    const actualDig = useSelector(({ control }) => control.actualDig);
     const setActual = (actual) => () => {
         dispatch(setActualDig(actual));
     };

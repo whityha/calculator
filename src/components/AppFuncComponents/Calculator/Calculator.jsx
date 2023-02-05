@@ -23,7 +23,7 @@ import {
     CLEAR_DISPLAY,
     MAX_DISPLAY_LENGTH,
 } from '@constants/options';
-import initialState from '../../../store/initialState';
+import initialState from '@store/initialState';
 import Display from '../Display/Display';
 import Keypad from '../Keypad/Keypad';
 

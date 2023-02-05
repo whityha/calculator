@@ -3,9 +3,9 @@ import initialState from '../initialState';
 import { setActualDig, switchTheme } from '../actions/controlsActions';
 
 export default createReducer(initialState, {
-    [setActualDig]: (state, action) => {
+    [setActualDig]: (state, { payload }) => {
         state.exception = state.actualDig;
-        state.actualDig = action.payload;
+        state.actualDig = payload;
     },
     [switchTheme]: (state) => {
         state.theme = state.theme === 'dark' ? 'light' : 'dark';

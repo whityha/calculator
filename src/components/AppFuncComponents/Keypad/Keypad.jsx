@@ -9,7 +9,7 @@ const StyledKeypad = styled.div`
     display: grid;
     grid-template-areas:
         'C seven eight nine multiply'
-        'minus four five six ${(props) => props.area}'
+        'minus four five six ${({ area }) => area}'
         'plus one two three equal'
         'dot sl zero sr CE'
         'plusmn plusmn plusmn plusmn plusmn';
@@ -19,8 +19,8 @@ const StyledKeypad = styled.div`
 `;
 
 const Keypad = ({ handle }) => {
-    const exception = useSelector((state) => state.control.exception);
-    const actualDig = useSelector((state) => state.control.actualDig);
+    const exception = useSelector(({ control }) => control.exception);
+    const actualDig = useSelector(({ control }) => control.actualDig);
     return (
         <StyledKeypad area={actualDig}>
             {BUTTONS.filter(({ name }) => name !== exception).map(

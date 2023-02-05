@@ -10,14 +10,14 @@ const StyledControlPanel = styled.div`
     flex-direction: column;
     align-items: center;
     grid-area: controls;
-    border-left: 2px solid ${(props) => props.theme.background.secondary};
-    border-right: 2px solid ${(props) => props.theme.background.secondary};
+    border-left: 2px solid ${({ theme }) => theme.background.secondary};
+    border-right: 2px solid ${({ theme }) => theme.background.secondary};
     padding: 1rem;
     gap: 2rem;
 `;
 
 const Title = styled.h1`
-    color: ${(props) => props.theme.color.primary};
+    color: ${({ theme }) => theme.color.primary};
 `;
 
 const ControlPanel = () => {

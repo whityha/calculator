@@ -15,7 +15,7 @@ const StyledDisplay = styled.div`
         display: block;
         width: 90%;
         height: 2px;
-        background: ${(props) => props.theme.background.secondary};
+        background: ${({ theme }) => theme.background.secondary};
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -24,7 +24,7 @@ const StyledDisplay = styled.div`
 `;
 
 const Display = () => {
-    const value = useSelector((state) => state.display.value);
+    const value = useSelector(({ display }) => display.value);
 
     return (
         <StyledDisplay>

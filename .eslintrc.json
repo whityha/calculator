@@ -36,7 +36,8 @@
                     ["@constants", "./src/constants"],
                     ["@actions", "./src/store/actions"],
                     ["@command", "./src/command"],
-                    ["@components", "./src/components"]                    
+                    ["@components", "./src/components"],
+                    ["@store", "./src/store"]                    
                 ],
                 "extensions": [".js", ".jsx", ".json"]
             }

@@ -11,7 +11,7 @@ const StyledPage = styled.div`
     align-items: center;
     background: #fff
     height: 100vh;
-    color: ${(props) => props.color};
+    color: ${({ color }) => color};
 `;
 
 const StyledButtonsBlock = styled.div`
@@ -19,8 +19,7 @@ const StyledButtonsBlock = styled.div`
     gap: 2rem;
 `;
 
-const StartPage = (props) => {
-    const { color } = props;
+const StartPage = ({ color }) => {
     return (
         <StyledPage color={color}>
             <h1 style={{ color: 'white' }}>

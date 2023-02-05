@@ -7,8 +7,8 @@ const StyledSwitcher = styled.div`
     width: 50px;
     height: 20px;
     border-radius: 100px;
-    background: ${(props) => props.theme.background.secondary};
-    outline: 1px solid ${(props) => props.theme.background.border};
+    background: ${({ theme }) => theme.background.secondary};
+    outline: 1px solid ${({ theme }) => theme.background.border};
     cursor: pointer;
 `;
 const StyledHandler = styled.span`
@@ -16,8 +16,8 @@ const StyledHandler = styled.span`
     width: 20px;
     height: 20px;
     border-radius: 100px;
-    background: ${(props) => props.theme.color.secondary};
-    float: ${(props) => props.position};
+    background: ${({ theme }) => theme.color.secondary};
+    float: ${({ position }) => position};
 `;
 
 const Switcher = () => {
@@ -25,7 +25,7 @@ const Switcher = () => {
     const handleSwitcher = () => {
         dispatch(switchTheme());
     };
-    const color = useSelector((state) => state.control.theme);
+    const color = useSelector(({ control }) => control.theme);
     return (
         <StyledSwitcher onClick={handleSwitcher}>
             <StyledHandler position={color === 'light' ? 'right' : 'left'} />
