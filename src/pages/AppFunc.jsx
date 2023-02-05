@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Calculator from '../components/AppFuncComponents/Calculator/Calculator';
-import Header from '../components/AppFuncComponents/Header/Header';
+import ControlPanel from '@components/AppFuncComponents/ControlPanel/ControlPanel';
+import History from '@components/AppFuncComponents/History/History';
+import Calculator from '@components/AppFuncComponents/Calculator/Calculator';
+import Header from '@components/AppFuncComponents/Header/Header';
 
 const StyledApp = styled.div`
     height: 100vh;
@@ -27,6 +29,8 @@ const AppFunc = () => {
             <StyledWrapperApp>
                 <Header />
                 <Calculator />
+                <History />
+                <ControlPanel />
             </StyledWrapperApp>
         </StyledApp>
     );

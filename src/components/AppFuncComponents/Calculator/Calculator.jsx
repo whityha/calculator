@@ -26,8 +26,6 @@ import {
 import initialState from '../../../store/initialState';
 import Display from '../Display/Display';
 import Keypad from '../Keypad/Keypad';
-import ControlPanel from '../ControlPanel/ControlPanel';
-import History from '../History/History';
 
 const Calculator = () => {
     const dispatch = useDispatch();
@@ -167,8 +165,8 @@ const Calculator = () => {
         <>
             <Display />
             <Keypad handle={handleDisplay} calc={calc} />
-            <ControlPanel />
-            <History />
+            {/* <ControlPanel />
+            <History /> */}
         </>
     );
 };
