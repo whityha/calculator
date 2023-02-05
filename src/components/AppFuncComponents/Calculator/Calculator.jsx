@@ -165,8 +165,6 @@ const Calculator = () => {
         <>
             <Display />
             <Keypad handle={handleDisplay} calc={calc} />
-            {/* <ControlPanel />
-            <History /> */}
         </>
     );
 };

@@ -16,4 +16,4 @@ const Button = ({ children, area, onClick, name }) => {
     );
 };
 
-export default Button;
+export default React.memo(Button);

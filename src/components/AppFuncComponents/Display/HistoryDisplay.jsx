@@ -16,4 +16,4 @@ const HistoryDisplay = () => {
     return <StyledHistoryDisplay>{value}</StyledHistoryDisplay>;
 };
 
-export default HistoryDisplay;
+export default React.memo(HistoryDisplay);
