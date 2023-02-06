@@ -1,9 +1,52 @@
-import { createAction } from '@reduxjs/toolkit';
+import {
+    DRAW_DISPLAY,
+    DRAW_HISTORY_DISPLAY,
+    CHANGE_SIGN,
+    CLEAR_CURRENT,
+    CLEAR_DISPLAY,
+    CLEAR_HISTORY,
+    CLEAR_ALL,
+} from './type';
 
-export const drawDisplay = createAction('DRAW_DISPLAY');
-export const drawHistoryDisplay = createAction('DRAW_HISTORY_DISPLAY');
-export const changeSign = createAction('CHANGE_SIGN');
-export const clear = createAction('CLEAR_CURRENT');
-export const clearDisplay = createAction('CLEAR_DISPLAY');
-export const clearHistory = createAction('CLEAR_HISTORY');
-export const clearAll = createAction('CLEAR_ALL');
+export const drawDisplay = (payload = {}) => {
+    return {
+        type: DRAW_DISPLAY,
+        payload,
+    };
+};
+export const drawHistoryDisplay = (payload) => {
+    return {
+        type: DRAW_HISTORY_DISPLAY,
+        payload,
+    };
+};
+export const changeSign = (payload) => {
+    return {
+        type: CHANGE_SIGN,
+        payload,
+    };
+};
+export const clear = (payload) => {
+    return {
+        type: CLEAR_CURRENT,
+        payload,
+    };
+};
+export const clearDisplay = (payload) => {
+    return {
+        type: CLEAR_DISPLAY,
+        payload,
+    };
+};
+export const clearHistory = (payload) => {
+    return {
+        type: CLEAR_HISTORY,
+        payload,
+    };
+};
+export const clearAll = (payload) => {
+    return {
+        type: CLEAR_ALL,
+        payload,
+    };
+};

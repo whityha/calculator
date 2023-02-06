@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledButton from '@styles/ControlPanel/Button/style';
+import StyledButton from '@styles/Keypad/Button/style';
 
 const Button = ({ children, area, onClick, name }) => {
     return (
