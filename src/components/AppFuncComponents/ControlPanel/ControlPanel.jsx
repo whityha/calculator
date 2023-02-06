@@ -1,26 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { clearHistory, clearAll } from '@actions/displayActions';
+import {
+    StyledControlPanel,
+    Title,
+} from '@styles/ControlPanel/ControlPanel/style';
 import TogglerDivide from './TogglerDivide';
 import Button from './Button';
-
-const StyledControlPanel = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-area: controls;
-    border-left: 2px solid
-        ${({ theme: { background } }) => background.secondary};
-    border-right: 2px solid
-        ${({ theme: { background } }) => background.secondary};
-    padding: 1rem;
-    gap: 2rem;
-`;
-
-const Title = styled.h1`
-    color: ${({ theme: { color } }) => color.primary};
-`;
 
 const ControlPanel = () => {
     const dispatch = useDispatch();

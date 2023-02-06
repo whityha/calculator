@@ -6,7 +6,8 @@
         "@actions": ["./store/actions"],
         "@command": ["./command"],
         "@components": ["./components"],
-        "@store": ["./store"]
+        "@store": ["./store"],
+        "@styles": ["./styles"]
       }
     },
     "exclude": ["node_modules"]
