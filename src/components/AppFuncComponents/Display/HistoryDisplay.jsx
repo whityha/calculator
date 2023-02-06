@@ -12,7 +12,7 @@ const StyledHistoryDisplay = styled.div`
 `;
 
 const HistoryDisplay = () => {
-    const value = useSelector(({ display }) => display.historyValue);
+    const value = useSelector(({ display: { historyValue } }) => historyValue);
     return <StyledHistoryDisplay>{value}</StyledHistoryDisplay>;
 };
 

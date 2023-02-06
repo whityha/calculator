@@ -10,8 +10,8 @@ const StyledHeader = styled.header`
 `;
 
 const StyledTitle = styled.h2`
-    text-shadow: 0px 0px 10px ${({ theme }) => theme.color.primary};
-    color: ${({ theme }) => theme.color.primary};
+    text-shadow: 0px 0px 10px ${({ theme: { color } }) => color.primary};
+    color: ${({ theme: { color } }) => color.primary};
     margin-right: auto;
 `;
 
@@ -21,7 +21,7 @@ const StyledNav = styled.nav`
     font-size: 1rem;
     margin-right: 100px;
     li {
-        color: ${({ theme }) => theme.color.primary};
+        color: ${({ theme: { color } }) => color.primary};
     }
 `;
 

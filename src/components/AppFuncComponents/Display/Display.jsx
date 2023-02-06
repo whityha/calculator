@@ -15,7 +15,7 @@ const StyledDisplay = styled.div`
         display: block;
         width: 90%;
         height: 2px;
-        background: ${({ theme }) => theme.background.secondary};
+        background: ${({ theme: { background } }) => background.secondary};
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -24,7 +24,7 @@ const StyledDisplay = styled.div`
 `;
 
 const Display = () => {
-    const value = useSelector(({ display }) => display.value);
+    const value = useSelector(({ display: { value: val } }) => val);
 
     return (
         <StyledDisplay>
@@ -34,4 +34,4 @@ const Display = () => {
     );
 };
 
-export default Display;
+export default React.memo(Display);

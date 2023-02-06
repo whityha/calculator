@@ -8,7 +8,8 @@ const StyledHistory = styled.div`
     gap: 50px;
     align-items: center;
     grid-area: history;
-    border-left: 2px solid ${({ theme }) => theme.background.secondary};
+    border-left: 2px solid
+        ${({ theme: { background } }) => background.secondary};
     padding: 1rem;
 `;
 
@@ -21,12 +22,12 @@ const StyledList = styled.ul`
 `;
 
 const StyledListItem = styled.li`
-    border-top: 1px solid ${({ theme }) => theme.background.secondary};
+    border-top: 1px solid ${({ theme: { background } }) => background.secondary};
     padding: 5px;
 `;
 
 const History = () => {
-    const formulas = useSelector(({ display }) => display.formulas);
+    const formulas = useSelector(({ display: { formulas: forms } }) => forms);
     return (
         <StyledHistory>
             <h1>History</h1>

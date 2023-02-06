@@ -23,8 +23,8 @@ const StyledLabel = styled.label`
         width: 100%;
         height: 100%;
         border-radius: 100px;
-        background: ${({ theme }) => theme.background.secondary};
-        color: ${({ theme }) => theme.color.secondary};
+        background: ${({ theme: { background } }) => background.secondary};
+        color: ${({ theme: { color } }) => color.secondary};
         line-height: 30px;
         text-align: center;
     }
@@ -32,7 +32,9 @@ const StyledLabel = styled.label`
 
 const InputRadio = ({ children, id, name, type }) => {
     const dispatch = useDispatch();
-    const actualDig = useSelector(({ control }) => control.actualDig);
+    const actualDig = useSelector(
+        ({ control: { actualDig: actual } }) => actual
+    );
     const setActual = (actual) => () => {
         dispatch(setActualDig(actual));
     };

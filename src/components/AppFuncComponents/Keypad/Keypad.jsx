@@ -19,8 +19,8 @@ const StyledKeypad = styled.div`
 `;
 
 const Keypad = ({ handle }) => {
-    const exception = useSelector(({ control }) => control.exception);
-    const actualDig = useSelector(({ control }) => control.actualDig);
+    const exception = useSelector(({ control: { exception: exc } }) => exc);
+    const actualDig = useSelector(({ control: { actualDig: act } }) => act);
     return (
         <StyledKeypad area={actualDig}>
             {BUTTONS.filter(({ name }) => name !== exception).map(
