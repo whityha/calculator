@@ -5,6 +5,7 @@ import {
     StyledNav,
 } from '@styles/Header/Header/style';
 import { Link } from 'react-router-dom';
+import Switcher from './Switcher';
 
 class Header extends React.PureComponent {
     render() {
@@ -19,7 +20,7 @@ class Header extends React.PureComponent {
                         <Link to="../function">Functional calculator</Link>
                     </li>
                 </StyledNav>
-                {/* <Switcher /> */}
+                <Switcher />
             </StyledHeader>
         );
     }
