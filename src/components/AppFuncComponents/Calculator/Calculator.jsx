@@ -7,14 +7,13 @@ import {
     clear,
     clearDisplay,
 } from '@actions/displayActions';
-import {
-    AddCommand,
-    MultiplyCommand,
-    DivideCommand,
-    SubtractCommand,
-    ReminderCommand,
-    calc,
-} from '@command/command';
+import calc from '@command/command';
+import AddCommand from '@command/AddCommand';
+import DivideCommand from '@command/DivideCommand';
+import ReminderCommand from '@command/ReminderCommand';
+import MultiplyCommand from '@command/MultiplyCommand';
+import SubtractCommand from '@command/SubtractCommand';
+
 import {
     DRAW_HISTORY,
     DRAW,

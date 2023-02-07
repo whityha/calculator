@@ -7,7 +7,7 @@ import {
     CLEAR_HISTORY,
     CLEAR_ALL,
 } from '@actions/type';
-import { calc } from '@command/command';
+import calc from '@command/command';
 import initialState from '../initialState';
 
 const displayReducer = (state = initialState, action = {}) => {
