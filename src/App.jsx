@@ -7,6 +7,7 @@ import GlobalStyles from './styles/global';
 import theme from './styles/theme';
 
 const AppFunc = React.lazy(() => import('./pages/AppFunc'));
+const AppClass = React.lazy(() => import('./pages/AppClass'));
 
 const App = () => {
     const variant = useSelector(({ control }) => control.theme);
@@ -15,7 +16,7 @@ const App = () => {
             <Suspense>
                 <Routes>
                     <Route path="/" element={<StartPage />} />
-                    {/* <Route path="/class" element={<AppClass />} /> */}
+                    <Route path="/class" element={<AppClass />} />
                     <Route path="/function" element={<AppFunc />} />
                 </Routes>
             </Suspense>

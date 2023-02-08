@@ -37,7 +37,8 @@
                     ["@actions", "./src/store/actions"],
                     ["@command", "./src/command"],
                     ["@components", "./src/components"],
-                    ["@store", "./src/store"]                    
+                    ["@store", "./src/store"],
+                    ["@styles", "./src/styles"]                    
                 ],
                 "extensions": [".js", ".jsx", ".json"]
             }

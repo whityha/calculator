@@ -1,4 +1,14 @@
-import { createAction } from '@reduxjs/toolkit';
+import { MAKE_ACTUAL, SWITCH_THEME } from './type';
 
-export const setActualDig = createAction('MAKE_ACTUAL');
-export const switchTheme = createAction('SWITCH_THEME');
+export const setActualDig = (payload) => {
+    return {
+        type: MAKE_ACTUAL,
+        payload,
+    };
+};
+export const switchTheme = (payload) => {
+    return {
+        type: SWITCH_THEME,
+        payload,
+    };
+};

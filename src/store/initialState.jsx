@@ -5,4 +5,5 @@ export default {
     actualDig: 'divide',
     exception: 'remainder',
     theme: 'light',
+    isExpression: false,
 };

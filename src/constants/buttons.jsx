@@ -60,7 +60,7 @@ const BUTTONS = [
         dig: 'CE',
     },
     {
-        name: 'sl',
+        name: 'bl',
         dig: '(',
     },
     {
@@ -76,7 +76,7 @@ const BUTTONS = [
         dig: ' * ',
     },
     {
-        name: 'sr',
+        name: 'br',
         dig: ')',
     },
     {

@@ -1,13 +1,11 @@
-/* eslint-disable max-classes-per-file */
-const fixNumber = (result) => result.toFixed(3);
-
 class CalculatorCommand {
     constructor(props) {
-        this.value = props.value || 0;
+        this.value = props || 0;
         this.current = 0;
 
         this.isEqual = false;
         this.isRegistered = false;
+        this.isExpression = false;
 
         this.history = [];
         this.formula = '';
@@ -50,13 +48,21 @@ class CalculatorCommand {
     equal() {
         if (this.getLastCommand() && this.current) {
             this.formula += `${this.current} = `;
-            this.switchIsEqual();
+            this.isEqual = true;
             const result = this.executeCommand();
             this.clearHistory();
             this.current = result;
             return result;
         }
+        if (!this.getLastCommand() && this.current) {
+            this.value = this.current;
+        }
         return this.current.toString();
+    }
+
+    startExpression() {
+        this.clearCurrent();
+        this.isExpression = true;
     }
 
     clear() {
@@ -98,99 +104,6 @@ class CalculatorCommand {
     }
 }
 
-export class AddCommand {
-    constructor(valueToAdd) {
-        this.value = Number(valueToAdd);
-        this.currentValue = null;
-        this.dig = ' + ';
-    }
+const calc = new CalculatorCommand(0);
 
-    execute(currentValue) {
-        this.currentValue = currentValue;
-        const res = Number(this.currentValue) + this.value;
-        const fixed = res !== Infinity ? fixNumber(res) : Infinity;
-        return res % 1 ? Number(fixed) : res;
-    }
-
-    getStory() {
-        return `${this.currentValue} + ${this.value}`;
-    }
-}
-
-export class ReminderCommand {
-    constructor(valueToReminder) {
-        this.currentValue = null;
-        this.value = valueToReminder;
-        this.dig = ' % ';
-    }
-
-    execute(currentValue) {
-        this.currentValue = currentValue;
-        const res = this.value % currentValue;
-        const fixed = res !== Infinity ? fixNumber(res) : Infinity;
-        return res % 1 ? Number(fixed) : res;
-    }
-
-    getStory() {
-        return `${this.value} ÷ ${this.currentValue}`;
-    }
-}
-
-export class SubtractCommand {
-    constructor(valueToSubtract) {
-        this.value = valueToSubtract;
-        this.currentValue = null;
-        this.dig = ' - ';
-    }
-
-    execute(currentValue) {
-        this.currentValue = currentValue;
-        const res = this.value - currentValue;
-        const fixed = res !== Infinity ? fixNumber(res) : Infinity;
-        return res % 1 ? Number(fixed) : res;
-    }
-
-    getStory() {
-        return `${this.value} - ${this.currentValue}`;
-    }
-}
-
-export class MultiplyCommand {
-    constructor(valueToMultiply) {
-        this.value = valueToMultiply;
-        this.currentValue = null;
-        this.dig = ' × ';
-    }
-
-    execute(currentValue) {
-        this.currentValue = currentValue;
-        const res = this.value * currentValue;
-        const fixed = res !== Infinity ? fixNumber(res) : Infinity;
-        return res % 1 ? Number(fixed) : res;
-    }
-
-    getStory() {
-        return `${this.value} × ${this.currentValue}`;
-    }
-}
-
-export class DivideCommand {
-    constructor(valueToDivide) {
-        this.currentValue = null;
-        this.value = valueToDivide;
-        this.dig = ' ÷ ';
-    }
-
-    execute(currentValue) {
-        this.currentValue = currentValue;
-        const res = this.value / currentValue;
-        const fixed = res !== Infinity ? fixNumber(res) : Infinity;
-        return res % 1 ? Number(fixed) : res;
-    }
-
-    getStory() {
-        return `${this.value} ÷ ${this.currentValue}`;
-    }
-}
-
-export const calc = new CalculatorCommand(0);
+export default calc;

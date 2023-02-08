@@ -22,15 +22,12 @@ const StyledButtonsBlock = styled.div`
 const StartPage = ({ color }) => {
     return (
         <StyledPage color={color}>
-            <h1 style={{ color: 'white' }}>
-                Проверим работоспособность калькуляторов
-            </h1>
             <StyledButtonsBlock>
                 <Link to="class">
-                    <Button type="button">КЛАССОВЫЙ КАЛЬКУЛЯТОР</Button>
+                    <Button type="button">CLASS CALCULATOR</Button>
                 </Link>
                 <Link to="function">
-                    <Button type="button">ФУНКЦИОНАЛЬНЫЙ КАЛЬКУЛЯТОР</Button>
+                    <Button type="button">FUNCTIONAL CALCULATOR</Button>
                 </Link>
             </StyledButtonsBlock>
         </StyledPage>
