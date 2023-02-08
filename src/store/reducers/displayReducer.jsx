@@ -6,12 +6,20 @@ import {
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     CLEAR_ALL,
+    START_EXPRESSION,
 } from '@actions/type';
 import calc from '@command/command';
 import initialState from '../initialState';
 
 const displayReducer = (state = initialState, action = {}) => {
     switch (action.type) {
+        case START_EXPRESSION:
+            return {
+                ...state,
+                value: action.payload,
+                isExpression: true,
+                valueHistory: '',
+            };
         case DRAW_DISPLAY:
             return {
                 ...state,
@@ -55,43 +63,10 @@ const displayReducer = (state = initialState, action = {}) => {
                 historyValue: action.payload.formula,
                 value: action.payload.value,
                 formulas: action.payload.formulas ?? state.formulas,
+                isExpression: action.payload.isExpression,
             };
         default:
             return state;
     }
 };
 export default displayReducer;
-
-// export default createReducer(initialState, {
-//     [drawDisplay]: (state, { payload }) => {
-//         const { value, resultHistoryValue = state.historyValue } = payload;
-//         state.value = value;
-//         state.historyValue = resultHistoryValue;
-//     },
-//     [clear]: (state) => {
-//         state.value = 0;
-//     },
-//     [clearDisplay]: (state) => {
-//         state.value = 0;
-//         state.historyValue = '';
-//         calc.clear();
-//     },
-//     [clearAll]: (state) => {
-//         state.value = 0;
-//         state.historyValue = '';
-//         calc.clear();
-//         state.formulas = [];
-//     },
-//     [clearHistory]: (state) => {
-//         state.formulas = [];
-//     },
-//     [changeSign]: (state, { payload }) => {
-//         state.value = payload;
-//     },
-//     [drawHistoryDisplay]: (state, { payload }) => {
-//         const { formula, value, formulas } = payload;
-//         state.historyValue = formula;
-//         state.value = value;
-//         state.formulas = formulas ?? state.formulas;
-//     },
-// });

@@ -6,7 +6,15 @@ import {
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     CLEAR_ALL,
+    START_EXPRESSION,
 } from './type';
+
+export const startExpression = (payload) => {
+    return {
+        type: START_EXPRESSION,
+        payload,
+    };
+};
 
 export const drawDisplay = (payload = {}) => {
     return {

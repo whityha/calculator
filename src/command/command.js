@@ -48,13 +48,21 @@ class CalculatorCommand {
     equal() {
         if (this.getLastCommand() && this.current) {
             this.formula += `${this.current} = `;
-            this.switchIsEqual();
+            this.isEqual = true;
             const result = this.executeCommand();
             this.clearHistory();
             this.current = result;
             return result;
         }
+        if (!this.getLastCommand() && this.current) {
+            this.value = this.current;
+        }
         return this.current.toString();
+    }
+
+    startExpression() {
+        this.clearCurrent();
+        this.isExpression = true;
     }
 
     clear() {
