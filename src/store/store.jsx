@@ -1,8 +1,9 @@
-import { legacy_createStore as createStore, combineReducers } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import { combineReducers, legacy_createStore as createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import displayReducer from './reducers/displayReducer';
+
 import controlReducer from './reducers/controlReducer';
+import displayReducer from './reducers/displayReducer';
 
 const persistConfig = {
     key: 'root',

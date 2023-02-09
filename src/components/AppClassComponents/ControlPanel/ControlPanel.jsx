@@ -1,12 +1,13 @@
-import React from 'react';
-import { clearHistory, clearAll } from '@actions/displayActions';
-import { connect } from 'react-redux';
+import { clearAll, clearHistory } from '@actions/displayActions';
 import {
     StyledControlPanel,
     Title,
 } from '@styles/ControlPanel/ControlPanel/style';
-import TogglerDivide from './TogglerDivide';
+import React from 'react';
+import { connect } from 'react-redux';
+
 import Button from './Button';
+import TogglerDivide from './TogglerDivide';
 
 class ControlPanel extends React.PureComponent {
     // const dispatch = useDispatch();

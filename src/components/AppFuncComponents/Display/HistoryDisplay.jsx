@@ -1,6 +1,6 @@
+import StyledHistoryDisplay from '@styles/Display/HistoryDisplay/style';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import StyledHistoryDisplay from '@styles/Display/HistoryDisplay/style';
 
 const HistoryDisplay = () => {
     const value = useSelector(({ display: { historyValue } }) => historyValue);

@@ -16,7 +16,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "simple-import-sort"
     ],
     "rules": {
         "react/function-component-definition": [
@@ -27,7 +28,9 @@
             }
         ],
         "react/prop-types": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error"
     },
     "settings": {
         "import/resolver": {

@@ -1,32 +1,32 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import {
-    drawDisplay,
-    drawHistoryDisplay,
     changeSign,
     clear,
     clearDisplay,
+    drawDisplay,
+    drawHistoryDisplay,
     startExpression,
 } from '@actions/displayActions';
-import calc from '@command/command';
 import AddCommand from '@command/AddCommand';
+import calc from '@command/command';
 import DivideCommand from '@command/DivideCommand';
-import ReminderCommand from '@command/ReminderCommand';
-import MultiplyCommand from '@command/MultiplyCommand';
-import SubtractCommand from '@command/SubtractCommand';
 import Expression from '@command/Expression';
-
+import MultiplyCommand from '@command/MultiplyCommand';
+import ReminderCommand from '@command/ReminderCommand';
+import SubtractCommand from '@command/SubtractCommand';
 import {
-    DRAW_HISTORY,
-    DRAW,
     CHANGE_SIGN,
     CLEAR,
     CLEAR_DISPLAY,
+    DRAW,
+    DRAW_EXPRESSION,
+    DRAW_HISTORY,
     MAX_DISPLAY_LENGTH,
     START_EXPRESSION_BUTTON,
-    DRAW_EXPRESSION,
 } from '@constants/options';
 import initialState from '@store/initialState';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Display from '../Display/Display';
 import Keypad from '../Keypad/Keypad';
 

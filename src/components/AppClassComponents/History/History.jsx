@@ -1,9 +1,9 @@
-import React from 'react';
 import {
     StyledHistory,
     StyledList,
     StyledListItem,
 } from '@styles/History/style';
+import React from 'react';
 import { connect } from 'react-redux';
 
 class History extends React.PureComponent {

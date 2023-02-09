@@ -1,7 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
 import BUTTONS from '@constants/buttons';
 import StyledKeypad from '@styles/Keypad/Keypad/style';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Button from './Button';
 
 const Keypad = ({ handle }) => {

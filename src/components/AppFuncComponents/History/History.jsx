@@ -1,10 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
 import {
     StyledHistory,
     StyledList,
     StyledListItem,
 } from '@styles/History/style';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const History = () => {
     const formulas = useSelector(({ display: { formulas: forms } }) => forms);

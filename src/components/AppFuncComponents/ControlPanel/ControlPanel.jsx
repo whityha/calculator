@@ -1,12 +1,13 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { clearHistory, clearAll } from '@actions/displayActions';
+import { clearAll, clearHistory } from '@actions/displayActions';
 import {
     StyledControlPanel,
     Title,
 } from '@styles/ControlPanel/ControlPanel/style';
-import TogglerDivide from './TogglerDivide';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+
 import Button from './Button';
+import TogglerDivide from './TogglerDivide';
 
 const ControlPanel = () => {
     const dispatch = useDispatch();
