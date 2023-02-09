@@ -1,14 +1,15 @@
 import {
-    DRAW_DISPLAY,
-    DRAW_HISTORY_DISPLAY,
     CHANGE_SIGN,
+    CLEAR_ALL,
     CLEAR_CURRENT,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
-    CLEAR_ALL,
+    DRAW_DISPLAY,
+    DRAW_HISTORY_DISPLAY,
     START_EXPRESSION,
 } from '@actions/type';
 import calc from '@command/command';
+
 import initialState from '../initialState';
 
 const displayReducer = (state = initialState, action = {}) => {

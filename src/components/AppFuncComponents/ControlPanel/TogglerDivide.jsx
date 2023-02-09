@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActualDig } from '@actions/controlsActions';
 import {
-    StyledTogglerDivide,
     StyledLabel,
+    StyledTogglerDivide,
 } from '@styles/ControlPanel/TogglerDivide/style';
 
 const InputRadio = ({ children, id, name, type }) => {

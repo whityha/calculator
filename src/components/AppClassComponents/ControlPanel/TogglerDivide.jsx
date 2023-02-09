@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-    StyledTogglerDivide,
     StyledLabel,
+    StyledTogglerDivide,
 } from '@styles/ControlPanel/TogglerDivide/style';
+
 import InputRadio from './InputRadio';
 
 class TogglerDivide extends React.PureComponent {

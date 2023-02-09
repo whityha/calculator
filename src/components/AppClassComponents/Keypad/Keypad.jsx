@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BUTTONS from '@constants/buttons';
 import StyledKeypad from '@styles/Keypad/Keypad/style';
+
 import Button from './Button';
 
 class Keypad extends React.PureComponent {

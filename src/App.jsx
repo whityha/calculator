@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
 import StartPage from './pages/StartPage';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme';

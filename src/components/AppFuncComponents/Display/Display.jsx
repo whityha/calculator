@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import StyledDisplay from '@styles/Display/Display/style';
+
 import HistoryDisplay from './HistoryDisplay';
 
 const Display = () => {

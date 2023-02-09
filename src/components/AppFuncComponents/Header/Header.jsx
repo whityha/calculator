@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
     StyledHeader,
-    StyledTitle,
     StyledNav,
+    StyledTitle,
 } from '@styles/Header/Header/style';
+
 import Switcher from './Switcher';
 
 const Header = () => {
