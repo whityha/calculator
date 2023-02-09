@@ -1,3 +1,5 @@
+import React from 'react';
+import { connect } from 'react-redux';
 import {
     changeSign,
     clear,
@@ -24,8 +26,6 @@ import {
     START_EXPRESSION_BUTTON,
 } from '@constants/options';
 import initialState from '@store/initialState';
-import React from 'react';
-import { connect } from 'react-redux';
 
 import Display from '../Display/Display';
 import Keypad from '../Keypad/Keypad';

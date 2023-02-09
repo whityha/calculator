@@ -1,6 +1,6 @@
-import { setActualDig } from '@actions/controlsActions';
 import React from 'react';
 import { connect } from 'react-redux';
+import { setActualDig } from '@actions/controlsActions';
 
 class InputRadio extends React.PureComponent {
     render() {

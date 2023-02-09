@@ -1,10 +1,10 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     StyledHeader,
     StyledNav,
     StyledTitle,
 } from '@styles/Header/Header/style';
-import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Switcher from './Switcher';
 

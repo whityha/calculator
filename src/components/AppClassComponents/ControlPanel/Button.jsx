@@ -1,5 +1,5 @@
-import StyledButton from '@styles/ControlPanel/Button/style';
 import React from 'react';
+import StyledButton from '@styles/ControlPanel/Button/style';
 
 export default class Button extends React.PureComponent {
     render() {

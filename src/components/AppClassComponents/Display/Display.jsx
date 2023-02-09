@@ -1,6 +1,6 @@
-import StyledDisplay from '@styles/Display/Display/style';
 import React from 'react';
 import { connect } from 'react-redux';
+import StyledDisplay from '@styles/Display/Display/style';
 
 import HistoryDisplay from './HistoryDisplay';
 

@@ -1,7 +1,7 @@
-import { switchTheme } from '@actions/controlsActions';
-import { StyledHandler, StyledSwitcher } from '@styles/Header/Switcher/style';
 import React from 'react';
 import { connect } from 'react-redux';
+import { switchTheme } from '@actions/controlsActions';
+import { StyledHandler, StyledSwitcher } from '@styles/Header/Switcher/style';
 
 class Switcher extends React.Component {
     constructor(props) {

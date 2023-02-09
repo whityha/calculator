@@ -1,8 +1,8 @@
+import React from 'react';
 import {
     StyledLabel,
     StyledTogglerDivide,
 } from '@styles/ControlPanel/TogglerDivide/style';
-import React from 'react';
 
 import InputRadio from './InputRadio';
 

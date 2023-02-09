@@ -1,10 +1,10 @@
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { clearAll, clearHistory } from '@actions/displayActions';
 import {
     StyledControlPanel,
     Title,
 } from '@styles/ControlPanel/ControlPanel/style';
-import React from 'react';
-import { useDispatch } from 'react-redux';
 
 import Button from './Button';
 import TogglerDivide from './TogglerDivide';

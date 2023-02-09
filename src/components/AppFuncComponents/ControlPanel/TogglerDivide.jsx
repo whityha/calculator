@@ -1,10 +1,10 @@
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { setActualDig } from '@actions/controlsActions';
 import {
     StyledLabel,
     StyledTogglerDivide,
 } from '@styles/ControlPanel/TogglerDivide/style';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 const InputRadio = ({ children, id, name, type }) => {
     const dispatch = useDispatch();

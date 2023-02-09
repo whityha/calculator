@@ -1,7 +1,7 @@
-import { switchTheme } from '@actions/controlsActions';
-import { StyledHandler, StyledSwitcher } from '@styles/Header/Switcher/style';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { switchTheme } from '@actions/controlsActions';
+import { StyledHandler, StyledSwitcher } from '@styles/Header/Switcher/style';
 
 const Switcher = () => {
     const dispatch = useDispatch();
