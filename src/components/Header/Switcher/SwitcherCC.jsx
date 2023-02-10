@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { switchTheme } from '@actions/controlsActions';
 
-import { StyledHandler, WrapperSwitcher } from './styled';
+import { Handler, WrapperSwitcher } from './styled';
 
 class Switcher extends React.Component {
     render() {
@@ -12,24 +12,18 @@ class Switcher extends React.Component {
         } = this.props;
         return (
             <WrapperSwitcher onClick={swTheme}>
-                <StyledHandler
-                    position={theme === 'light' ? 'right' : 'left'}
-                />
+                <Handler position={theme === 'light' ? 'right' : 'left'} />
             </WrapperSwitcher>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return state;
-};
+const mapStateToProps = (state) => state;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        switchTheme: () => {
-            dispatch(switchTheme());
-        },
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    switchTheme: () => {
+        dispatch(switchTheme());
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Switcher);

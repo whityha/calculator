@@ -8,11 +8,11 @@ export const WrapperSwitcher = styled.div`
     outline: 1px solid ${({ theme: { background } }) => background.border};
     cursor: pointer;
 `;
-export const StyledHandler = styled.span`
+export const Handler = styled.span`
     display: block;
     width: 20px;
     height: 20px;
     border-radius: 100px;
     background: ${({ theme: { color } }) => color.secondary};
-    float: ${({ position }) => position};
+    float: ${({ position }) => (position === 'light' ? 'left' : 'right')};
 `;

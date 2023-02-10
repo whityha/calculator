@@ -11,7 +11,7 @@ export const WrapperHistory = styled.div`
     padding: 1rem;
 `;
 
-export const StyledList = styled.ul`
+export const List = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -19,7 +19,7 @@ export const StyledList = styled.ul`
     font-weight: bold;
 `;
 
-export const StyledListItem = styled.li`
+export const ListItem = styled.li`
     border-top: 1px solid ${({ theme: { background } }) => background.secondary};
     padding: 5px;
 `;

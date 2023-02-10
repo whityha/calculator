@@ -3,11 +3,7 @@
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "plugin:prettier/recommended"        
-    ],
+    "extends": ["plugin:react/recommended", "airbnb", "prettier"],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -15,10 +11,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
-        "react",
-        "simple-import-sort"
-    ],
+    "plugins": ["react", "simple-import-sort", "prettier"],
     "rules": {
         "react/function-component-definition": [
             2,
@@ -27,11 +20,12 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
+        "prettier/prettier": "error",
         "react/prop-types": "off",
         "no-param-reassign": "off",
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
-        "react/prefer-stateless-function" : "off"
+        "react/prefer-stateless-function": "off"
     },
     "settings": {
         "import/resolver": {
@@ -42,7 +36,7 @@
                     ["@command", "./src/command"],
                     ["@components", "./src/components"],
                     ["@store", "./src/store"],
-                    ["@styles", "./src/styles"]                    
+                    ["@styles", "./src/styles"]
                 ],
                 "extensions": [".js", ".jsx", ".json"]
             }
@@ -51,28 +45,28 @@
     "overrides": [
         // override "simple-import-sort" config
         {
-          "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
-          "rules": {
-            "simple-import-sort/imports": [
-              "error",
-              {
-                "groups": [
-                  // Packages `react` related packages come first.
-                  ["^react", "^@?\\w"],
-                  // Internal packages.
-                  ["^(@|components)(/.*|$)"],
-                  // Side effect imports.
-                  ["^\\u0000"],
-                  // Parent imports. Put `..` last.
-                  ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-                  // Other relative imports. Put same-folder imports and `.` last.
-                  ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-                  // Style imports.
-                  ["^.+\\.?(css)$"]
+            "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+            "rules": {
+                "simple-import-sort/imports": [
+                    "error",
+                    {
+                        "groups": [
+                            // Packages `react` related packages come first.
+                            ["^react", "^@?\\w"],
+                            // Internal packages.
+                            ["^(@|components)(/.*|$)"],
+                            // Side effect imports.
+                            ["^\\u0000"],
+                            // Parent imports. Put `..` last.
+                            ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                            // Other relative imports. Put same-folder imports and `.` last.
+                            ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                            // Style imports.
+                            ["^.+\\.?(css)$"]
+                        ]
+                    }
                 ]
-              }
-            ]
-          }
+            }
         }
-      ]
+    ]
 }

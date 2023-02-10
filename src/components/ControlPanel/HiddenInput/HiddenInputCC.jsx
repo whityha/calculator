@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setActualDig } from '@actions/controlsActions';
 
-import StyledInput from './styled';
+import Input from './styled';
 
 class HiddenInput extends React.Component {
     render() {
@@ -16,7 +16,7 @@ class HiddenInput extends React.Component {
         } = this.props;
         return (
             <>
-                <StyledInput
+                <Input
                     checked={actual === id}
                     style={{ display: 'none' }}
                     onChange={setActual(id)}
@@ -31,12 +31,10 @@ class HiddenInput extends React.Component {
 }
 
 const mapStateToProps = ({ control }) => control;
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setActual: (id) => () => {
-            dispatch(setActualDig(id));
-        },
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    setActual: (id) => () => {
+        dispatch(setActualDig(id));
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HiddenInput);

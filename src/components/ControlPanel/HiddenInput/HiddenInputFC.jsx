@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActualDig } from '@actions/controlsActions';
 
-import StyledInput from './styled';
+import Input from './styled';
 
 const HiddenInput = ({ children, id, name, type }) => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const HiddenInput = ({ children, id, name, type }) => {
     };
     return (
         <>
-            <StyledInput
+            <Input
                 checked={actualDig === id}
                 style={{ display: 'none' }}
                 onChange={setActual(id)}

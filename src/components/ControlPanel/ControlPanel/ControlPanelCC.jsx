@@ -22,11 +22,9 @@ class ControlPanel extends React.Component {
 }
 
 const mapStateToProps = ({ control }) => control;
-const mapDispatchToProps = (dispatch) => {
-    return {
-        clearHis: () => dispatch(clearHistory()),
-        clear: () => dispatch(clearAll()),
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    clearHis: () => dispatch(clearHistory()),
+    clear: () => dispatch(clearAll()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ControlPanel);

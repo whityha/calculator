@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 
 import Switcher from '../Switcher/SwitcherCC';
 
-import { StyledNav, StyledTitle, WrapperHeader } from './styled';
+import { LINKS_CC } from './config';
+import { Nav, Title, WrapperHeader } from './styled';
 
 class Header extends React.Component {
     render() {
         return (
             <WrapperHeader>
-                <StyledTitle>CLASS COMPONENTS CALCULATOR</StyledTitle>
-                <StyledNav>
-                    <li>
-                        <Link to="../">Main</Link>
-                    </li>
-                    <li>
-                        <Link to="../function">Functional calculator</Link>
-                    </li>
-                </StyledNav>
+                <Title>CLASS COMPONENTS CALCULATOR</Title>
+                <Nav>
+                    {LINKS_CC.map(({ path, text }) => (
+                        <li key={path}>
+                            <Link to={path}>{text}</Link>
+                        </li>
+                    ))}
+                </Nav>
                 <Switcher />
             </WrapperHeader>
         );

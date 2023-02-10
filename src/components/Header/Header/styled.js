@@ -6,13 +6,13 @@ export const WrapperHeader = styled.header`
     align-items: center;
 `;
 
-export const StyledTitle = styled.h2`
+export const Title = styled.h2`
     text-shadow: 0px 0px 10px ${({ theme: { color } }) => color.primary};
     color: ${({ theme: { color } }) => color.primary};
     margin-right: auto;
 `;
 
-export const StyledNav = styled.nav`
+export const Nav = styled.nav`
     display: flex;
     gap: 1rem;
     font-size: 1rem;

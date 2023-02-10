@@ -1,7 +1,7 @@
 import {
     CHANGE_SIGN,
     CLEAR_ALL,
-    CLEAR_CURRENT,
+    CLEAR_CURRENT_VALUE,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     DRAW_DISPLAY,
@@ -28,7 +28,7 @@ const displayReducer = (state = initialState, action = {}) => {
                 historyValue:
                     action.payload.resultHistoryValue || state.historyValue,
             };
-        case CLEAR_CURRENT:
+        case CLEAR_CURRENT_VALUE:
             return {
                 ...state,
                 value: 0,
