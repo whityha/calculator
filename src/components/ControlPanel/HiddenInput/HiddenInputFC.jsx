@@ -4,7 +4,7 @@ import { setActualDig } from '@actions/controlsActions';
 
 import StyledInput from './styled';
 
-const InputRadio = ({ children, id, name, type }) => {
+const HiddenInput = ({ children, id, name, type }) => {
     const dispatch = useDispatch();
     const actualDig = useSelector(
         ({ control: { actualDig: actual } }) => actual
@@ -27,4 +27,4 @@ const InputRadio = ({ children, id, name, type }) => {
     );
 };
 
-export default InputRadio;
+export default HiddenInput;

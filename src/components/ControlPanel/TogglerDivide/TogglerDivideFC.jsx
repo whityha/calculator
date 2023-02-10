@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputRadio from '../InputRadio/InputRadioFC';
+import HiddenInput from '../HiddenInput/HiddenInputFC';
 
 import { StyledLabel, StyledTogglerDivide } from './styled';
 
@@ -8,14 +8,14 @@ const TogglerDivide = () => {
     return (
         <StyledTogglerDivide>
             <StyledLabel htmlFor="divide">
-                <InputRadio id="divide" name="toggler" type="radio">
+                <HiddenInput id="divide" name="toggler" type="radio">
                     /
-                </InputRadio>
+                </HiddenInput>
             </StyledLabel>
             <StyledLabel htmlFor="remainder">
-                <InputRadio id="remainder" name="toggler" type="radio">
+                <HiddenInput id="remainder" name="toggler" type="radio">
                     %
-                </InputRadio>
+                </HiddenInput>
             </StyledLabel>
         </StyledTogglerDivide>
     );

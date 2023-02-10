@@ -4,7 +4,7 @@ import { setActualDig } from '@actions/controlsActions';
 
 import StyledInput from './styled';
 
-class InputRadio extends React.PureComponent {
+class HiddenInput extends React.PureComponent {
     render() {
         const {
             actualDig: actual,
@@ -39,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputRadio);
+export default connect(mapStateToProps, mapDispatchToProps)(HiddenInput);
