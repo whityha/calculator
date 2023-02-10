@@ -6,16 +6,26 @@ import Switcher from '../Switcher/SwitcherFC';
 
 import { Nav, Title, WrapperHeader } from './styled';
 
+const LINKS = [
+    {
+        path: DEFAULT_PATH,
+        text: 'Main',
+    },
+    {
+        path: CC_PATH,
+        text: 'Class calculator',
+    },
+];
+
 const Header = () => (
     <WrapperHeader>
         <Title>FUNCTIONAL COMPONENTS CALCULATOR</Title>
         <Nav>
-            <li>
-                <Link to={DEFAULT_PATH}>Main</Link>
-            </li>
-            <li>
-                <Link to={CC_PATH}>Class calculator</Link>
-            </li>
+            {LINKS.map(({ path, text }) => (
+                <li key={path}>
+                    <Link to={path}>{text}</Link>
+                </li>
+            ))}
         </Nav>
         <Switcher />
     </WrapperHeader>
