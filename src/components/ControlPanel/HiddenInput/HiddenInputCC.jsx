@@ -31,12 +31,10 @@ class HiddenInput extends React.Component {
 }
 
 const mapStateToProps = ({ control }) => control;
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setActual: (id) => () => {
-            dispatch(setActualDig(id));
-        },
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    setActual: (id) => () => {
+        dispatch(setActualDig(id));
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HiddenInput);

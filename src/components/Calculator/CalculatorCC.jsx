@@ -285,12 +285,10 @@ class Calculator extends React.Component {
 }
 
 const mapStateToProps = ({ display }) => display;
-const mapDispatchToProps = (dispatch) => {
-    return {
-        doAction: (action) => {
-            dispatch(action);
-        },
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    doAction: (action) => {
+        dispatch(action);
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);

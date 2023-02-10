@@ -11,18 +11,9 @@ const AppFC = React.lazy(() => import('../pages/Home/AppFC'));
 const AppCC = React.lazy(() => import('../pages/Home/AppCC'));
 
 const ROUTES = [
-    {
-        path: '/',
-        element: <StartPage />,
-    },
-    {
-        path: '/class',
-        element: <AppCC />,
-    },
-    {
-        path: '/function',
-        element: <AppFC />,
-    },
+    { path: '/', element: <StartPage /> },
+    { path: '/class', element: <AppCC /> },
+    { path: '/function', element: <AppFC /> },
 ];
 
 const App = () => {

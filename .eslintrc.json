@@ -6,7 +6,7 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "plugin:prettier/recommended"        
+        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -17,7 +17,8 @@
     },
     "plugins": [
         "react",
-        "simple-import-sort"
+        "simple-import-sort",
+        "prettier"
     ],
     "rules": {
         "react/function-component-definition": [
@@ -27,6 +28,7 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
+        "prettier/prettier": "error",
         "react/prop-types": "off",
         "no-param-reassign": "off",
         "simple-import-sort/imports": "error",

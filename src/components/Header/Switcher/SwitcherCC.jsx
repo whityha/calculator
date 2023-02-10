@@ -20,16 +20,12 @@ class Switcher extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return state;
-};
+const mapStateToProps = (state) => state;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        switchTheme: () => {
-            dispatch(switchTheme());
-        },
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    switchTheme: () => {
+        dispatch(switchTheme());
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Switcher);

@@ -19,8 +19,6 @@ class History extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
-    return state.display;
-};
+const mapStateToProps = (state) => state.display;
 
 export default connect(mapStateToProps)(History);
