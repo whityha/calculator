@@ -6,7 +6,7 @@ import Button from '../Button/ButtonCC';
 
 import StyledKeypad from './styled';
 
-class Keypad extends React.PureComponent {
+class Keypad extends React.Component {
     render() {
         const { handle, exception, actualDig } = this.props;
         return (

@@ -6,7 +6,7 @@ import History from '@components/History/HistoryCC';
 
 import { StyledApp, StyledWrapperApp } from './styled';
 
-export default class AppFunc extends React.PureComponent {
+export default class AppFunc extends React.Component {
     render() {
         return (
             <StyledApp>

@@ -7,7 +7,7 @@ import TogglerDivide from '../TogglerDivide/TogglerDivideCC';
 
 import { StyledControlPanel, Title } from './styled';
 
-class ControlPanel extends React.PureComponent {
+class ControlPanel extends React.Component {
     render() {
         const { clear, clearHis } = this.props;
         return (

@@ -4,7 +4,7 @@ import { setActualDig } from '@actions/controlsActions';
 
 import StyledInput from './styled';
 
-class HiddenInput extends React.PureComponent {
+class HiddenInput extends React.Component {
     render() {
         const {
             actualDig: actual,

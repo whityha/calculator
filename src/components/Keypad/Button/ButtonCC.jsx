@@ -2,7 +2,7 @@ import React from 'react';
 
 import StyledButton from './styled';
 
-export default class Button extends React.PureComponent {
+export default class Button extends React.Component {
     render() {
         const { children, area, onClick, name } = this.props;
         return (

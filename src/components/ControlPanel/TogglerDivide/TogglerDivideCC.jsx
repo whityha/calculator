@@ -4,7 +4,7 @@ import HiddenInput from '../HiddenInput/HiddenInputCC';
 
 import { StyledLabel, StyledTogglerDivide } from './styled';
 
-class TogglerDivide extends React.PureComponent {
+class TogglerDivide extends React.Component {
     render() {
         return (
             <StyledTogglerDivide>

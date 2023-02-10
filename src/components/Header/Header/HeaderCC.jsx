@@ -5,7 +5,7 @@ import Switcher from '../Switcher/SwitcherCC';
 
 import { StyledHeader, StyledNav, StyledTitle } from './styled';
 
-class Header extends React.PureComponent {
+class Header extends React.Component {
     render() {
         return (
             <StyledHeader>

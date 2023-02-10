@@ -5,17 +5,13 @@ import { switchTheme } from '@actions/controlsActions';
 import { StyledHandler, StyledSwitcher } from './styled';
 
 class Switcher extends React.Component {
-    constructor(props) {
-        super(props);
-        this.switchTheme = props.switchTheme;
-    }
-
     render() {
         const {
             control: { theme },
+            switchTheme: swTheme,
         } = this.props;
         return (
-            <StyledSwitcher onClick={this.switchTheme}>
+            <StyledSwitcher onClick={swTheme}>
                 <StyledHandler
                     position={theme === 'light' ? 'right' : 'left'}
                 />

@@ -30,7 +30,7 @@ import initialState from '@store/initialState';
 import Display from '../Display/Display/DisplayCC';
 import Keypad from '../Keypad/Keypad/KeypadCC';
 
-class Calculator extends React.PureComponent {
+class Calculator extends React.Component {
     render() {
         const { value, formulas, isExpression } = this.props;
         const { doAction } = this.props;
