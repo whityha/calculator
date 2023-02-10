@@ -7,8 +7,8 @@ import StartPage from '../pages/StartPage/StartPage';
 import GlobalStyles from '../styled/globalStyles';
 import theme from '../styled/theme';
 
-const AppFC = React.lazy(() => import('../pages/AppPage/AppFC'));
-const AppCC = React.lazy(() => import('../pages/AppPage/AppCC'));
+const AppFC = React.lazy(() => import('../pages/Home/AppFC'));
+const AppCC = React.lazy(() => import('../pages/Home/AppCC'));
 
 const App = () => {
     const variant = useSelector(({ control }) => control.theme);
