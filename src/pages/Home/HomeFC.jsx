@@ -6,7 +6,7 @@ import History from '@components/History/HistoryFC';
 
 import { StyledApp, StyledWrapperApp } from './styled';
 
-const AppFunc = () => (
+const HomeFC = () => (
     <StyledApp>
         <StyledWrapperApp>
             <Header />
@@ -17,4 +17,4 @@ const AppFunc = () => (
     </StyledApp>
 );
 
-export default AppFunc;
+export default HomeFC;

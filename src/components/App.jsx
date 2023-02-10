@@ -8,13 +8,13 @@ import StartPage from '../pages/StartPage/StartPage';
 import GlobalStyles from '../styled/globalStyles';
 import theme from '../styled/theme';
 
-const AppFC = React.lazy(() => import('../pages/Home/AppFC'));
-const AppCC = React.lazy(() => import('../pages/Home/AppCC'));
+const HomeFC = React.lazy(() => import('../pages/Home/HomeFC'));
+const HomeCC = React.lazy(() => import('../pages/Home/HomeCC'));
 
 const ROUTES = [
     { path: DEFAULT_PATH, element: <StartPage /> },
-    { path: CC_PATH, element: <AppCC /> },
-    { path: FC_PATH, element: <AppFC /> },
+    { path: CC_PATH, element: <HomeCC /> },
+    { path: FC_PATH, element: <HomeFC /> },
 ];
 
 const App = () => {

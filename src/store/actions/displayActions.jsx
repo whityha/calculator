@@ -1,7 +1,7 @@
 import {
     CHANGE_SIGN,
     CLEAR_ALL,
-    CLEAR_CURRENT,
+    CLEAR_CURRENT_VALUE,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     DRAW_DISPLAY,
@@ -14,7 +14,7 @@ export const startExpression = (payload) => ({
     payload,
 });
 
-export const drawDisplay = (payload = {}) => ({
+export const drawDisplay = (payload) => ({
     type: DRAW_DISPLAY,
     payload,
 });
@@ -27,7 +27,7 @@ export const changeSign = (payload) => ({
     payload,
 });
 export const clear = (payload) => ({
-    type: CLEAR_CURRENT,
+    type: CLEAR_CURRENT_VALUE,
     payload,
 });
 export const clearDisplay = (payload) => ({
