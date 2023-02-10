@@ -26,7 +26,8 @@
     "test": "craco test",
     "eject": "craco eject",
     "prepare": "husky install",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "prettier": "npx prettier --write"
   },
   "eslintConfig": {
     "extends": [
