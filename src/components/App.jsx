@@ -10,15 +10,30 @@ import theme from '../styled/theme';
 const AppFC = React.lazy(() => import('../pages/Home/AppFC'));
 const AppCC = React.lazy(() => import('../pages/Home/AppCC'));
 
+const ROUTES = [
+    {
+        path: '/',
+        element: <StartPage />,
+    },
+    {
+        path: '/class',
+        element: <AppCC />,
+    },
+    {
+        path: '/function',
+        element: <AppFC />,
+    },
+];
+
 const App = () => {
     const variant = useSelector(({ control }) => control.theme);
     return (
         <ThemeProvider theme={theme[variant]}>
             <Suspense>
                 <Routes>
-                    <Route path="/" element={<StartPage />} />
-                    <Route path="/class" element={<AppCC />} />
-                    <Route path="/function" element={<AppFC />} />
+                    {ROUTES.map(({ path, element }) => (
+                        <Route path={path} element={element} />
+                    ))}
                 </Routes>
             </Suspense>
             <GlobalStyles />
