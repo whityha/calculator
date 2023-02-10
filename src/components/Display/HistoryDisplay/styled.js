@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledHistoryDisplay = styled.div`
+const WrapperHistoryDisplay = styled.div`
     display: block;
     position: absolute;
     font-size: 16px;
@@ -9,4 +9,4 @@ const StyledHistoryDisplay = styled.div`
     color: #c7b9b9;
 `;
 
-export default StyledHistoryDisplay;
+export default WrapperHistoryDisplay;

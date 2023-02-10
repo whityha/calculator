@@ -4,13 +4,13 @@ import BUTTONS from '@constants/buttons';
 
 import Button from '../Button/ButtonFC';
 
-import StyledKeypad from './styled';
+import WrapperKeypad from './styled';
 
 const Keypad = ({ handle }) => {
     const exception = useSelector(({ control: { exception: exc } }) => exc);
     const actualDig = useSelector(({ control: { actualDig: act } }) => act);
     return (
-        <StyledKeypad area={actualDig}>
+        <WrapperKeypad area={actualDig}>
             {BUTTONS.filter(({ name }) => name !== exception).map(
                 ({ name, dig }) => (
                     <Button
@@ -23,7 +23,7 @@ const Keypad = ({ handle }) => {
                     </Button>
                 )
             )}
-        </StyledKeypad>
+        </WrapperKeypad>
     );
 };
 

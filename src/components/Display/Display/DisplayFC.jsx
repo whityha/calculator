@@ -3,16 +3,16 @@ import { useSelector } from 'react-redux';
 
 import HistoryDisplay from '../HistoryDisplay/HistoryDisplayFC';
 
-import StyledDisplay from './styled';
+import WrapperDisplay from './styled';
 
 const Display = () => {
     const value = useSelector(({ display: { value: val } }) => val);
 
     return (
-        <StyledDisplay>
+        <WrapperDisplay>
             <HistoryDisplay />
             <h1>{value}</h1>
-        </StyledDisplay>
+        </WrapperDisplay>
     );
 };
 

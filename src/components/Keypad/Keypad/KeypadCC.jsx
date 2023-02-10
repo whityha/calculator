@@ -4,13 +4,13 @@ import BUTTONS from '@constants/buttons';
 
 import Button from '../Button/ButtonCC';
 
-import StyledKeypad from './styled';
+import WrapperKeypad from './styled';
 
 class Keypad extends React.Component {
     render() {
         const { handle, exception, actualDig } = this.props;
         return (
-            <StyledKeypad area={actualDig}>
+            <WrapperKeypad area={actualDig}>
                 {BUTTONS.filter(({ name }) => name !== exception).map(
                     ({ name, dig }) => (
                         <Button
@@ -23,7 +23,7 @@ class Keypad extends React.Component {
                         </Button>
                     )
                 )}
-            </StyledKeypad>
+            </WrapperKeypad>
         );
     }
 }

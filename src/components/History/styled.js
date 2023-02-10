@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHistory = styled.div`
+export const WrapperHistory = styled.div`
     display: flex;
     flex-direction: column;
     gap: 50px;

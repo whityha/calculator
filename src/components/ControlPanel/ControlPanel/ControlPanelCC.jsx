@@ -5,18 +5,18 @@ import { clearAll, clearHistory } from '@actions/displayActions';
 import Button from '../Button/ButtonCC';
 import TogglerDivide from '../TogglerDivide/TogglerDivideCC';
 
-import { StyledControlPanel, Title } from './styled';
+import { Title, WrapperControlPanel } from './styled';
 
 class ControlPanel extends React.Component {
     render() {
         const { clear, clearHis } = this.props;
         return (
-            <StyledControlPanel>
+            <WrapperControlPanel>
                 <Title>Controls</Title>
                 <TogglerDivide />
                 <Button onClick={clearHis}>Clear history</Button>
                 <Button onClick={clear}>Clear ALL</Button>
-            </StyledControlPanel>
+            </WrapperControlPanel>
         );
     }
 }

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import Switcher from '../Switcher/SwitcherFC';
 
-import { StyledHeader, StyledNav, StyledTitle } from './styled';
+import { StyledNav, StyledTitle, WrapperHeader } from './styled';
 
 const Header = () => {
     return (
-        <StyledHeader>
+        <WrapperHeader>
             <StyledTitle>FUNCTIONAL COMPONENTS CALCULATOR</StyledTitle>
             <StyledNav>
                 <li>
@@ -18,7 +18,7 @@ const Header = () => {
                 </li>
             </StyledNav>
             <Switcher />
-        </StyledHeader>
+        </WrapperHeader>
     );
 };
 

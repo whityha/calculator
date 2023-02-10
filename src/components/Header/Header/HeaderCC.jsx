@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import Switcher from '../Switcher/SwitcherCC';
 
-import { StyledHeader, StyledNav, StyledTitle } from './styled';
+import { StyledNav, StyledTitle, WrapperHeader } from './styled';
 
 class Header extends React.Component {
     render() {
         return (
-            <StyledHeader>
+            <WrapperHeader>
                 <StyledTitle>CLASS COMPONENTS CALCULATOR</StyledTitle>
                 <StyledNav>
                     <li>
@@ -19,7 +19,7 @@ class Header extends React.Component {
                     </li>
                 </StyledNav>
                 <Switcher />
-            </StyledHeader>
+            </WrapperHeader>
         );
     }
 }

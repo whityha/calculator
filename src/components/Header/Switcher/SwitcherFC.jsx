@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { switchTheme } from '@actions/controlsActions';
 
-import { StyledHandler, StyledSwitcher } from './styled';
+import { StyledHandler, WrapperSwitcher } from './styled';
 
 const Switcher = () => {
     const dispatch = useDispatch();
@@ -11,9 +11,9 @@ const Switcher = () => {
     };
     const color = useSelector(({ control: { theme } }) => theme);
     return (
-        <StyledSwitcher onClick={handleSwitcher}>
+        <WrapperSwitcher onClick={handleSwitcher}>
             <StyledHandler position={color === 'light' ? 'right' : 'left'} />
-        </StyledSwitcher>
+        </WrapperSwitcher>
     );
 };
 

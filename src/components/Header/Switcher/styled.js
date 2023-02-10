@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSwitcher = styled.div`
+export const WrapperSwitcher = styled.div`
     width: 50px;
     height: 20px;
     border-radius: 100px;
