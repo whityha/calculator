@@ -12,7 +12,7 @@ const Switcher = () => {
     const color = useSelector(({ control: { theme } }) => theme);
     return (
         <WrapperSwitcher onClick={handleSwitcher}>
-            <Handler position={color === 'light' ? 'right' : 'left'} />
+            <Handler position={color} />
         </WrapperSwitcher>
     );
 };

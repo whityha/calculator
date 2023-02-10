@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DEFAULT_PATH, FC_PATH } from '@constants/paths';
 
 import Switcher from '../Switcher/SwitcherCC';
 
+import { LINKS_CC } from './config';
 import { Nav, Title, WrapperHeader } from './styled';
 
 class Header extends React.Component {
@@ -12,12 +12,11 @@ class Header extends React.Component {
             <WrapperHeader>
                 <Title>CLASS COMPONENTS CALCULATOR</Title>
                 <Nav>
-                    <li>
-                        <Link to={DEFAULT_PATH}>Main</Link>
-                    </li>
-                    <li>
-                        <Link to={FC_PATH}>Functional calculator</Link>
-                    </li>
+                    {LINKS_CC.map(({ path, text }) => (
+                        <li key={path}>
+                            <Link to={path}>{text}</Link>
+                        </li>
+                    ))}
                 </Nav>
                 <Switcher />
             </WrapperHeader>

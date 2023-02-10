@@ -7,7 +7,7 @@ export default class Button extends React.PureComponent {
         const { onClick, children } = this.props;
         return (
             <StyledButton type="button" onClick={onClick}>
-                {children}{' '}
+                {children}
             </StyledButton>
         );
     }
