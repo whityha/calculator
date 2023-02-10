@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setActualDig } from '@actions/controlsActions';
 
-import StyledInput from './styled';
+import Input from './styled';
 
 class HiddenInput extends React.Component {
     render() {
@@ -16,7 +16,7 @@ class HiddenInput extends React.Component {
         } = this.props;
         return (
             <>
-                <StyledInput
+                <Input
                     checked={actual === id}
                     style={{ display: 'none' }}
                     onChange={setActual(id)}

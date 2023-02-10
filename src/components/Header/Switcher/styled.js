@@ -8,7 +8,7 @@ export const WrapperSwitcher = styled.div`
     outline: 1px solid ${({ theme: { background } }) => background.border};
     cursor: pointer;
 `;
-export const StyledHandler = styled.span`
+export const Handler = styled.span`
     display: block;
     width: 20px;
     height: 20px;

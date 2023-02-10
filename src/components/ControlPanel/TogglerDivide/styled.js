@@ -7,7 +7,7 @@ export const StyledTogglerDivide = styled.div`
     padding: 1rem;
 `;
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
     display: block;
     width: 30px;
     height: 30px;

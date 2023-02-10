@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { StyledList, StyledListItem, WrapperHistory } from './styled';
+import { List, ListItem, WrapperHistory } from './styled';
 
 class History extends React.PureComponent {
     render() {
@@ -9,11 +9,11 @@ class History extends React.PureComponent {
         return (
             <WrapperHistory>
                 <h1>History</h1>
-                <StyledList>
+                <List>
                     {formulas.map(({ formula, id }) => (
-                        <StyledListItem key={id}>{formula}</StyledListItem>
+                        <ListItem key={id}>{formula}</ListItem>
                     ))}
-                </StyledList>
+                </List>
             </WrapperHistory>
         );
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { switchTheme } from '@actions/controlsActions';
 
-import { StyledHandler, WrapperSwitcher } from './styled';
+import { Handler, WrapperSwitcher } from './styled';
 
 class Switcher extends React.Component {
     render() {
@@ -12,9 +12,7 @@ class Switcher extends React.Component {
         } = this.props;
         return (
             <WrapperSwitcher onClick={swTheme}>
-                <StyledHandler
-                    position={theme === 'light' ? 'right' : 'left'}
-                />
+                <Handler position={theme === 'light' ? 'right' : 'left'} />
             </WrapperSwitcher>
         );
     }

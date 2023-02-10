@@ -4,21 +4,21 @@ import { DEFAULT_PATH, FC_PATH } from '@constants/paths';
 
 import Switcher from '../Switcher/SwitcherCC';
 
-import { StyledNav, StyledTitle, WrapperHeader } from './styled';
+import { Nav, Title, WrapperHeader } from './styled';
 
 class Header extends React.Component {
     render() {
         return (
             <WrapperHeader>
-                <StyledTitle>CLASS COMPONENTS CALCULATOR</StyledTitle>
-                <StyledNav>
+                <Title>CLASS COMPONENTS CALCULATOR</Title>
+                <Nav>
                     <li>
                         <Link to={DEFAULT_PATH}>Main</Link>
                     </li>
                     <li>
                         <Link to={FC_PATH}>Functional calculator</Link>
                     </li>
-                </StyledNav>
+                </Nav>
                 <Switcher />
             </WrapperHeader>
         );
