@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { CC_PATH, DEFAULT_PATH, FC_PATH } from '@constants/paths';
 import { ThemeProvider } from 'styled-components';
 
 import StartPage from '../pages/StartPage/StartPage';
@@ -11,9 +12,9 @@ const AppFC = React.lazy(() => import('../pages/Home/AppFC'));
 const AppCC = React.lazy(() => import('../pages/Home/AppCC'));
 
 const ROUTES = [
-    { path: '/', element: <StartPage /> },
-    { path: '/class', element: <AppCC /> },
-    { path: '/function', element: <AppFC /> },
+    { path: DEFAULT_PATH, element: <StartPage /> },
+    { path: CC_PATH, element: <AppCC /> },
+    { path: FC_PATH, element: <AppFC /> },
 ];
 
 const App = () => {

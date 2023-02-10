@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { DEFAULT_PATH, FC_PATH } from '@constants/paths';
 
 import Switcher from '../Switcher/SwitcherCC';
 
@@ -12,10 +13,10 @@ class Header extends React.Component {
                 <StyledTitle>CLASS COMPONENTS CALCULATOR</StyledTitle>
                 <StyledNav>
                     <li>
-                        <Link to="../">Main</Link>
+                        <Link to={DEFAULT_PATH}>Main</Link>
                     </li>
                     <li>
-                        <Link to="../function">Functional calculator</Link>
+                        <Link to={FC_PATH}>Functional calculator</Link>
                     </li>
                 </StyledNav>
                 <Switcher />
