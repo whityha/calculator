@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import {
     clearDisplay,
     drawDisplay,
+    drawHistory,
     drawHistoryDisplay,
 } from '@actions/displayActions';
 import AddCommand from '@command/AddCommand';
@@ -71,8 +72,14 @@ const Calculator = () => {
                     calc.registerCommand(new RemainderCommand());
                     break;
                 case 'equal':
-                    result = calc.equal(() => {
+                    result = calc.equal((value) => {
                         dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+                        dispatch(
+                            drawHistory({
+                                formula: `${calc.getHistoryDisplay()} ${value}`,
+                                id: Math.random(),
+                            })
+                        );
                     });
                     dispatch(drawDisplay(result));
                     break;

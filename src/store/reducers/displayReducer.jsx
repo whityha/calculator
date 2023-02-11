@@ -3,6 +3,7 @@ import {
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     DRAW_DISPLAY,
+    DRAW_HISTORY,
     DRAW_HISTORY_DISPLAY,
 } from '@actions/type';
 import calc from '@command/command';
@@ -34,6 +35,11 @@ const displayReducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 formulas: [],
+            };
+        case DRAW_HISTORY:
+            return {
+                ...state,
+                formulas: [...state.formulas, action.payload],
             };
         case DRAW_HISTORY_DISPLAY:
             return {

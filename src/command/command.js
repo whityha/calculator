@@ -33,7 +33,7 @@ class CalculatorCommand {
         this.getResult();
         this.wasEqual = true;
 
-        if (callback) callback();
+        if (callback) callback(this.current);
 
         this.clear();
 
