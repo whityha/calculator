@@ -8,11 +8,11 @@ export const StyledApp = styled.div`
 export const StyledWrapperApp = styled.div`
     display: grid;
     grid-template-areas:
-        'header header header'
-        'display history controls'
-        'keypad history controls';
+        'header header'
+        'display history'
+        'keypad history';
     grid-template-rows: 1fr 1fr 7fr;
-    grid-template-columns: 4fr 1fr 1fr;
+    grid-template-columns: 5fr 2fr;
     max-width: 1300px;
     margin: 0 auto;
     height: 100%;

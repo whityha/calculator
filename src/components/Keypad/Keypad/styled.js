@@ -4,13 +4,14 @@ const WrapperKeypad = styled.div`
     grid-area: keypad;
     display: grid;
     grid-template-areas:
-        'C seven eight nine multiply'
-        'minus four five six ${({ area }) => area}'
-        'plus one two three equal'
-        'dot bl zero br CE'
-        'plusmn plusmn plusmn plusmn plusmn';
-    grid-template-rows: 50px 50px 50px 50px 50px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        'bl br remainder divide'
+        'seven eight nine multiply'
+        'four five six minus'
+        'one two three plus'
+        'zero dot plusmn equal'
+        'C C C C';
+    grid-template-rows: 70px 70px 70px 70px 70px 70px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 1rem;
 `;
 

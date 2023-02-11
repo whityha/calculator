@@ -24,7 +24,7 @@ const App = () => {
             <Suspense>
                 <Routes>
                     {ROUTES.map(({ path, element }) => (
-                        <Route path={path} element={element} />
+                        <Route key={path} path={path} element={element} />
                     ))}
                 </Routes>
             </Suspense>
