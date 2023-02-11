@@ -55,10 +55,6 @@ const BUTTONS = [
         name: 'C',
         dig: 'C',
     },
-    // {
-    //     name: 'CE',
-    //     dig: 'CE',
-    // },
     {
         name: 'bl',
         dig: '(',

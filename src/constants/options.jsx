@@ -1,12 +1,6 @@
 const MAX_DISPLAY_LENGTH = 9;
-const PRIORITY = {
-    divide: 2,
-    plus: 1,
-    minus: 1,
-    multiply: 2,
-    remainder: 2,
-};
-const DRAW = [
+
+const DRAW_BUTTONS = [
     'zero',
     'one',
     'two',
@@ -41,7 +35,7 @@ const DRAW_EXPRESSION = [
     'equal',
     'plusmn',
 ];
-const DRAW_HISTORY = [
+const DRAW_HISTORY_BUTTONS = [
     'divide',
     'plus',
     'minus',
@@ -60,10 +54,9 @@ export {
     CHANGE_SIGN,
     CLEAR,
     CLEAR_DISPLAY,
-    DRAW,
+    DRAW_BUTTONS,
     DRAW_EXPRESSION,
-    DRAW_HISTORY,
+    DRAW_HISTORY_BUTTONS,
     MAX_DISPLAY_LENGTH,
-    PRIORITY,
     START_EXPRESSION_BUTTON,
 };

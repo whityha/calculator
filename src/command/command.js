@@ -1,106 +1,265 @@
 class CalculatorCommand {
-    constructor(props) {
-        this.value = props || 0;
-        this.current = 0;
+    constructor() {
+        this.current = '';
+        this.result = 0;
 
-        this.isEqual = false;
+        this.wasEqual = false;
+        this.canEqual = false;
         this.isRegistered = false;
         this.isExpression = false;
 
         this.history = [];
-        this.formula = '';
+        this.formula = [];
+
+        this.operandStack = [];
+        this.operatorStack = [];
+
+        this.openBracketCount = 0;
     }
 
-    registerCommand(command) {
-        if (this.isEqual) {
-            this.clearFormula();
-            this.switchIsEqual();
-            this.clearHistory();
+    equal(callback = false) {
+        if (this.wasEqual) return this.current;
+        if (this.isRegistered) return this.getHistoryDisplay();
+        if (!this.canEqual) return this.getHistoryDisplay() || '0';
+        this.checkLastHistoryItem();
+
+        while (this.openBracketCount) {
+            this.addItemInFormula(')');
+            this.addItemInHistory(')');
+            this.openBracketCount -= 1;
         }
-        if (!this.isRegistered) {
-            this.addCommandToHistory(command);
-            this.initializeValue(command);
-            this.addCommandToFormula(command);
-            this.clearCurrent();
-            this.isRegistered = !this.isRegistered;
+
+        this.history.push('=');
+        this.getResult();
+        this.wasEqual = true;
+
+        if (callback) callback();
+
+        this.clear();
+
+        return this.current;
+    }
+
+    changeSign() {
+        if (
+            !Number.isNaN(Number(this.getLastHistoryItem())) ||
+            this.getLastHistoryItem() === '.' ||
+            this.getLastHistoryItem() === '-.'
+        ) {
+            this.history.pop();
+            this.formula.pop();
         }
+        this.current =
+            this.current.indexOf('-') === -1
+                ? `-${this.current}`
+                : this.current.slice(1);
+        this.addItemInFormula(this.getCurrent('number'));
+        this.addItemInHistory(this.getCurrent('string'));
+
+        return this.current;
     }
 
-    executeCommand() {
-        this.value = this.getLastCommand()
-            ? this.getLastCommand().execute(this.current)
-            : 0;
-        return this.value.toString();
-    }
-
-    getLastCommand() {
+    getLastHistoryItem() {
         return this.history[this.history.length - 1];
     }
 
+    addItemInFormula(item) {
+        this.formula.push(item);
+    }
+
+    addItemInHistory(item) {
+        this.history.push(item);
+    }
+
+    operatorStackIsEmpty() {
+        return this.operatorStack.length === 0;
+    }
+
+    lastOperatorPriority() {
+        const last = this.operatorStack[this.operatorStack.length - 1];
+        return typeof last === 'object' ? last.priority : -10;
+    }
+
+    getTwoLastOperand() {
+        return this.operandStack.splice(-2);
+    }
+
+    getLastOperator() {
+        return this.operatorStack.pop();
+    }
+
+    showLastOperator() {
+        return this.operatorStack[this.operatorStack.length - 1];
+    }
+
+    getResultLastCommand() {
+        return this.getLastOperator().execute(this.getTwoLastOperand());
+    }
+
+    getHistoryDisplay() {
+        return this.history.join(' ');
+    }
+
     getResult() {
-        if (this.getLastCommand() && this.current) {
-            const result = this.executeCommand();
-            return result;
+        this.checkLastHistoryItem();
+        this.formula.forEach((item) => {
+            const checkItem = () => {
+                switch (typeof item) {
+                    case 'object':
+                        if (
+                            this.operatorStackIsEmpty() ||
+                            item.priority > this.lastOperatorPriority()
+                        ) {
+                            this.operatorStack.push(item);
+                        } else {
+                            this.operandStack.push(this.getResultLastCommand());
+                            checkItem();
+                        }
+                        break;
+                    case 'string':
+                        if (item === '(') {
+                            this.operatorStack.push(item);
+                        }
+                        if (item === ')') {
+                            while (this.showLastOperator() !== '(') {
+                                this.operandStack.push(
+                                    this.getResultLastCommand()
+                                );
+                            }
+                            this.getLastOperator();
+                        }
+                        break;
+                    default:
+                        this.operandStack.push(item);
+                        break;
+                }
+            };
+
+            checkItem();
+        });
+        while (this.operatorStack.length) {
+            this.operandStack.push(this.getResultLastCommand());
         }
-        return undefined;
+        this.result = this.operandStack.pop();
+        this.current = this.result.toString();
+        return this.result;
     }
 
-    equal() {
-        if (this.getLastCommand() && this.current) {
-            this.formula += `${this.current} = `;
-            this.isEqual = true;
-            const result = this.executeCommand();
-            this.clearHistory();
-            this.current = result;
-            return result;
-        }
-        if (!this.getLastCommand() && this.current) {
-            this.value = this.current;
-        }
-        return this.current.toString();
+    openBracket() {
+        this.addItemInFormula('(');
+        this.addItemInHistory('(');
+        this.openBracketCount += 1;
     }
 
-    startExpression() {
+    closeBracket() {
+        this.addItemInHistory(')');
+        this.addItemInFormula(')');
+        this.openBracketCount -= 1;
+    }
+
+    changeCurrentValue(digit) {
+        const hasDot = this.current.indexOf('.') !== -1;
+        if (digit !== '.') this.checkLastHistoryItem();
+
+        if (digit === '0') {
+            if (this.current === '') {
+                this.current = '0';
+                this.addItemInFormula(this.getCurrent('number'));
+                this.addItemInHistory(this.getCurrent('string'));
+                this.isRegistered = false;
+                return;
+            }
+            if (hasDot || Math.abs(this.getCurrent('number')) > 0) {
+                this.history.pop();
+                this.formula.pop();
+                this.current += digit;
+            } else {
+                return;
+            }
+        } else if (digit === '.') {
+            if (!hasDot && this.current !== '') {
+                this.history.pop();
+                this.formula.pop();
+                this.current = `${this.current}.`;
+            } else if (this.current === '') {
+                this.current = `.`;
+            } else {
+                return;
+            }
+        } else if (!Number.isNaN(Number(this.getLastHistoryItem()))) {
+            this.history.pop();
+            this.formula.pop();
+            this.current += digit;
+        } else if (this.getLastHistoryItem() === 0) {
+            this.history.pop();
+            this.formula.pop();
+            this.current = digit;
+        } else {
+            this.current = digit;
+        }
+        this.addItemInFormula(this.getCurrent('number'));
+        this.addItemInHistory(this.getCurrent('string'));
+
+        this.isRegistered = false;
+    }
+
+    registerCommand(command) {
+        if (this.isRegistered) return false;
+        this.checkLastHistoryItem();
+
+        if (this.formula.length === 0) {
+            this.addItemInFormula(Number(this.current));
+            this.addItemInHistory(Number(this.current));
+        }
+        this.isRegistered = true;
+        this.wasEqual = false;
+        this.canEqual = true;
+        this.addItemInFormula(command);
+        this.addItemInHistory(command.getSign());
         this.clearCurrent();
-        this.isExpression = true;
+        return true;
+    }
+
+    checkLastHistoryItem() {
+        if (this.getLastHistoryItem() === '.') {
+            this.history[this.history.length - 1] = '0';
+        } else if (this.getLastHistoryItem() === '-.') {
+            this.history[this.history.length - 1] = '-0';
+        }
     }
 
     clear() {
-        this.value = 0;
-        this.history = [];
-        this.formula = '';
-        this.current = 0;
+        this.clearHistory();
+        this.clearFormula();
+        this.result = 0;
+        this.isRegistered = false;
         this.isEqual = false;
-    }
-
-    clearFormula() {
-        this.formula = '';
-    }
-
-    switchIsEqual() {
-        this.isEqual = !this.isEqual;
-    }
-
-    addCommandToHistory(command) {
-        this.history.push(command);
-    }
-
-    addCommandToFormula(command) {
-        this.formula = this.formula
-            ? `${this.formula}${this.current}${command.dig}`
-            : `${this.current}${command.dig}`;
-    }
-
-    initializeValue(command) {
-        this.value = this.history.length >= 1 ? command.value : this.current;
+        this.canEqual = false;
     }
 
     clearCurrent() {
-        this.current = 0;
+        this.current = '';
+    }
+
+    clearFormula() {
+        this.formula = [];
     }
 
     clearHistory() {
         this.history = [];
+    }
+
+    getCurrent(type) {
+        switch (type) {
+            case 'number':
+                return this.current === '.' || this.current === '-.'
+                    ? 0
+                    : Number(this.current);
+            case 'string':
+                return this.current;
+            default:
+                return this.current;
+        }
     }
 }
 

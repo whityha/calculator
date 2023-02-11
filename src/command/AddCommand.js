@@ -1,18 +1,24 @@
 export default class AddCommand {
     constructor(valueToAdd) {
         this.value = Number(valueToAdd);
-        this.currentValue = null;
-        this.dig = ' + ';
+        this.priority = 1;
+        this.dig = '+';
+        this.name = 'plus';
     }
 
-    execute(currentValue) {
-        this.currentValue = currentValue;
-        const res = Number(this.currentValue) + this.value;
+    execute(items) {
+        if (this.currentValue) return this;
+        const [num1, num2] = items;
+        const res = num1 + num2;
         const fixed = res !== Infinity ? res.toFixed(3) : Infinity;
         return res % 1 ? Number(fixed) : res;
     }
 
-    getStory() {
-        return `${this.currentValue} + ${this.value}`;
+    getSign() {
+        return this.dig;
+    }
+
+    getName() {
+        return this.name;
     }
 }

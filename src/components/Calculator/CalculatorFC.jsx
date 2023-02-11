@@ -1,280 +1,108 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
-    changeSign,
-    clear,
     clearDisplay,
     drawDisplay,
     drawHistoryDisplay,
-    startExpression,
 } from '@actions/displayActions';
 import AddCommand from '@command/AddCommand';
 import calc from '@command/command';
 import DivideCommand from '@command/DivideCommand';
-import Expression from '@command/Expression';
 import MultiplyCommand from '@command/MultiplyCommand';
-import ReminderCommand from '@command/ReminderCommand';
+import RemainderCommand from '@command/ReminderCommand';
 import SubtractCommand from '@command/SubtractCommand';
 import {
     CHANGE_SIGN,
     CLEAR,
-    CLEAR_DISPLAY,
-    DRAW,
-    DRAW_EXPRESSION,
-    DRAW_HISTORY,
-    MAX_DISPLAY_LENGTH,
-    START_EXPRESSION_BUTTON,
+    DRAW_BUTTONS,
+    DRAW_HISTORY_BUTTONS,
 } from '@constants/options';
-import initialState from '@store/initialState';
 
 import Display from '../Display/Display/DisplayFC';
 import Keypad from '../Keypad/Keypad/KeypadFC';
 
 const Calculator = () => {
     const dispatch = useDispatch();
-    const displayState = useSelector(({ display }) => display);
-    const { value, formulas, isExpression } = displayState;
-    const handleDisplay = (dig, name) => {
-        if (START_EXPRESSION_BUTTON.includes(name))
-            return () => {
-                calc.isEqual = false;
-                calc.expression = new Expression();
-                calc.expression.start(calc.current);
-                dispatch(
-                    startExpression(
-                        calc.expression.getFormulaDisplay() +
-                            calc.expression.current
-                    )
-                );
-            };
-        if (DRAW.includes(name))
-            return () => {
-                let resultValue = value;
-                // Сброс памяти, если последним нажималось равно '='
-                if (calc.isEqual) {
-                    const { historyValue } = initialState;
-                    dispatch(
-                        drawDisplay({
-                            resultHistoryValue: historyValue,
-                        })
-                    );
-                    calc.formula = false;
-                    calc.isEqual = !calc.isEqual;
-                    resultValue = 0;
-                    calc.current = 0;
-                }
 
-                const dotCondition = value ? value.indexOf('.') !== -1 : 0;
-                const lengthValue = value ? value.length : 0;
-                const lengthCondition = lengthValue < MAX_DISPLAY_LENGTH;
-                const currentCondition = calc.current === 0;
-
-                switch (name) {
-                    case 'zero':
-                        if (currentCondition) resultValue = dig;
-                        else if (!value) resultValue = dig;
-                        else if (value === '-') resultValue += dig;
-                        else if (
-                            lengthCondition &&
-                            (dotCondition || Number(value) > 0)
-                        )
-                            resultValue += dig;
-                        break;
-                    case 'dot':
-                        if (currentCondition) resultValue = dig;
-                        else if (dotCondition) break;
-                        else if (!value) resultValue = dig;
-                        else if (value === '0' && lengthCondition)
-                            resultValue += dig;
-                        else if (lengthCondition) resultValue += dig;
-                        break;
-                    default:
-                        if (currentCondition) {
-                            resultValue = dig;
-                        } else if (lengthCondition)
-                            resultValue =
-                                value && value !== '0' && value !== '-0'
-                                    ? (resultValue += dig)
-                                    : dig;
-                }
-                calc.current = resultValue;
-                calc.isRegistered = false;
-                dispatch(
-                    drawDisplay({
-                        value: resultValue,
-                    })
-                );
-            };
-        if (CLEAR.includes(name))
-            return () => {
-                dispatch(clear());
-            };
-        if (CLEAR_DISPLAY.includes(name)) return () => dispatch(clearDisplay());
-        if (CHANGE_SIGN.includes(name))
-            return () => {
-                let result = 0;
-                const currentCondition =
-                    calc.current === 0 || calc.current === '-';
-                const positive = (str) => str[0] !== '-';
-                if (currentCondition) result = calc.current === 0 ? '-' : 0;
-                else {
-                    result = positive(value) ? `-${value}` : value.slice(1);
-                }
-                calc.current = result;
-                dispatch(changeSign(result));
-            };
-        if (DRAW_HISTORY.includes(name))
-            return () => {
-                const changeHistory = (Command) => {
-                    const resultValue = calc.getResult() ?? value;
-                    calc.registerCommand(new Command(resultValue));
-                    const resultFormula = calc.formula ? calc.formula : '';
-                    dispatch(
-                        drawHistoryDisplay({
-                            formula: resultFormula,
-                            value: resultValue,
-                        })
-                    );
-                };
-                let resultValue = 0;
-                const resultFormulas = [...formulas];
-                switch (name) {
-                    case 'plus':
-                        changeHistory(AddCommand);
-                        break;
-                    case 'multiply':
-                        changeHistory(MultiplyCommand);
-                        break;
-                    case 'divide':
-                        changeHistory(DivideCommand);
-                        break;
-                    case 'remainder':
-                        changeHistory(ReminderCommand);
-                        break;
-                    case 'minus':
-                        changeHistory(SubtractCommand);
-                        break;
-                    case 'equal':
-                        if (!calc.isEqual && calc.current && calc.formula) {
-                            resultValue = calc.equal();
-                            resultFormulas.push({
-                                formula: calc.formula + calc.value,
-                                id: Math.random(),
-                            });
-                            const resultFormula = calc.formula
-                                ? calc.formula
-                                : '';
-                            dispatch(
-                                drawHistoryDisplay({
-                                    formulas: resultFormulas,
-                                    value: resultValue,
-                                    formula: resultFormula,
-                                })
-                            );
-                        }
-                        break;
-                    default:
-                }
-            };
-        return () => {};
-    };
-    const handleExpression = (dig, name) => {
-        if (DRAW_EXPRESSION.includes(name)) {
-            return () => {
-                const { expression } = calc;
-                let oldFormula = '';
-                const resultFormulas = [...formulas];
-                const handleOperand = (operatorName, operatorSymbol) => {
-                    if (expression.isRegistered) return;
-                    expression.registerOperator(operatorName, operatorSymbol);
-                    expression.isClosed = false;
-                };
-                switch (name) {
-                    case 'multiply':
-                        handleOperand(name, dig);
-                        break;
-                    case 'divide':
-                        handleOperand(name, dig);
-                        break;
-                    case 'plus':
-                        handleOperand(name, dig);
-                        break;
-                    case 'minus':
-                        handleOperand(name, dig);
-                        break;
-                    case 'remainder':
-                        handleOperand(name, dig);
-                        break;
-                    case 'bl':
-                        if (!expression.isRegistered) return;
-                        expression.registerOperator(name, dig);
-                        expression.isClosed = false;
-                        break;
-                    case 'br':
-                        if (expression.isRegistered) return;
-                        expression.registerOperator(name, dig);
-                        expression.isRegistered = false;
-                        expression.isClosed = true;
-                        break;
-                    case 'equal':
-                        if (expression.isRegistered) return;
-                        if (calc.isEqual) return;
-                        expression.addCurrentInArray();
-                        expression.equal();
-                        calc.current = expression.isSuccess
-                            ? expression.result
-                            : calc.current;
-                        oldFormula = calc.formula;
-                        calc.current = calc.equal();
-                        calc.isEqual = true;
-                        calc.isRegistered = false;
-                        calc.formula = `${oldFormula} ${expression.getFormulaDisplay()} = `;
-                        resultFormulas.push({
-                            formula: calc.formula + calc.value,
-                            id: Math.random(),
-                        });
-                        dispatch(
-                            drawHistoryDisplay({
-                                formulas: resultFormulas,
-                                formula: calc.formula,
-                                value: calc.value.toString(),
-                                isExpression: false,
-                            })
-                        );
-                        break;
-                    case 'plusmn':
-                        expression.changeSign();
-                        break;
-                    case 'zero':
-                        expression.changeCurrent(dig);
-                        break;
-                    case 'dot':
-                        expression.changeCurrent(dig);
-                        break;
-                    default:
-                        if (expression.isClosed) return;
-                        expression.changeCurrent(dig);
-                }
-                if (!expression.isSuccess) {
-                    dispatch(
-                        drawDisplay({
-                            value:
-                                expression.getFormulaDisplay() +
-                                expression.current,
-                        })
-                    );
-                }
-            };
+    const controller = (digit, name) => () => {
+        if (name === 'bl') {
+            if (!calc.isRegistered && calc.current) {
+                calc.registerCommand(new MultiplyCommand());
+            }
+            calc.openBracket();
+            calc.isRegistered = true;
+            dispatch(drawDisplay(calc.getHistoryDisplay()));
+            dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
         }
-        return () => {};
+        if (name === 'br') {
+            if (calc.openBracketCount && !calc.isRegistered) {
+                calc.closeBracket();
+                dispatch(drawDisplay(calc.getHistoryDisplay()));
+                dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+            }
+        }
+        if (DRAW_BUTTONS.includes(name)) {
+            if (calc.getLastHistoryItem() !== ')')
+                calc.changeCurrentValue(digit);
+            dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+            dispatch(drawDisplay(calc.getHistoryDisplay()));
+        }
+        if (CHANGE_SIGN.includes(name)) {
+            calc.changeSign();
+            dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+            dispatch(drawDisplay(calc.getHistoryDisplay()));
+        }
+        if (DRAW_HISTORY_BUTTONS.includes(name)) {
+            let result;
+            switch (name) {
+                case 'plus':
+                    calc.registerCommand(new AddCommand());
+                    break;
+                case 'minus':
+                    calc.registerCommand(new SubtractCommand());
+                    break;
+                case 'multiply':
+                    calc.registerCommand(new MultiplyCommand());
+                    break;
+                case 'divide':
+                    calc.registerCommand(new DivideCommand());
+                    break;
+                case 'remainder':
+                    calc.registerCommand(new RemainderCommand());
+                    break;
+                case 'equal':
+                    result = calc.equal(() => {
+                        dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+                    });
+                    dispatch(drawDisplay(result));
+                    break;
+                default:
+                    break;
+            }
+            switch (name) {
+                case 'plus':
+                case 'minus':
+                case 'multiply':
+                case 'divide':
+                case 'remainder':
+                    dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+                    dispatch(drawDisplay(calc.getHistoryDisplay()));
+                    break;
+                default:
+                    break;
+            }
+        }
+        if (CLEAR.includes(name)) {
+            calc.clear();
+            calc.clearCurrent();
+            dispatch(clearDisplay());
+        }
     };
+
     return (
         <>
             <Display />
-            <Keypad
-                handle={isExpression ? handleExpression : handleDisplay}
-                calc={calc}
-            />
+            <Keypad handle={controller} />
         </>
     );
 };

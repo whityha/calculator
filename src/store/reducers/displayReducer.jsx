@@ -1,12 +1,9 @@
 import {
-    CHANGE_SIGN,
     CLEAR_ALL,
-    CLEAR_CURRENT_VALUE,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     DRAW_DISPLAY,
     DRAW_HISTORY_DISPLAY,
-    START_EXPRESSION,
 } from '@actions/type';
 import calc from '@command/command';
 
@@ -14,30 +11,15 @@ import initialState from '../initialState';
 
 const displayReducer = (state = initialState, action = {}) => {
     switch (action.type) {
-        case START_EXPRESSION:
-            return {
-                ...state,
-                value: action.payload,
-                isExpression: true,
-                valueHistory: '',
-            };
         case DRAW_DISPLAY:
             return {
                 ...state,
-                value: action.payload.value,
-                historyValue:
-                    action.payload.resultHistoryValue || state.historyValue,
-            };
-        case CLEAR_CURRENT_VALUE:
-            return {
-                ...state,
-                value: 0,
+                value: action.payload,
             };
         case CLEAR_DISPLAY:
-            calc.clear();
             return {
                 ...state,
-                value: 0,
+                value: '0',
                 historyValue: '',
             };
         case CLEAR_ALL:
@@ -53,18 +35,10 @@ const displayReducer = (state = initialState, action = {}) => {
                 ...state,
                 formulas: [],
             };
-        case CHANGE_SIGN:
-            return {
-                ...state,
-                value: action.payload,
-            };
         case DRAW_HISTORY_DISPLAY:
             return {
                 ...state,
-                historyValue: action.payload.formula,
-                value: action.payload.value,
-                formulas: action.payload.formulas ?? state.formulas,
-                isExpression: action.payload.isExpression,
+                historyValue: action.payload,
             };
         default:
             return state;
