@@ -7,17 +7,17 @@ import Button from '../Button/ButtonFC';
 import WrapperKeypad from './styled';
 
 const Keypad = ({ handle }) => {
-    const actualDig = useSelector(({ control: { actualDig: act } }) => act);
+    const actualDigit = useSelector(({ control: { actualDigit: act } }) => act);
     return (
-        <WrapperKeypad area={actualDig}>
-            {BUTTONS.map(({ name, dig }) => (
+        <WrapperKeypad area={actualDigit}>
+            {BUTTONS.map(({ name, digit }) => (
                 <Button
                     key={name}
                     name={name}
                     area={name}
-                    onClick={handle(dig, name)}
+                    onClick={handle(digit, name)}
                 >
-                    {dig}
+                    {digit}
                 </Button>
             ))}
         </WrapperKeypad>

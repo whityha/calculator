@@ -2,7 +2,7 @@ export default class ReminderCommand {
     constructor(valueToReminder) {
         this.currentValue = null;
         this.value = valueToReminder;
-        this.dig = '%';
+        this.sign = '%';
         this.priority = 2;
         this.name = 'remainder';
     }
@@ -16,7 +16,7 @@ export default class ReminderCommand {
     }
 
     getSign() {
-        return this.dig;
+        return this.sign;
     }
 
     getName() {

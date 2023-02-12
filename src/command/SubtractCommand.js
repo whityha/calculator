@@ -2,7 +2,7 @@ export default class SubtractCommand {
     constructor(valueToSubtract) {
         this.value = valueToSubtract;
         this.currentValue = null;
-        this.dig = '-';
+        this.sign = '-';
         this.priority = 1;
         this.name = 'minus';
     }
@@ -16,7 +16,7 @@ export default class SubtractCommand {
     }
 
     getSign() {
-        return this.dig;
+        return this.sign;
     }
 
     getName() {

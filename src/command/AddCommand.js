@@ -2,7 +2,7 @@ export default class AddCommand {
     constructor(valueToAdd) {
         this.value = Number(valueToAdd);
         this.priority = 1;
-        this.dig = '+';
+        this.sign = '+';
         this.name = 'plus';
     }
 
@@ -15,7 +15,7 @@ export default class AddCommand {
     }
 
     getSign() {
-        return this.dig;
+        return this.sign;
     }
 
     getName() {

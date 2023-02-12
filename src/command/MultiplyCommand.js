@@ -3,7 +3,7 @@ export default class MultiplyCommand {
         this.value = valueToMultiply;
         this.currentValue = null;
         this.priority = 2;
-        this.dig = '×';
+        this.sign = '×';
         this.name = 'multiply';
     }
 
@@ -16,7 +16,7 @@ export default class MultiplyCommand {
     }
 
     getSign() {
-        return this.dig;
+        return this.sign;
     }
 
     getName() {

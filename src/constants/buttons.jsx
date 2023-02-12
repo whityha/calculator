@@ -1,87 +1,87 @@
 const BUTTONS = [
     {
         name: 'one',
-        dig: '1',
+        digit: '1',
     },
     {
         name: 'two',
-        dig: '2',
+        digit: '2',
     },
     {
         name: 'three',
-        dig: '3',
+        digit: '3',
     },
     {
         name: 'four',
-        dig: '4',
+        digit: '4',
     },
     {
         name: 'five',
-        dig: '5',
+        digit: '5',
     },
     {
         name: 'six',
-        dig: '6',
+        digit: '6',
     },
     {
         name: 'seven',
-        dig: '7',
+        digit: '7',
     },
     {
         name: 'eight',
-        dig: '8',
+        digit: '8',
     },
     {
         name: 'nine',
-        dig: '9',
+        digit: '9',
     },
     {
         name: 'zero',
-        dig: '0',
+        digit: '0',
     },
     {
         name: 'plus',
-        dig: ' + ',
+        digit: ' + ',
     },
     {
         name: 'minus',
-        dig: ' - ',
+        digit: ' - ',
     },
     {
         name: 'equal',
-        dig: ' = ',
+        digit: ' = ',
     },
     {
         name: 'C',
-        dig: 'C',
+        digit: 'C',
     },
     {
         name: 'bl',
-        dig: '(',
+        digit: '(',
     },
     {
         name: 'divide',
-        dig: ' / ',
+        digit: ' / ',
     },
     {
         name: 'remainder',
-        dig: ' % ',
+        digit: ' % ',
     },
     {
         name: 'multiply',
-        dig: ' * ',
+        digit: ' * ',
     },
     {
         name: 'br',
-        dig: ')',
+        digit: ')',
     },
     {
         name: 'dot',
-        dig: '.',
+        digit: '.',
     },
     {
         name: 'plusmn',
-        dig: '±',
+        digit: '±',
     },
 ];
 export default BUTTONS;

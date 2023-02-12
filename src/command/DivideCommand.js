@@ -3,7 +3,7 @@ export default class DivideCommand {
         this.currentValue = null;
         this.priority = 2;
         this.value = valueToDivide;
-        this.dig = '÷';
+        this.sign = '÷';
         this.name = 'divide';
     }
 
@@ -16,7 +16,7 @@ export default class DivideCommand {
     }
 
     getSign() {
-        return this.dig;
+        return this.sign;
     }
 
     getName() {

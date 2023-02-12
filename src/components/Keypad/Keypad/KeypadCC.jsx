@@ -8,17 +8,17 @@ import WrapperKeypad from './styled';
 
 class Keypad extends React.Component {
     render() {
-        const { handle, actualDig } = this.props;
+        const { handle, actualDigit } = this.props;
         return (
-            <WrapperKeypad area={actualDig}>
-                {BUTTONS.map(({ name, dig }) => (
+            <WrapperKeypad area={actualDigit}>
+                {BUTTONS.map(({ name, digit }) => (
                     <Button
                         key={name}
                         name={name}
                         area={name}
-                        onClick={handle(dig, name)}
+                        onClick={handle(digit, name)}
                     >
-                        {dig}
+                        {digit}
                     </Button>
                 ))}
             </WrapperKeypad>
