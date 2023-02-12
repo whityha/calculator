@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BUTTONS from '@constants/buttons';
+import controller from '@utils/controller';
 
 import Button from '../Button/ButtonCC';
 
@@ -8,15 +9,15 @@ import WrapperKeypad from './styled';
 
 class Keypad extends React.Component {
     render() {
-        const { handle, actualDigit } = this.props;
+        const { dispatch } = this.props;
         return (
-            <WrapperKeypad area={actualDigit}>
+            <WrapperKeypad>
                 {BUTTONS.map(({ name, digit }) => (
                     <Button
                         key={name}
                         name={name}
                         area={name}
-                        onClick={handle(digit, name)}
+                        onClick={controller(digit, name, dispatch)}
                     >
                         {digit}
                     </Button>
@@ -26,6 +27,10 @@ class Keypad extends React.Component {
     }
 }
 
-const mapStateToProps = ({ control }) => control;
+const mapDispatchToProps = (dispatch) => ({
+    dispatch: (action) => {
+        dispatch(action);
+    },
+});
 
-export default connect(mapStateToProps)(Keypad);
+export default connect(mapDispatchToProps)(Keypad);
