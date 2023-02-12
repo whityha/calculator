@@ -4,7 +4,7 @@ import {
     clearDisplay,
     drawDisplay,
     drawHistoryDisplay,
-} from '@actions/displayActions';
+} from '@actions/display';
 import AddCommand from '@command/AddCommand';
 import calc from '@command/command';
 import DivideCommand from '@command/DivideCommand';

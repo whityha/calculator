@@ -1,7 +1,7 @@
 export default {
     value: 0,
     historyValue: '',
-    formulas: [],
+    historyList: [],
     theme: 'light',
     isExpression: false,
 };

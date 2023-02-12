@@ -5,12 +5,12 @@ import { List, ListItem, WrapperHistory } from './styled';
 
 class History extends React.PureComponent {
     render() {
-        const { formulas } = this.props;
+        const { historyList } = this.props;
         return (
             <WrapperHistory>
                 <h1>History</h1>
                 <List>
-                    {formulas.map(({ formula, id }) => (
+                    {historyList.map(({ formula, id }) => (
                         <ListItem key={id}>{formula}</ListItem>
                     ))}
                 </List>

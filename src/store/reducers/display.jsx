@@ -10,12 +10,12 @@ import calc from '@command/command';
 
 import initialState from '../initialState';
 
-const displayReducer = (state = initialState, action = {}) => {
-    switch (action.type) {
+const displayReducer = (state = initialState, { type, payload } = {}) => {
+    switch (type) {
         case DRAW_DISPLAY:
             return {
                 ...state,
-                value: action.payload,
+                value: payload,
             };
         case CLEAR_DISPLAY:
             return {
@@ -39,12 +39,12 @@ const displayReducer = (state = initialState, action = {}) => {
         case DRAW_HISTORY:
             return {
                 ...state,
-                formulas: [...state.formulas, action.payload],
+                historyList: [...state.historyList, payload],
             };
         case DRAW_HISTORY_DISPLAY:
             return {
                 ...state,
-                historyValue: action.payload,
+                historyValue: payload,
             };
         default:
             return state;

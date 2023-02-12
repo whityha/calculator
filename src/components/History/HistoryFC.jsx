@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux';
 import { List, ListItem, WrapperHistory } from './styled';
 
 const History = () => {
-    const formulas = useSelector(({ display: { formulas: forms } }) => forms);
+    const formulas = useSelector(
+        ({ display: { historyList: forms } }) => forms
+    );
     return (
         <WrapperHistory>
             <h1>History</h1>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { switchTheme } from '@actions/controlsActions';
+import switchTheme from '@actions/control';
 
 import { Handler, WrapperSwitcher } from './styled';
 
