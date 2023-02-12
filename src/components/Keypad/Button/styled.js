@@ -1,13 +1,24 @@
 import { DRAW_HISTORY } from '@constants/options';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledButton = styled.button`
-    grid-area: ${({ area }) => area};
-    border: 1px solid black;
-    color: black;
-    background: ${({ area }) => (DRAW_HISTORY.includes(area) ? '#f6be5a' : '')};
+    ${({
+        area,
+        theme: {
+            settings: {
+                font: { main },
+                keypad: { buttonColor, buttonBorder, buttonSpecialBG },
+            },
+        },
+    }) => css`
+        grid-area: ${area};
+        color: ${buttonColor};
+        border: ${buttonBorder.join(' ')};
+        background: ${DRAW_HISTORY.includes(area) ? buttonSpecialBG : ''};
+        font-size: ${main};
+    `};
+
     cursor: pointer;
-    font-size: 24px;
     &:focus-visible {
         outline: none;
     }

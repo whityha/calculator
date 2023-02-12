@@ -5,7 +5,13 @@ const WrapperDisplay = styled.div`
     justify-content: flex-end;
     align-items: center;
     grid-area: display;
-    padding: 1rem 5%;
+    padding: ${({
+        theme: {
+            settings: {
+                display: { padding },
+            },
+        },
+    }) => padding};
     position: relative;
     &:after {
         content: '';

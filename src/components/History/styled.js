@@ -1,16 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const WrapperHistory = styled.div`
     display: flex;
     position: relative;
     flex-direction: column;
-    gap: 50px;
     align-items: center;
     grid-area: history;
     border-left: 2px solid
         ${({ theme: { background } }) => background.secondary};
-    padding: 0 20px 50px 20px;
     overflow-y: auto;
+
+    ${({
+        theme: {
+            settings: {
+                history: { listGap, padding },
+            },
+        },
+    }) => css`
+        gap: ${listGap};
+        padding: ${padding};
+    `};
 `;
 
 export const Title = styled.h1`
@@ -19,20 +28,20 @@ export const Title = styled.h1`
     background: white;
     display: block;
     width: 100%;
-    padding: 30px 30px;
+    padding: ${({ theme: { settings } }) => settings.history.title.padding};
     text-align: center;
 `;
 
 export const List = styled.ul`
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    font-size: 1.5rem;
+    gap: ${({ theme: { settings } }) => settings.history.list.gap};
+    font-size: ${({ theme: { settings } }) => settings.font.main};
     font-weight: bold;
 `;
 
 export const ListItem = styled.li`
     border-top: 1px solid ${({ theme: { background } }) => background.secondary};
-    padding: 5px;
+    padding: ${({ theme: { settings } }) => settings.history.ListItem.padding};
     text-align: center;
 `;

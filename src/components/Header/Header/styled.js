@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const WrapperHeader = styled.header`
     display: flex;
@@ -7,17 +7,39 @@ export const WrapperHeader = styled.header`
 `;
 
 export const Title = styled.h2`
-    text-shadow: 0px 0px 10px ${({ theme: { color } }) => color.primary};
-    color: ${({ theme: { color } }) => color.primary};
+    ${({
+        theme: {
+            color: { primary },
+            settings: {
+                header: { titleTextShadow },
+            },
+        },
+    }) => css`
+        text-shadow: ${`${titleTextShadow} ${primary}}`};
+        color: ${primary};
+    `}
     margin-right: auto;
 `;
 
 export const Nav = styled.nav`
     display: flex;
-    gap: 1rem;
-    font-size: 1rem;
-    margin-right: 100px;
-    li {
-        color: ${({ theme: { color } }) => color.primary};
-    }
+    ${({
+        theme: {
+            settings: {
+                header: { navGap },
+                font: { secondary },
+            },
+        },
+    }) => css`
+        gap: ${navGap};
+        font-size: ${secondary};
+    `}
+`;
+
+export const NavItem = styled.li`
+    color: ${({
+        theme: {
+            color: { primary },
+        },
+    }) => primary};
 `;

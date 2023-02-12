@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const WrapperSwitcher = styled.div`
+    display: none;
     width: 50px;
     height: 20px;
     border-radius: 100px;
