@@ -5,20 +5,19 @@ const WrapperDisplay = styled.div`
     justify-content: flex-end;
     align-items: center;
     grid-area: display;
+    position: relative;
     padding: ${({
         theme: {
-            settings: {
-                display: { padding },
-            },
+            padding: { p1, p4 },
         },
-    }) => padding};
-    position: relative;
+    }) => `${p1} ${p4}`};
+
     &:after {
         content: '';
         display: block;
-        width: 90%;
+        width: ${({ theme: { width } }) => width.lg};
         height: 2px;
-        background: ${({ theme: { background } }) => background.secondary};
+        background: ${({ theme: { colors } }) => colors.main};
         position: absolute;
         bottom: 0;
         left: 50%;

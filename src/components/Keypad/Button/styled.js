@@ -5,17 +5,17 @@ const StyledButton = styled.button`
     ${({
         area,
         theme: {
-            settings: {
-                font: { main },
-                keypad: { buttonColor, buttonBorder, buttonSpecialBG },
-            },
+            fontSize,
+            colors,
+            background,
+            border: { original },
         },
     }) => css`
         grid-area: ${area};
-        color: ${buttonColor};
-        border: ${buttonBorder.join(' ')};
-        background: ${DRAW_HISTORY.includes(area) ? buttonSpecialBG : ''};
-        font-size: ${main};
+        color: ${colors.black};
+        border: ${original};
+        background: ${DRAW_HISTORY.includes(area) ? background.special : ''};
+        font-size: ${fontSize.main};
     `};
 
     cursor: pointer;

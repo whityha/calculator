@@ -7,39 +7,21 @@ export const WrapperHeader = styled.header`
 `;
 
 export const Title = styled.h2`
-    ${({
-        theme: {
-            color: { primary },
-            settings: {
-                header: { titleTextShadow },
-            },
-        },
-    }) => css`
-        text-shadow: ${`${titleTextShadow} ${primary}}`};
-        color: ${primary};
+    ${({ theme: { colors } }) => css`
+        text-shadow: 0px 0px 10px ${colors.main};
+        color: ${colors.main};
     `}
     margin-right: auto;
 `;
 
 export const Nav = styled.nav`
     display: flex;
-    ${({
-        theme: {
-            settings: {
-                header: { navGap },
-                font: { secondary },
-            },
-        },
-    }) => css`
-        gap: ${navGap};
-        font-size: ${secondary};
+    ${({ theme: { gap, fontSize } }) => css`
+        gap: ${gap.main};
+        font-size: ${fontSize.secondary};
     `}
 `;
 
 export const NavItem = styled.li`
-    color: ${({
-        theme: {
-            color: { primary },
-        },
-    }) => primary};
+    color: ${({ theme: { colors } }) => colors.main};
 `;

@@ -5,17 +5,9 @@ const WrapperHistoryDisplay = styled.div`
     position: absolute;
     top: 5%;
     right: 5%;
-
-    ${({
-        theme: {
-            settings: {
-                font: { secondary },
-                display: { displayHistoryColor },
-            },
-        },
-    }) => css`
-        font-size: ${secondary};
-        color: ${displayHistoryColor};
+    ${({ theme: { colors, fontSize } }) => css`
+        font-size: ${fontSize.secondary};
+        color: ${colors.lightGrey};
     `}
 `;
 

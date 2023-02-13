@@ -2,23 +2,25 @@ import styled, { css } from 'styled-components';
 
 export const StyledApp = styled.div`
     height: 100vh;
-    background: ${({ theme }) => theme.background.primary};
+    background: ${({ theme: { background } }) => background.main};
 `;
 
 export const StyledWrapperApp = styled.div`
     display: grid;
+    grid-template-areas:
+        'header header'
+        'display history'
+        'keypad history';
     ${({
         theme: {
-            settings: {
-                home: { gridAreas, gridRows, gridColumns },
-            },
+            gridSizes: { xsm, sm, md, lg },
         },
     }) => css`
-        grid-template-areas: ${gridAreas};
-        grid-template-rows: ${gridRows};
-        grid-template-columns: ${gridColumns};
+        grid-template-rows: repeat(2, ${xsm}) ${lg};
+        grid-template-columns: ${md} ${sm};
     `}
+
     max-width: 80%;
     margin: 0 auto;
-    height: 100%;
+    height: ${({ theme: { height } }) => height['100']};
 `;
