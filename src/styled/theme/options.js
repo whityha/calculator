@@ -56,7 +56,6 @@ const border = {
 const gap = {
     main: '20',
 };
-
 const padding = {
     p0: '0',
     p1: '10',

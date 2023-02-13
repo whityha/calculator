@@ -20,7 +20,7 @@ export const WrapperHistory = styled.div`
         },
     }) => css`
         gap: ${main}px;
-        padding: ${`${p0}px ${p2}px ${p5}px ${p2}px`};
+        padding: ${`${p0}px ${p2}px ${p5}px`};
     `};
 `;
 

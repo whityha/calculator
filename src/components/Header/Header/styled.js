@@ -7,8 +7,8 @@ export const WrapperHeader = styled.header`
 `;
 
 export const Title = styled.h2`
-    ${({ theme: { colorPrimary } }) => css`
-        text-shadow: 0px 0px 10px ${colorPrimary};
+    ${({ theme: { colorPrimary, textShadow } }) => css`
+        text-shadow: ${textShadow};
         color: ${colorPrimary};
     `}
     margin-right: auto;

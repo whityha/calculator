@@ -12,7 +12,7 @@ const App = () => {
     const variant = useSelector(({ control }) => control.theme);
     return (
         <ThemeProvider theme={theme[variant]}>
-            <Suspense>
+            <Suspense fallback="Loading...">
                 <Routes>
                     {ROUTES.map(({ path, element }) => (
                         <Route key={path} path={path} element={element} />
