@@ -7,14 +7,14 @@ const theme = {
         ...OPTIONS,
         colorPrimary: COLORS.blue,
         backgroundPrimary: COLORS.white,
-        textShadow: `0px 0px 10px ${COLORS.blue}`,
+        colorShadow: COLORS.blue,
     },
     dark: {
         value: 'dark',
         ...OPTIONS,
         colorPrimary: COLORS.white,
         backgroundPrimary: COLORS.blue,
-        textShadow: `0px 0px 10px ${COLORS.white}`,
+        colorShadow: COLORS.white,
     },
     colored: {
         value: 'colored',

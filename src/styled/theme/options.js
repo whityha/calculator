@@ -57,7 +57,7 @@ const gap = {
     main: '20',
 };
 const textShadow = {
-    main: `0px 0px 10px ${colors.white}`,
+    main: `0px 0px 10px`,
 };
 const padding = {
     p0: '0',
