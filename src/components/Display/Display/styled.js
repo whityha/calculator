@@ -10,14 +10,14 @@ const WrapperDisplay = styled.div`
         theme: {
             padding: { p1, p4 },
         },
-    }) => `${p1} ${p4}`};
+    }) => `${p1}px ${p4}px`};
 
     &:after {
         content: '';
         display: block;
         width: ${({ theme: { width } }) => width.lg};
         height: 2px;
-        background: ${({ theme: { colors } }) => colors.main};
+        background: ${({ theme: { colorPrimary } }) => colorPrimary};
         position: absolute;
         bottom: 0;
         left: 50%;

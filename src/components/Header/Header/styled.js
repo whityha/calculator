@@ -7,9 +7,9 @@ export const WrapperHeader = styled.header`
 `;
 
 export const Title = styled.h2`
-    ${({ theme: { colors } }) => css`
-        text-shadow: 0px 0px 10px ${colors.main};
-        color: ${colors.main};
+    ${({ theme: { colorPrimary } }) => css`
+        text-shadow: 0px 0px 10px ${colorPrimary};
+        color: ${colorPrimary};
     `}
     margin-right: auto;
 `;
@@ -17,11 +17,11 @@ export const Title = styled.h2`
 export const Nav = styled.nav`
     display: flex;
     ${({ theme: { gap, fontSize } }) => css`
-        gap: ${gap.main};
-        font-size: ${fontSize.secondary};
+        gap: ${gap.main}px;
+        font-size: ${fontSize.secondary}px;
     `}
 `;
 
 export const NavItem = styled.li`
-    color: ${({ theme: { colors } }) => colors.main};
+    color: ${({ theme: { colorPrimary } }) => colorPrimary};
 `;

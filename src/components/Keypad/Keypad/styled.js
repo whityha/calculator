@@ -17,9 +17,9 @@ const WrapperKeypad = styled.div`
             gridSizes: { xsm },
         },
     }) => css`
-        grid-template-rows: repeat(6, ${md});
+        grid-template-rows: repeat(6, ${md}px);
         grid-template-columns: repeat(4, ${xsm});
-        padding: ${p2};
+        padding: ${p2}px;
     `};
 `;
 

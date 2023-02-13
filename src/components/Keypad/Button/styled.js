@@ -15,7 +15,7 @@ const StyledButton = styled.button`
         color: ${colors.black};
         border: ${original};
         background: ${DRAW_HISTORY.includes(area) ? background.special : ''};
-        font-size: ${fontSize.main};
+        font-size: ${fontSize.main}px;
     `};
 
     cursor: pointer;

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const StyledApp = styled.div`
     height: 100vh;
-    background: ${({ theme: { background } }) => background.main};
+    background: ${({ theme: { backgroundPrimary } }) => backgroundPrimary};
 `;
 
 export const StyledWrapperApp = styled.div`
@@ -22,5 +22,5 @@ export const StyledWrapperApp = styled.div`
 
     max-width: 80%;
     margin: 0 auto;
-    height: ${({ theme: { height } }) => height['100']};
+    height: ${({ theme: { heightPercent } }) => heightPercent['100']};
 `;

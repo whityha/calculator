@@ -6,7 +6,7 @@ const WrapperHistoryDisplay = styled.div`
     top: 5%;
     right: 5%;
     ${({ theme: { colors, fontSize } }) => css`
-        font-size: ${fontSize.secondary};
+        font-size: ${fontSize.secondary}px;
         color: ${colors.lightGrey};
     `}
 `;
