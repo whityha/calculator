@@ -56,6 +56,9 @@ const border = {
 const gap = {
     main: '20',
 };
+const textShadow = {
+    main: `0px 0px 10px ${colors.white}`,
+};
 const padding = {
     p0: '0',
     p1: '10',
@@ -75,5 +78,6 @@ export {
     height,
     heightPercent,
     padding,
+    textShadow,
     width,
 };
