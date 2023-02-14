@@ -7,4 +7,10 @@ const COLORS = {
     orange: '#f6be5a',
 };
 
-export default COLORS;
+const THEMES = {
+    LIGHT: 'light',
+    DARK: 'dark',
+    COLORED: 'colored',
+};
+
+export { COLORS, THEMES };

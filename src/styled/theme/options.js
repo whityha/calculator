@@ -1,4 +1,4 @@
-import COLORS from './config';
+import { COLORS } from './config';
 
 const colors = {
     primary: COLORS.blue,
@@ -15,6 +15,7 @@ const background = {
     primary: COLORS.white,
     secondary: COLORS.blue,
     special: COLORS.orange,
+    lightBlue: COLORS.lightBlue,
 };
 
 const fontSize = {
@@ -41,6 +42,7 @@ const gridSizes = {
     xsm: '1fr',
     sm: '2fr',
     md: '5fr',
+    xmd: '6fr',
     lg: '7fr',
 };
 const width = {
@@ -58,6 +60,9 @@ const gap = {
 };
 const textShadow = {
     main: `0px 0px 10px`,
+};
+const maxWidth = {
+    lg: '80%',
 };
 const padding = {
     p0: '0',
@@ -77,6 +82,7 @@ export {
     gridSizes,
     height,
     heightPercent,
+    maxWidth,
     padding,
     textShadow,
     width,

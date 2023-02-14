@@ -13,7 +13,7 @@ const controlReducer = (state = initialState, action = {}) => {
         case SWITCH_THEME:
             return {
                 ...state,
-                theme: state.theme === 'dark' ? 'light' : 'dark',
+                theme: action.payload,
             };
         default:
             return state;
