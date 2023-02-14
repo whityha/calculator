@@ -7,7 +7,7 @@
         "@command": ["./command"],
         "@components": ["./components"],
         "@store": ["./store"],
-        "@styles": ["./styles"]
+        "@styled": ["./styled"]
       }
     },
     "exclude": ["node_modules"]

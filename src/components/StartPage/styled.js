@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-    padding: 1rem 2rem;
+    padding: ${({
+        theme: {
+            padding: { p2, p3 },
+        },
+    }) => `${p2}px ${p3}px`};
     cursor: pointer;
-    background: #383737;
+    background: black;
     color: white;
 `;
 
