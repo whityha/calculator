@@ -5,14 +5,8 @@ import React from 'react';
 import { Input, Label, Wrapper } from './styled';
 
 const TogglerHistoryFC = () => (
-    // const historyIsShow = useSelector(({ control }) => control.historyIsShow);
-    // const dispatch = useDispatch();
-
-    // const handleTheme = (e) => {
-    //     dispatch(switchTheme(e.target.value));
-    // };
     <Wrapper>
-        <Label for="togglerHistory">SHOW HISTORY</Label>
+        <Label htmlFor="togglerHistory">SHOW HISTORY</Label>
         <Input type="checkbox" id="togglerHistory" />
     </Wrapper>
 );

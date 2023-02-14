@@ -1,20 +1,13 @@
 import React from 'react';
 
-import ClearButton from './ClearHistory/Button';
-import TogglerHistory from './ShowHistory/TogglerHistory';
-import SwitcherThemeFC from './SwitcherTheme/Switcher';
+import SETTING_LIST from './config';
 import WrapperSettingsListFC from './styled';
 
 const SettingsListFC = () => (
     <WrapperSettingsListFC>
-        <li>
-            <SwitcherThemeFC />
-        </li>
-
-        <li>
-            <TogglerHistory />
-        </li>
-        <ClearButton />
+        {SETTING_LIST.map(({ id, component }) => (
+            <li key={id}>{component}</li>
+        ))}
     </WrapperSettingsListFC>
 );
 
