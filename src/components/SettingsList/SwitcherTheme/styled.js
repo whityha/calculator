@@ -16,12 +16,12 @@ export const Switcher = styled.select`
     ${({
         theme: {
             padding,
-            background,
+            backgroundSecondary,
             width: { md },
         },
     }) => css`
         padding: ${padding.p1}px;
-        background: ${background.lightBlue};
+        background: ${backgroundSecondary};
         width: ${md};
     `}
 `;

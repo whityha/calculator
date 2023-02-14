@@ -21,6 +21,10 @@ const theme = {
     colored: {
         value: 'colored',
         ...OPTIONS,
+        colorPrimary: COLORS.white,
+        backgroundPrimary: COLORS.pink,
+        backgroundSecondary: COLORS.black,
+        colorShadow: COLORS.white,
     },
 };
 

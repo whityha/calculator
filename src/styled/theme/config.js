@@ -5,6 +5,7 @@ const COLORS = {
     lightBlue: '#4789c0',
     lightGrey: '#c7b9b9',
     orange: '#f6be5a',
+    pink: '#e494cc',
 };
 
 const THEMES = {
