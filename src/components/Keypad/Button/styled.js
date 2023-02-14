@@ -1,14 +1,25 @@
 import { DRAW_HISTORY_BUTTONS } from '@constants/options';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledButton = styled.button`
-    grid-area: ${({ area }) => area};
-    border: 1px solid black;
-    color: black;
-    background: ${({ area }) =>
-        DRAW_HISTORY_BUTTONS.includes(area) ? '#f6be5a' : ''};
+    ${({
+        area,
+        theme: {
+            fontSize,
+            colors,
+            background,
+            border: { original },
+        },
+    }) => css`
+        grid-area: ${area};
+        color: ${colors.black};
+        border: ${original};
+        background: ${DRAW_HISTORY_BUTTONS.includes(area)
+            ? background.special
+            : ''};
+        font-size: ${fontSize.main}px;
+    `};
     cursor: pointer;
-    font-size: 24px;
     &:focus-visible {
         outline: none;
     }

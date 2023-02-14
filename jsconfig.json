@@ -1,15 +1,15 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "@constants": ["./constants"],
-      "@actions": ["./store/actions"],
-      "@command": ["./command"],
-      "@components": ["./components"],
-      "@store": ["./store"],
-      "@styles": ["./styles"],
-      "@utils": ["./utils"]
-    }
-  },
-  "exclude": ["node_modules"]
-}
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+        "@constants": ["./constants"],
+        "@actions": ["./store/actions"],
+        "@command": ["./command"],
+        "@components": ["./components"],
+        "@store": ["./store"],
+        "@utils": ["./utils"],
+        "@styled": ["./styled"]
+      }
+    },
+    "exclude": ["node_modules"]
+  }

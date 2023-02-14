@@ -1,13 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
         list-style-type: none;
         text-decoration: none;
-        color: ${(props) => props.theme.color.primary};     
+        color: ${({ theme: { colorPrimary } }) => colorPrimary};   
         font-family: 'Montserrat';
     }
     body {

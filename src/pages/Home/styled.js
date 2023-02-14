@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledApp = styled.div`
     height: 100vh;
-    background: ${({ theme }) => theme.background.primary};
+    background: ${({ theme: { backgroundPrimary } }) => backgroundPrimary};
 `;
 
 export const StyledWrapperApp = styled.div`
@@ -11,9 +11,16 @@ export const StyledWrapperApp = styled.div`
         'header header'
         'display history'
         'keypad history';
-    grid-template-rows: 1fr 1fr 7fr;
-    grid-template-columns: 5fr 2fr;
-    max-width: 1300px;
+    ${({
+        theme: {
+            gridSizes: { xsm, sm, md, lg },
+        },
+    }) => css`
+        grid-template-rows: repeat(2, ${xsm}) ${lg};
+        grid-template-columns: ${md} ${sm};
+    `}
+
+    max-width: 80%;
     margin: 0 auto;
-    height: 100%;
+    height: ${({ theme: { heightPercent } }) => heightPercent['100']};
 `;

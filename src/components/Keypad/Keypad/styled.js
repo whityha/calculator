@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const WrapperKeypad = styled.div`
     grid-area: keypad;
@@ -10,9 +10,17 @@ const WrapperKeypad = styled.div`
         'one two three plus'
         'zero dot plusmn equal'
         'C C C C';
-    grid-template-rows: 70px 70px 70px 70px 70px 70px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 1rem;
+    ${({
+        theme: {
+            height: { md },
+            padding: { p2 },
+            gridSizes: { xsm },
+        },
+    }) => css`
+        grid-template-rows: repeat(6, ${md}px);
+        grid-template-columns: repeat(4, ${xsm});
+        padding: ${p2}px;
+    `};
 `;
 
 export default WrapperKeypad;

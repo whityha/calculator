@@ -36,8 +36,8 @@
                     ["@command", "./src/command"],
                     ["@components", "./src/components"],
                     ["@store", "./src/store"],
-                    ["@styles", "./src/styles"],
-                    ["@utils", "./src/utils"]
+                    ["@utils", "./src/utils"],
+                    ["@styled", "./src/styled"]
                 ],
                 "extensions": [".js", ".jsx", ".json"]
             }
