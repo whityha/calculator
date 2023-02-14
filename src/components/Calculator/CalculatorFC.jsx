@@ -27,8 +27,8 @@ import {
 } from '@constants/options';
 import initialState from '@store/initialState';
 
-import Display from '../Display/Display/DisplayFC';
-import Keypad from '../Keypad/Keypad/KeypadFC';
+import Display from '../Display/DisplayFC';
+import Keypad from '../Keypad/KeypadFC';
 
 const Calculator = () => {
     const dispatch = useDispatch();

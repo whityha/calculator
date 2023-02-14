@@ -2,8 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import BUTTONS from '@constants/buttons';
 
-import Button from '../Button/ButtonFC';
-
+import Button from './Button/ButtonFC';
 import WrapperKeypad from './styled';
 
 const Keypad = ({ handle }) => {

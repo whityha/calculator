@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import HistoryDisplay from '../HistoryDisplay/HistoryDisplayCC';
-
+import HistoryDisplay from './HistoryDisplay/HistoryDisplayCC';
 import WrapperDisplay from './styled';
 
 class Display extends React.PureComponent {
