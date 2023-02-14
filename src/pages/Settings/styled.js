@@ -1,27 +1,30 @@
 import styled, { css } from 'styled-components';
 
-const WrapperHome = styled.div`
+const WrapperSettings = styled.div`
     display: grid;
     grid-template-areas:
         'header header'
-        'display history'
-        'keypad history';
+        'settingsList settingList';
     ${({
         theme: {
-            gridSizes: { xsm, sm, md, lg },
+            gridSizes: { xsm, sm, xmd, md },
         },
     }) => css`
-        grid-template-rows: repeat(2, ${xsm}) ${lg};
+        grid-template-rows: ${xsm} ${sm} ${xmd};
         grid-template-columns: ${md} ${sm};
     `}
-
+    background: ${({ theme: { backgroundPrimary } }) => backgroundPrimary};
     max-width: ${({
         theme: {
             maxWidth: { lg },
         },
     }) => lg};
-    margin: 0 auto;
     height: ${({ theme: { heightPercent } }) => heightPercent['100']};
+    margin: 0 auto;
 `;
 
-export default WrapperHome;
+const Title = styled.h1`
+    color: ${({ colorPrimary }) => colorPrimary};
+`;
+
+export { Title, WrapperSettings };

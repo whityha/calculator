@@ -4,19 +4,19 @@ import Calculator from '@components/Calculator/CalculatorFC';
 import Header from '@components/Header/Header/HeaderCC';
 import History from '@components/History/HistoryCC';
 
-import { StyledApp, StyledWrapperApp } from './styled';
+import LINKS from '../config';
+
+import WrapperHome from './styled';
 
 export default class HomeCC extends React.Component {
     render() {
         return (
-            <StyledApp>
-                <StyledWrapperApp>
-                    <Header />
-                    <Calculator />
-                    <History />
-                    {/* <ControlPanel /> */}
-                </StyledWrapperApp>
-            </StyledApp>
+            <WrapperHome>
+                <Header links={LINKS.LINKS_CC}>CALCULATOR CC</Header>
+                <Calculator />
+                <History />
+                {/* <ControlPanel /> */}
+            </WrapperHome>
         );
     }
 }

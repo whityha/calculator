@@ -1,4 +1,4 @@
-import COLORS from './config';
+import { COLORS } from './config';
 import * as OPTIONS from './options';
 
 const theme = {
