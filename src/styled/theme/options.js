@@ -64,6 +64,14 @@ const textShadow = {
 const maxWidth = {
     lg: '80%',
 };
+const margin = {
+    m0: '0',
+    m1: '10',
+    m2: '20',
+    m3: '30',
+    m4: '40',
+    m5: '50',
+};
 const padding = {
     p0: '0',
     p1: '10',
@@ -71,6 +79,11 @@ const padding = {
     p3: '30',
     p4: '40',
     p5: '50',
+};
+const transition = {
+    fast: '0.05s',
+    medium: '0.2s',
+    slow: '0.4s',
 };
 
 export {
@@ -82,8 +95,10 @@ export {
     gridSizes,
     height,
     heightPercent,
+    margin,
     maxWidth,
     padding,
     textShadow,
+    transition,
     width,
 };

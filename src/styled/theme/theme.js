@@ -7,6 +7,7 @@ const theme = {
         ...OPTIONS,
         colorPrimary: COLORS.blue,
         backgroundPrimary: COLORS.white,
+        backgroundSecondary: COLORS.white,
         colorShadow: COLORS.blue,
     },
     dark: {
@@ -14,6 +15,7 @@ const theme = {
         ...OPTIONS,
         colorPrimary: COLORS.white,
         backgroundPrimary: COLORS.blue,
+        backgroundSecondary: COLORS.lightBlue,
         colorShadow: COLORS.white,
     },
     colored: {

@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 export const Title = styled.h3`
     padding: ${({
         theme: {
-            padding: { p0, p2 },
+            padding: { p0, p1, p2 },
         },
-    }) => `${p2}px ${p2}px ${p2}px ${p0}px`};
+    }) => `${p1}px ${p2}px ${p1}px ${p0}px`};
 `;
 
 export const Option = styled.option`

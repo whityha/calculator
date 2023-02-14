@@ -1,13 +1,20 @@
 import React from 'react';
 
+import ClearButton from './ClearHistory/Button';
+import TogglerHistory from './ShowHistory/TogglerHistory';
 import SwitcherThemeFC from './SwitcherTheme/Switcher';
 import WrapperSettingsListFC from './styled';
 
 const SettingsListFC = () => (
     <WrapperSettingsListFC>
-        <SwitcherThemeFC />
-        {/* <ShowHistory />
-        <ClearHistoryButton /> */}
+        <li>
+            <SwitcherThemeFC />
+        </li>
+
+        <li>
+            <TogglerHistory />
+        </li>
+        <ClearButton />
     </WrapperSettingsListFC>
 );
 

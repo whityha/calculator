@@ -4,4 +4,5 @@ export default {
     formulas: [],
     theme: 'light',
     isExpression: false,
+    historyIsShow: true,
 };
