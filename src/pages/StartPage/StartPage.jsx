@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BeatLoader from 'react-spinners/BeatLoader';
 import Button from '@components/StartPage/Button';
 import { CC_PATH, FC_PATH } from '@constants/paths';
 
@@ -8,6 +9,7 @@ import { StyledButtonsBlock, StyledPage } from './styled';
 const StartPage = ({ color }) => (
     <StyledPage color={color}>
         <StyledButtonsBlock>
+            <BeatLoader />
             <Link to={CC_PATH}>
                 <Button type="button">CLASS CALCULATOR</Button>
             </Link>

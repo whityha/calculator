@@ -13,8 +13,8 @@ export default createGlobalStyle`
         transition: 0.15s all ease;
     }
     body {
-        background: #2b2b2b;
         transition: 0s;
+        background: ${({ theme: { backgroundPrimary } }) => backgroundPrimary};
     }
     a {
         color: inherit;
