@@ -8,6 +8,8 @@ import { StyledApp, StyledWrapperApp } from './styled';
 
 export default class HomeCC extends React.Component {
     render() {
+        // throw new Error('Какая-то ошибка');
+        // // eslint-disable-next-line no-unreachable
         return (
             <StyledApp>
                 <StyledWrapperApp>
