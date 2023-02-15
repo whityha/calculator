@@ -1,4 +1,6 @@
-import { changeSignCurrent, result, updateHistoryAndFormula } from './helpers';
+import changeSignCurrent from './helpers/changeSignCurrent';
+import result from './helpers/result';
+import updateHistoryAndFormula from './helpers/updateHistoryAndFormula';
 
 class CalculatorCommand {
     constructor() {
