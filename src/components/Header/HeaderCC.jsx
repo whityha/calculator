@@ -6,9 +6,10 @@ import { Nav, NavItem, Title, WrapperHeader } from './styled';
 
 class Header extends React.Component {
     render() {
+        const { children } = this.props;
         return (
             <WrapperHeader>
-                <Title>CALCULATOR</Title>
+                <Title>{children}</Title>
                 <Nav>
                     {LINKS.map(({ path, text }) => (
                         <NavItem key={path}>

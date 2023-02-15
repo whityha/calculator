@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import LINKS from './config';
 import { Nav, NavItem, Title, WrapperHeader } from './styled';
 
-const Header = () => (
+const Header = ({ children }) => (
     <WrapperHeader>
-        <Title>CALCULATOR</Title>
+        <Title>{children}</Title>
         <Nav>
             {LINKS.map(({ path, text }) => (
                 <NavItem key={path}>

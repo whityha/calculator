@@ -6,7 +6,7 @@ import { WrapperSettings } from './styled';
 
 const SettingsFC = () => (
     <WrapperSettings>
-        <Header />
+        <Header>Settings</Header>
         <SettingsList />
     </WrapperSettings>
 );
