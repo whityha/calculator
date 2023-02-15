@@ -40,7 +40,7 @@ const controller = (digit, name, dispatch) => () => {
         dispatch(drawDisplay(calc.getHistoryDisplay()));
     }
     if (CHANGE_SIGN.includes(name)) {
-        calc.changeSign();
+        if (!calc.changeSign()) return;
         dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
         dispatch(drawDisplay(calc.getHistoryDisplay()));
     }

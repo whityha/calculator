@@ -11,7 +11,7 @@ export default class MultiplyCommand {
         if (this.currentValue) return this;
         const [num1, num2] = items;
         const res = num1 * num2;
-        const fixed = res !== Infinity ? res.toFixed(3) : Infinity;
+        const fixed = res.toFixed(3);
         return res % 1 ? Number(fixed) : res;
     }
 
