@@ -22,7 +22,7 @@ const theme = {
         value: 'colored',
         ...OPTIONS,
         colorPrimary: COLORS.white,
-        backgroundPrimary: COLORS.pink,
+        backgroundPrimary: COLORS.aqua,
         backgroundSecondary: COLORS.black,
         colorShadow: COLORS.white,
     },
