@@ -63,6 +63,7 @@ const textShadow = {
 };
 const maxWidth = {
     lg: '80%',
+    max: '90%',
 };
 const margin = {
     m0: '0',
@@ -86,6 +87,13 @@ const transition = {
     slow: '0.4s',
 };
 
+const media = {
+    max: `(min-width: 1000px)`,
+    large: `(min-width: 760px) and (max-width: 999px)`,
+    tablet: `(min-width: 521px) and (max-width: 759px)`,
+    phone: `(max-width: 520px)`,
+};
+
 export {
     background,
     border,
@@ -97,6 +105,7 @@ export {
     heightPercent,
     margin,
     maxWidth,
+    media,
     padding,
     textShadow,
     transition,

@@ -4,6 +4,15 @@ export const WrapperHeader = styled.header`
     display: flex;
     grid-area: header;
     align-items: center;
+    @media ${({ theme: { media } }) => media.tablet} {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    @media ${({ theme: { media } }) => media.phone} {
+        flex-direction: column;
+        justify-content: space-around;
+    }
 `;
 
 export const Title = styled.h2`
@@ -18,6 +27,14 @@ export const Title = styled.h2`
         color: ${colorPrimary};
     `}
     margin-right: auto;
+
+    @media ${({ theme: { media } }) => media.tablet} {
+        margin-right: 0;
+    }
+
+    @media ${({ theme: { media } }) => media.phone} {
+        margin-right: 0;
+    }
 `;
 
 export const Nav = styled.nav`
