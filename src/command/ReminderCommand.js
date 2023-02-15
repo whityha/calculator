@@ -4,7 +4,6 @@ export default class ReminderCommand {
         this.value = valueToReminder;
         this.sign = '%';
         this.priority = 2;
-        this.name = 'remainder';
     }
 
     execute(items) {

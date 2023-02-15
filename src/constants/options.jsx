@@ -30,8 +30,8 @@ const DRAW_EXPRESSION = [
     'minus',
     'multiply',
     'remainder',
-    'bl',
-    'br',
+    'bracketLeft',
+    'bracketRight',
     'equal',
     'plusmn',
 ];
@@ -42,13 +42,13 @@ const DRAW_HISTORY_BUTTONS = [
     'multiply',
     'equal',
     'remainder',
-    'bl',
-    'br',
+    'bracketLeft',
+    'bracketRight',
 ];
 const CLEAR = ['C'];
 const CLEAR_DISPLAY = ['CE'];
 const CHANGE_SIGN = ['plusmn'];
-const START_EXPRESSION_BUTTON = ['bl'];
+const START_EXPRESSION_BUTTON = ['bracketLeft'];
 
 export {
     CHANGE_SIGN,

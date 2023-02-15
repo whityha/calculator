@@ -10,7 +10,7 @@ import calc from '@command/command';
 
 import initialState from '../initialState';
 
-const displayReducer = (state = initialState, { type, payload } = {}) => {
+const displayReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case DRAW_DISPLAY:
             return {

@@ -25,7 +25,8 @@
         "no-param-reassign": "off",
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
-        "react/prefer-stateless-function": "off"
+        "react/prefer-stateless-function": "off",
+        "default-param-last": "off"
     },
     "settings": {
         "import/resolver": {

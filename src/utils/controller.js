@@ -18,17 +18,17 @@ import {
 } from '@constants/options';
 
 const controller = (digit, name, dispatch) => () => {
-    if (name === 'bl') {
-        if (!calc.isRegistered && calc.current) {
-            calc.registerCommand(new MultiplyCommand());
+    if (name === 'bracketLeft') {
+        if (!calc.commandIsLastItemInExpression && calc.currentValue) {
+            calc.appendCommand(new MultiplyCommand());
         }
         calc.openBracket();
-        calc.isRegistered = true;
+        calc.commandIsLastItemInExpression = true;
         dispatch(drawDisplay(calc.getHistoryDisplay()));
         dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
     }
-    if (name === 'br') {
-        if (calc.openBracketCount && !calc.isRegistered) {
+    if (name === 'bracketRight') {
+        if (calc.openBracketCount && !calc.commandIsLastItemInExpression) {
             calc.closeBracket();
             dispatch(drawDisplay(calc.getHistoryDisplay()));
             dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
@@ -48,26 +48,26 @@ const controller = (digit, name, dispatch) => () => {
         let result;
         switch (name) {
             case 'plus':
-                calc.registerCommand(new AddCommand());
+                calc.appendCommand(new AddCommand());
                 break;
             case 'minus':
-                calc.registerCommand(new SubtractCommand());
+                calc.appendCommand(new SubtractCommand());
                 break;
             case 'multiply':
-                calc.registerCommand(new MultiplyCommand());
+                calc.appendCommand(new MultiplyCommand());
                 break;
             case 'divide':
-                calc.registerCommand(new DivideCommand());
+                calc.appendCommand(new DivideCommand());
                 break;
             case 'remainder':
-                calc.registerCommand(new RemainderCommand());
+                calc.appendCommand(new RemainderCommand());
                 break;
             case 'equal':
                 result = calc.equal((value) => {
                     dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
                     dispatch(
                         drawHistory({
-                            formula: `${calc.getHistoryDisplay()} ${value}`,
+                            expression: `${calc.getHistoryDisplay()} ${value}`,
                             id: Math.random(),
                         })
                     );
@@ -91,8 +91,8 @@ const controller = (digit, name, dispatch) => () => {
         }
     }
     if (CLEAR.includes(name)) {
-        calc.clear();
-        calc.clearCurrent();
+        calc.clearCalculator();
+        calc.clearCurrentValue();
         dispatch(clearDisplay());
     }
 };

@@ -10,8 +10,8 @@ class History extends React.PureComponent {
             <WrapperHistory>
                 <Title>History</Title>
                 <List>
-                    {historyList.map(({ formula, id }) => (
-                        <ListItem key={id}>{formula}</ListItem>
+                    {historyList.map(({ expression, id }) => (
+                        <ListItem key={id}>{expression}</ListItem>
                     ))}
                 </List>
             </WrapperHistory>

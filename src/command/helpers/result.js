@@ -1,24 +1,24 @@
-export default (formula) => {
+export default (expression) => {
     const operandStack = [];
     const operatorStack = [];
     const operatorStackIsEmpty = () => operatorStack.length === 0;
     const getTwoLastOperand = () => operandStack.splice(-2);
     const getLastOperator = () => operatorStack.pop();
     const showLastOperator = () => operatorStack[operatorStack.length - 1];
-    const lastOperatorPriority = () => {
+    const priorityLastElement = () => {
         const last = operatorStack[operatorStack.length - 1];
         return typeof last === 'object' ? last.priority : -10;
     };
     const getResultLastCommand = () =>
         getLastOperator().execute(getTwoLastOperand());
 
-    formula.forEach((item) => {
+    expression.forEach((item) => {
         const checkItem = () => {
             switch (typeof item) {
                 case 'object':
                     if (
                         operatorStackIsEmpty() ||
-                        item.priority > lastOperatorPriority()
+                        item.priority > priorityLastElement()
                     ) {
                         operatorStack.push(item);
                     } else {

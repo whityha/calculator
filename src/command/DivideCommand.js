@@ -4,7 +4,6 @@ export default class DivideCommand {
         this.priority = 2;
         this.value = valueToDivide;
         this.sign = '÷';
-        this.name = 'divide';
     }
 
     execute(items) {

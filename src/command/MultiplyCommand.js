@@ -4,7 +4,6 @@ export default class MultiplyCommand {
         this.currentValue = null;
         this.priority = 2;
         this.sign = '×';
-        this.name = 'multiply';
     }
 
     execute(items) {

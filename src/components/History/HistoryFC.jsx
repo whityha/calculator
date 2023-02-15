@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 import { List, ListItem, Title, WrapperHistory } from './styled';
 
 const History = () => {
-    const formulas = useSelector(
+    const historyList = useSelector(
         ({ display: { historyList: forms } }) => forms
     );
     return (
         <WrapperHistory>
             <Title>History</Title>
             <List>
-                {formulas.map(({ formula, id }) => (
-                    <ListItem key={id}>{formula}</ListItem>
+                {historyList.map(({ expression, id }) => (
+                    <ListItem key={id}>{expression}</ListItem>
                 ))}
             </List>
         </WrapperHistory>

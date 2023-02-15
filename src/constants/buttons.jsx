@@ -56,7 +56,7 @@ const BUTTONS = [
         digit: 'C',
     },
     {
-        name: 'bl',
+        name: 'bracketLeft',
         digit: '(',
     },
     {
@@ -72,7 +72,7 @@ const BUTTONS = [
         digit: ' * ',
     },
     {
-        name: 'br',
+        name: 'bracketRight',
         digit: ')',
     },
     {

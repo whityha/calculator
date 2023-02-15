@@ -3,7 +3,6 @@ export default class AddCommand {
         this.value = Number(valueToAdd);
         this.priority = 1;
         this.sign = '+';
-        this.name = 'plus';
     }
 
     execute(items) {

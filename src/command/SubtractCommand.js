@@ -4,7 +4,6 @@ export default class SubtractCommand {
         this.currentValue = null;
         this.sign = '-';
         this.priority = 1;
-        this.name = 'minus';
     }
 
     execute(items) {
