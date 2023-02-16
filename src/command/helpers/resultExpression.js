@@ -14,33 +14,31 @@ export default (expression) => {
 
     expression.forEach((item) => {
         const checkItem = () => {
-            switch (typeof item) {
-                case 'object':
-                    if (
-                        operatorStackIsEmpty() ||
-                        item.priority > priorityLastElement()
-                    ) {
-                        operatorStack.push(item);
-                    } else {
-                        operandStack.push(getResultLastCommand());
-                        checkItem();
-                    }
-                    break;
-                case 'string':
-                    if (item === '(') {
-                        operatorStack.push(item);
-                    }
-                    if (item === ')') {
-                        while (showLastOperator() !== '(') {
-                            operandStack.push(getResultLastCommand());
-                        }
-                        getLastOperator();
-                    }
-                    break;
-                default:
-                    operandStack.push(item);
-                    break;
+            if (typeof item === 'object') {
+                if (
+                    operatorStackIsEmpty() ||
+                    item.priority > priorityLastElement()
+                ) {
+                    operatorStack.push(item);
+                } else {
+                    operandStack.push(getResultLastCommand());
+                    checkItem();
+                }
+                return;
             }
+            if (typeof item === 'string') {
+                if (item === '(') {
+                    operatorStack.push(item);
+                }
+                if (item === ')') {
+                    while (showLastOperator() !== '(') {
+                        operandStack.push(getResultLastCommand());
+                    }
+                    getLastOperator();
+                }
+                return;
+            }
+            operandStack.push(item);
         };
 
         checkItem();

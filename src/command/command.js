@@ -1,5 +1,5 @@
 import changeSignCurrent from './helpers/changeSignCurrent';
-import result from './helpers/result';
+import resultExpression from './helpers/resultExpression';
 import updateHistoryAndExpression from './helpers/updateHistoryAndExpression';
 
 class CalculatorCommand {
@@ -38,7 +38,7 @@ class CalculatorCommand {
     }
 
     getResult() {
-        this.result = result(this.expression);
+        this.result = resultExpression(this.expression);
         this.currentValue = this.result.toString();
         return this.result;
     }
