@@ -52,6 +52,11 @@ const width = {
     lg: '85%',
     max: '100%',
 };
+
+const maxWidth = {
+    lg: '1300',
+};
+
 const border = {
     original: `1px solid ${colors.black}`,
 };
