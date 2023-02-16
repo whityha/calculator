@@ -2,6 +2,7 @@ export default {
     value: 0,
     historyValue: '',
     formulas: [],
-    theme: 'dark',
+    theme: 'light',
     isExpression: false,
+    historyIsShow: true,
 };
