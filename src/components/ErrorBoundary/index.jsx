@@ -1,26 +1,36 @@
 import React from 'react';
 
-import ErrorUI from './UI-Error';
+import { Description, Details, ErrorWrapper, Title } from './styled';
 
 export default class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             hasError: false,
-            errorText: 'ok',
+            errorText: '',
+            errorInfo: '',
         };
     }
 
-    componentDidCatch(e) {
+    componentDidCatch(e, errorInfo) {
         this.setState({
             hasError: true,
             errorText: `произошла ошибка ${e}`,
+            errorInfo,
         });
     }
 
     render() {
-        const { hasError, errorText } = this.state;
+        const { hasError, errorText, errorInfo } = this.state;
         const { children } = this.props;
-        return hasError ? <ErrorUI>{errorText}</ErrorUI> : children;
+        return hasError ? (
+            <ErrorWrapper>
+                <Title>Что-то пошло не так</Title>
+                <Description>Упс, {errorText}</Description>
+                <Details>{errorInfo.componentStack}</Details>
+            </ErrorWrapper>
+        ) : (
+            children
+        );
     }
 }

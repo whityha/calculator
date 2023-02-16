@@ -13,8 +13,8 @@ import ErrorBoundary from './ErrorBoundary';
 const App = () => {
     const variant = useSelector(({ control }) => control.theme);
     return (
-        <ErrorBoundary>
-            <ThemeProvider theme={theme[variant]}>
+        <ThemeProvider theme={theme[variant]}>
+            <ErrorBoundary>
                 <Suspense fallback={<BeatLoader />}>
                     <Routes>
                         {ROUTES.map(({ path, element }) => (
@@ -23,8 +23,8 @@ const App = () => {
                     </Routes>
                 </Suspense>
                 <GlobalStyles />
-            </ThemeProvider>
-        </ErrorBoundary>
+            </ErrorBoundary>
+        </ThemeProvider>
     );
 };
 export default App;
