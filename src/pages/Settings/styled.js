@@ -20,6 +20,7 @@ const WrapperSettings = styled.div`
         },
     }) => `${lg}%`};
     height: ${({ theme: { heightPercent } }) => heightPercent['100']};
+
     margin: 0 auto;
 `;
 

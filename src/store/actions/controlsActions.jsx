@@ -5,7 +5,7 @@ export const setActualDig = (payload) => ({
     payload,
 });
 
-export const togglerShowHistory = (payload) => ({
+export const toggleShowHistory = (payload) => ({
     type: TOGGLE_HISTORY_MODULE,
     payload,
 });
