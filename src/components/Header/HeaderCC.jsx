@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import LINKS from './config';
-import { Nav, NavItem, Title, WrapperHeader } from './styled';
+import { Nav, NavItem, Title, Wrapper } from './styled';
 
 class Header extends React.Component {
     render() {
         const { children } = this.props;
         return (
-            <WrapperHeader>
+            <Wrapper>
                 <Title>{children}</Title>
                 <Nav>
                     {LINKS.map(({ path, text }) => (
@@ -17,7 +17,7 @@ class Header extends React.Component {
                         </NavItem>
                     ))}
                 </Nav>
-            </WrapperHeader>
+            </Wrapper>
         );
     }
 }

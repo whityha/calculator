@@ -1,8 +1,11 @@
-import { SWITCH_THEME } from './type';
+import { SWITCH_THEME, TOGGLE_HISTORY_MODULE } from './type';
 
-const switchTheme = (payload) => ({
+export const switchTheme = (payload) => ({
     type: SWITCH_THEME,
     payload,
 });
 
-export default switchTheme;
+export const toggleShowHistory = (payload) => ({
+    type: TOGGLE_HISTORY_MODULE,
+    payload,
+});

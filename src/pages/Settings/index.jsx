@@ -2,13 +2,13 @@ import React from 'react';
 import Header from '@components/Header/HeaderFC';
 import SettingsList from '@components/SettingsList';
 
-import { WrapperSettings } from './styled';
+import { Wrapper } from './styled';
 
-const SettingsFC = () => (
-    <WrapperSettings>
+const Settings = () => (
+    <Wrapper>
         <Header>Settings</Header>
         <SettingsList />
-    </WrapperSettings>
+    </Wrapper>
 );
 
-export default SettingsFC;
+export default Settings;

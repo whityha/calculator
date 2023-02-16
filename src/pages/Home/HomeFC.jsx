@@ -3,14 +3,14 @@ import Calculator from '@components/Calculator/CalculatorFC';
 import Header from '@components/Header/HeaderFC';
 import History from '@components/History/HistoryFC';
 
-import WrapperHome from './styled';
+import Wrapper from './styled';
 
 const HomeFC = () => (
-    <WrapperHome>
+    <Wrapper>
         <Header>CALCULATOR FC</Header>
         <Calculator />
         <History />
-    </WrapperHome>
+    </Wrapper>
 );
 
 export default HomeFC;

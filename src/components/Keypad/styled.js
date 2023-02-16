@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const WrapperKeypad = styled.div`
+const Wrapper = styled.div`
     grid-area: keypad;
     display: grid;
     grid-template-areas:
@@ -23,4 +23,4 @@ const WrapperKeypad = styled.div`
     `};
 `;
 
-export default WrapperKeypad;
+export default Wrapper;

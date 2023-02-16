@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const WrapperSettings = styled.div`
+const Wrapper = styled.div`
     display: grid;
     grid-template-areas:
         'header header'
@@ -28,4 +28,4 @@ const Title = styled.h1`
     color: ${({ colorPrimary }) => colorPrimary};
 `;
 
-export { Title, WrapperSettings };
+export { Title, Wrapper };

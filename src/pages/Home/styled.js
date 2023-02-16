@@ -21,7 +21,7 @@ const gridArea = `
     'keypad history';
 `;
 
-const WrapperHome = styled.div`
+const Wrapper = styled.div`
     display: grid;
     max-width: ${({
         theme: {
@@ -71,4 +71,4 @@ const WrapperHome = styled.div`
     }
 `;
 
-export default WrapperHome;
+export default Wrapper;

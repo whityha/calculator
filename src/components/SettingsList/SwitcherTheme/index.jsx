@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { switchTheme } from '@actions/controlsActions';
+import { switchTheme } from '@actions/control';
 
 import OPTIONS from './config';
 import { Option, Switcher, Title } from './styled';

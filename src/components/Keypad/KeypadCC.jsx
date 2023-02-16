@@ -4,13 +4,13 @@ import BUTTONS from '@constants/buttons';
 import controller from '@utils/controller';
 
 import Button from './Button/ButtonCC';
-import WrapperKeypad from './styled';
+import Wrapper from './styled';
 
 class Keypad extends React.Component {
     render() {
         const { dispatch } = this.props;
         return (
-            <WrapperKeypad>
+            <Wrapper>
                 {BUTTONS.map(({ name, digit }) => (
                     <Button
                         key={name}
@@ -21,7 +21,7 @@ class Keypad extends React.Component {
                         {digit}
                     </Button>
                 ))}
-            </WrapperKeypad>
+            </Wrapper>
         );
     }
 }

@@ -3,6 +3,5 @@ export default {
     historyValue: '',
     historyList: [],
     theme: 'light',
-    isExpression: false,
     historyIsShow: true,
 };

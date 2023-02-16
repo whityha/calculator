@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const WrapperHeader = styled.header`
+export const Wrapper = styled.header`
     display: flex;
     grid-area: header;
     align-items: center;

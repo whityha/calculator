@@ -1,12 +1,10 @@
 import {
-    CLEAR_ALL,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     DRAW_DISPLAY,
     DRAW_HISTORY,
     DRAW_HISTORY_DISPLAY,
 } from '@actions/type';
-import calc from '@command/command';
 
 import initialState from '../initialState';
 
@@ -23,18 +21,10 @@ const displayReducer = (state = initialState, { type, payload }) => {
                 value: '0',
                 historyValue: '',
             };
-        case CLEAR_ALL:
-            calc.clear();
-            return {
-                ...state,
-                value: 0,
-                historyValue: '',
-                formulas: [],
-            };
         case CLEAR_HISTORY:
             return {
                 ...state,
-                formulas: [],
+                historyList: [],
             };
         case DRAW_HISTORY:
             return {

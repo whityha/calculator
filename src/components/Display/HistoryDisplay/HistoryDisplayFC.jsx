@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import WrapperHistoryDisplay from './styled';
+import Wrapper from './styled';
 
 const HistoryDisplay = () => {
     const value = useSelector(({ display: { historyValue } }) => historyValue);
-    return <WrapperHistoryDisplay>{value}</WrapperHistoryDisplay>;
+    return <Wrapper>{value}</Wrapper>;
 };
 
 export default React.memo(HistoryDisplay);

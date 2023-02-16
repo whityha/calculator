@@ -4,12 +4,12 @@ import BUTTONS from '@constants/buttons';
 import controller from '@utils/controller';
 
 import Button from './Button/ButtonFC';
-import WrapperKeypad from './styled';
+import Wrapper from './styled';
 
 const Keypad = () => {
     const dispatch = useDispatch();
     return (
-        <WrapperKeypad>
+        <Wrapper>
             {BUTTONS.map(({ name, digit }) => (
                 <Button
                     key={name}
@@ -20,7 +20,7 @@ const Keypad = () => {
                     {digit}
                 </Button>
             ))}
-        </WrapperKeypad>
+        </Wrapper>
     );
 };
 

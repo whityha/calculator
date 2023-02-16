@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const WrapperHistory = styled.div`
+export const Wrapper = styled.div`
     display: ${({ isShow }) => (isShow ? 'flex' : 'none')};
     position: relative;
     flex-direction: column;

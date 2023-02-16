@@ -1,5 +1,4 @@
 import {
-    CLEAR_ALL,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
     DRAW_DISPLAY,
@@ -25,9 +24,5 @@ export const clearDisplay = (payload) => ({
 });
 export const clearHistory = (payload) => ({
     type: CLEAR_HISTORY,
-    payload,
-});
-export const clearAll = (payload) => ({
-    type: CLEAR_ALL,
     payload,
 });

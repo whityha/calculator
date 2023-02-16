@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleShowHistory } from '@actions/controlsActions';
+import { toggleShowHistory } from '@actions/control';
 
 import { Input, Label, Wrapper } from './styled';
 

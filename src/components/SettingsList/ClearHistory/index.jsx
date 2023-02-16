@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { clearHistory } from '@actions/displayActions';
+import { clearHistory } from '@actions/display';
 
 import Button from './styled';
 

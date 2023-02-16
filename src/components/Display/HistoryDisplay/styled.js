@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const WrapperHistoryDisplay = styled.div`
+const Wrapper = styled.div`
     display: block;
     position: absolute;
     top: 5%;
@@ -11,4 +11,4 @@ const WrapperHistoryDisplay = styled.div`
     `}
 `;
 
-export default WrapperHistoryDisplay;
+export default Wrapper;

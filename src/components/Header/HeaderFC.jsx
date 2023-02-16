@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import LINKS from './config';
-import { Nav, NavItem, Title, WrapperHeader } from './styled';
+import { Nav, NavItem, Title, Wrapper } from './styled';
 
 const Header = ({ children }) => (
-    <WrapperHeader>
+    <Wrapper>
         <Title>{children}</Title>
         <Nav>
             {LINKS.map(({ path, text }) => (
@@ -14,7 +14,7 @@ const Header = ({ children }) => (
                 </NavItem>
             ))}
         </Nav>
-    </WrapperHeader>
+    </Wrapper>
 );
 
 export default Header;
