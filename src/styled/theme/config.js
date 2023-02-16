@@ -5,6 +5,14 @@ const COLORS = {
     lightBlue: '#4789c0',
     lightGrey: '#c7b9b9',
     orange: '#f6be5a',
+    aqua: '#80bdcb',
+    darkAqua: '#142726',
 };
 
-export default COLORS;
+const THEMES = {
+    LIGHT: 'light',
+    DARK: 'dark',
+    COLORED: 'colored',
+};
+
+export { COLORS, THEMES };

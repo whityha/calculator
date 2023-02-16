@@ -5,9 +5,12 @@ import { List, ListItem, Title, WrapperHistory } from './styled';
 
 class History extends React.PureComponent {
     render() {
-        const { formulas } = this.props;
+        const {
+            display: { formulas },
+            control: { historyIsShow },
+        } = this.props;
         return (
-            <WrapperHistory>
+            <WrapperHistory isShow={historyIsShow}>
                 <Title>History</Title>
                 <List>
                     {formulas.map(({ formula, id }) => (
@@ -19,6 +22,9 @@ class History extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => state.display;
+const mapStateToProps = (state) => ({
+    display: state.display,
+    control: state.control,
+});
 
 export default connect(mapStateToProps)(History);

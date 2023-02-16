@@ -27,8 +27,8 @@ import {
 } from '@constants/options';
 import initialState from '@store/initialState';
 
-import Display from '../Display/Display/DisplayCC';
-import Keypad from '../Keypad/Keypad/KeypadCC';
+import Display from '../Display/DisplayCC';
+import Keypad from '../Keypad/KeypadCC';
 
 class Calculator extends React.Component {
     render() {

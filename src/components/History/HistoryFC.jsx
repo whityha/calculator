@@ -5,8 +5,10 @@ import { List, ListItem, Title, WrapperHistory } from './styled';
 
 const History = () => {
     const formulas = useSelector(({ display: { formulas: forms } }) => forms);
+    const isShow = useSelector(({ control }) => control.historyIsShow);
+
     return (
-        <WrapperHistory>
+        <WrapperHistory isShow={isShow}>
             <Title>History</Title>
             <List>
                 {formulas.map(({ formula, id }) => (
