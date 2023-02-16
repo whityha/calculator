@@ -9,24 +9,28 @@ import GlobalStyles from '../styled/globalStyles';
 
 import ROUTES from './config';
 import ErrorBoundary from './ErrorBoundary';
-
+import StyledApp from './styled';
 
 const App = () => {
     const variant = useSelector(({ control }) => control.theme);
     return (
         <ThemeProvider theme={theme[variant]}>
             <ErrorBoundary>
-                <Suspense fallback={<BeatLoader />}>
-
-                    <Routes>
-                        {ROUTES.map(({ path, element }) => (
-                            <Route key={path} path={path} element={element} />
-                        ))}
-                    </Routes>
-                </Suspense>
+                <StyledApp>
+                    <Suspense fallback={<Loader />}>
+                        <Routes>
+                            {ROUTES.map(({ path, element }) => (
+                                <Route
+                                    key={path}
+                                    path={path}
+                                    element={element}
+                                />
+                            ))}
+                        </Routes>
+                    </Suspense>
+                </StyledApp>
                 <GlobalStyles />
             </ErrorBoundary>
-
         </ThemeProvider>
     );
 };

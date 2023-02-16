@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { togglerShowHistory } from '@actions/controlsActions';
+import { toggleShowHistory } from '@actions/controlsActions';
 
 import { Input, Label, Wrapper } from './styled';
 
@@ -8,7 +8,7 @@ const TogglerHistoryFC = () => {
     const dispatch = useDispatch();
     const checked = useSelector(({ control }) => control.historyIsShow);
     const handleShowHistory = () => {
-        dispatch(togglerShowHistory());
+        dispatch(toggleShowHistory());
     };
     return (
         <Wrapper>
