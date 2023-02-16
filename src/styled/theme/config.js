@@ -6,6 +6,7 @@ const COLORS = {
     lightGrey: '#c7b9b9',
     orange: '#f6be5a',
     aqua: '#80bdcb',
+    darkAqua: '#142726',
 };
 
 const THEMES = {

@@ -10,6 +10,7 @@ export const Title = styled.h3`
 
 export const Option = styled.option`
     padding: ${({ theme: { padding } }) => padding.p1}px;
+    color: ${({ theme: { colorSecondary } }) => colorSecondary};
 `;
 
 export const Switcher = styled.select`
@@ -20,8 +21,13 @@ export const Switcher = styled.select`
             width: { md },
         },
     }) => css`
+        color: ${({ theme: { colorSecondary } }) => colorSecondary};
         padding: ${padding.p1}px;
         background: ${backgroundSecondary};
         width: ${md};
     `}
+
+    @media ${({ theme: { media } }) => media.phone} {
+        width: ${({ theme: { width } }) => `${width.max}`};
+    }
 `;

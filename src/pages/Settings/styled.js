@@ -18,8 +18,9 @@ const WrapperSettings = styled.div`
         theme: {
             maxWidth: { lg },
         },
-    }) => lg};
-    height: ${({ theme: { heightPercent } }) => heightPercent[100]};
+    }) => `${lg}%`};
+    height: ${({ theme: { heightPercent } }) => heightPercent['100']};
+
     margin: 0 auto;
 `;
 
