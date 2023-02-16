@@ -62,8 +62,8 @@ const textShadow = {
     main: `0px 0px 10px`,
 };
 const maxWidth = {
-    lg: '80%',
-    max: '90%',
+    lg: '80',
+    max: '90',
 };
 const margin = {
     m0: '0',

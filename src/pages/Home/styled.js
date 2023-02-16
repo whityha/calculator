@@ -27,7 +27,7 @@ const WrapperHome = styled.div`
         theme: {
             maxWidth: { lg },
         },
-    }) => lg};
+    }) => `${lg}%`};
     margin: 0 auto;
     height: ${({ theme: { heightPercent } }) => heightPercent['100']};
 
@@ -35,7 +35,7 @@ const WrapperHome = styled.div`
     ${grid}
 
     @media ${({ theme: { media } }) => media.large} {
-        max-width: ${({ theme: { maxWidth } }) => maxWidth.max};
+        max-width: ${({ theme: { maxWidth } }) => maxWidth.max}%;
         ${gridArea}
         ${grid}
     }
@@ -48,8 +48,7 @@ const WrapperHome = styled.div`
             'history';
         grid-template-rows: ${({
             theme: {
-                // eslint-disable-next-line no-unused-vars
-                gridSizes: { xsm, sm, md, lg },
+                gridSizes: { sm, lg },
             },
         }) => `${sm} ${sm} ${sm} ${lg}`};
         grid-template-columns: ${({ theme: { gridSizes } }) =>
@@ -64,8 +63,7 @@ const WrapperHome = styled.div`
             'history';
         grid-template-rows: ${({
             theme: {
-                // eslint-disable-next-line no-unused-vars
-                gridSizes: { xsm, sm, md, lg },
+                gridSizes: { sm, lg },
             },
         }) => `${sm} ${sm} ${sm} ${lg}`};
         grid-template-columns: ${({ theme: { gridSizes } }) =>
