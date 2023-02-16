@@ -115,10 +115,11 @@ class CalculatorCommand {
     }
 
     checkLastHistoryItem() {
-        if (this.getLastHistoryItem() === '.') {
+        if (
+            this.getLastHistoryItem() === '.' ||
+            this.getLastHistoryItem() === '-.'
+        ) {
             this.history[this.history.length - 1] = '0';
-        } else if (this.getLastHistoryItem() === '-.') {
-            this.history[this.history.length - 1] = '-0';
         }
     }
 
