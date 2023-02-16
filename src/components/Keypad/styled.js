@@ -4,7 +4,7 @@ const WrapperKeypad = styled.div`
     grid-area: keypad;
     display: grid;
     grid-template-areas:
-        'bl br remainder divide'
+        'bracketLeft bracketRight remainder divide'
         'seven eight nine multiply'
         'four five six minus'
         'one two three plus'

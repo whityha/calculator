@@ -6,15 +6,15 @@ import { List, ListItem, Title, WrapperHistory } from './styled';
 class History extends React.PureComponent {
     render() {
         const {
-            display: { formulas },
+            display: { historyList },
             control: { historyIsShow },
         } = this.props;
         return (
             <WrapperHistory isShow={historyIsShow}>
                 <Title>History</Title>
                 <List>
-                    {formulas.map(({ formula, id }) => (
-                        <ListItem key={id}>{formula}</ListItem>
+                    {historyList.map(({ expression, id }) => (
+                        <ListItem key={id}>{expression}</ListItem>
                     ))}
                 </List>
             </WrapperHistory>

@@ -1,102 +1,143 @@
-class CalculatorCommand {
-    constructor(props) {
-        this.value = props || 0;
-        this.current = 0;
+import changeSignCurrent from './helpers/changeSignCurrent';
+import resultExpression from './helpers/resultExpression';
+import updateHistoryAndExpression from './helpers/updateHistoryAndExpression';
 
-        this.isEqual = false;
-        this.isRegistered = false;
-        this.isExpression = false;
+class CalculatorCommand {
+    constructor() {
+        this.currentValue = '';
+        this.result = 0;
+
+        this.expressionHasBeenCounted = false;
+        this.expressionCanBeCounted = false;
+        this.commandIsLastItemInExpression = false;
 
         this.history = [];
-        this.formula = '';
+        this.expression = [];
+
+        this.openBracketCount = 0;
     }
 
-    registerCommand(command) {
-        if (this.isEqual) {
-            this.clearFormula();
-            this.switchIsEqual();
-            this.clearHistory();
+    appendCommand(command) {
+        if (this.commandIsLastItemInExpression) return false;
+        this.checkLastHistoryItem();
+
+        if (this.expression.length === 0) {
+            updateHistoryAndExpression(
+                Number(this.currentValue),
+                this.expression,
+                this.history
+            );
         }
-        if (!this.isRegistered) {
-            this.addCommandToHistory(command);
-            this.initializeValue(command);
-            this.addCommandToFormula(command);
-            this.clearCurrent();
-            this.isRegistered = !this.isRegistered;
-        }
-    }
-
-    executeCommand() {
-        this.value = this.getLastCommand()
-            ? this.getLastCommand().execute(this.current)
-            : 0;
-        return this.value.toString();
-    }
-
-    getLastCommand() {
-        return this.history[this.history.length - 1];
+        this.commandIsLastItemInExpression = true;
+        this.expressionHasBeenCounted = false;
+        this.expressionCanBeCounted = true;
+        this.addItemInExpression(command);
+        this.addItemInHistory(command.getSign());
+        this.clearCurrentValue();
+        return true;
     }
 
     getResult() {
-        if (this.getLastCommand() && this.current) {
-            const result = this.executeCommand();
-            return result;
-        }
-        return undefined;
+        this.result = resultExpression(this.expression);
+        this.currentValue = this.result.toString();
+        return this.result;
     }
 
-    equal() {
-        if (this.getLastCommand() && this.current) {
-            this.formula += `${this.current} = `;
-            this.isEqual = true;
-            const result = this.executeCommand();
-            this.clearHistory();
-            this.current = result;
-            return result;
+    equal(showDisplayHistoryBeforeClean = false) {
+        if (this.expressionHasBeenCounted) return this.currentValue;
+        if (this.commandIsLastItemInExpression) return this.getHistoryDisplay();
+        if (!this.expressionCanBeCounted)
+            return this.getHistoryDisplay() || '0';
+
+        while (this.openBracketCount) {
+            this.addItemInExpression(')');
+            this.addItemInHistory(')');
+            this.openBracketCount -= 1;
         }
-        if (!this.getLastCommand() && this.current) {
-            this.value = this.current;
-        }
-        return this.current.toString();
+
+        this.history.push('=');
+        this.getResult();
+        this.expressionHasBeenCounted = true;
+        if (showDisplayHistoryBeforeClean)
+            showDisplayHistoryBeforeClean(this.currentValue);
+
+        this.clearCalculator();
+
+        return this.currentValue;
     }
 
-    startExpression() {
-        this.clearCurrent();
-        this.isExpression = true;
+    changeCurrentValue(value) {
+        this.currentValue = updateHistoryAndExpression(
+            value,
+            this.expression,
+            this.history
+        );
+        this.commandIsLastItemInExpression = false;
     }
 
-    clear() {
-        this.value = 0;
-        this.history = [];
-        this.formula = '';
-        this.current = 0;
+    changeSign() {
+        if (this.commandIsLastItemInExpression) return false;
+        this.currentValue =
+            changeSignCurrent(
+                this.getLastHistoryItem() || this.currentValue,
+                this.history,
+                this.expression
+            ) || '';
+        return this.currentValue;
+    }
+
+    getLastHistoryItem() {
+        return this.history[this.history.length - 1];
+    }
+
+    addItemInExpression(item) {
+        this.expression.push(item);
+    }
+
+    addItemInHistory(item) {
+        this.history.push(item.toString());
+    }
+
+    getHistoryDisplay() {
+        return this.history.join(' ');
+    }
+
+    openBracket() {
+        this.addItemInExpression('(');
+        this.addItemInHistory('(');
+        this.openBracketCount += 1;
+    }
+
+    closeBracket() {
+        this.addItemInHistory(')');
+        this.addItemInExpression(')');
+        this.openBracketCount -= 1;
+    }
+
+    checkLastHistoryItem() {
+        if (
+            this.getLastHistoryItem() === '.' ||
+            this.getLastHistoryItem() === '-.'
+        ) {
+            this.history[this.history.length - 1] = '0';
+        }
+    }
+
+    clearCalculator() {
+        this.clearHistory();
+        this.clearExpression();
+        this.result = 0;
+        this.commandIsLastItemInExpression = false;
         this.isEqual = false;
+        this.expressionCanBeCounted = false;
     }
 
-    clearFormula() {
-        this.formula = '';
+    clearCurrentValue() {
+        this.currentValue = '';
     }
 
-    switchIsEqual() {
-        this.isEqual = !this.isEqual;
-    }
-
-    addCommandToHistory(command) {
-        this.history.push(command);
-    }
-
-    addCommandToFormula(command) {
-        this.formula = this.formula
-            ? `${this.formula}${this.current}${command.dig}`
-            : `${this.current}${command.dig}`;
-    }
-
-    initializeValue(command) {
-        this.value = this.history.length >= 1 ? command.value : this.current;
-    }
-
-    clearCurrent() {
-        this.current = 0;
+    clearExpression() {
+        this.expression = [];
     }
 
     clearHistory() {

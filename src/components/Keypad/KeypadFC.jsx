@@ -1,22 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import BUTTONS from '@constants/buttons';
+import controller from '@utils/controller';
 
 import Button from './Button/ButtonFC';
 import WrapperKeypad from './styled';
 
-const Keypad = ({ handle }) => {
-    const actualDig = useSelector(({ control: { actualDig: act } }) => act);
+const Keypad = () => {
+    const dispatch = useDispatch();
     return (
-        <WrapperKeypad area={actualDig}>
-            {BUTTONS.map(({ name, dig }) => (
+        <WrapperKeypad>
+            {BUTTONS.map(({ name, digit }) => (
                 <Button
                     key={name}
                     name={name}
                     area={name}
-                    onClick={handle(dig, name)}
+                    onClick={controller(digit, name, dispatch)}
                 >
-                    {dig}
+                    {digit}
                 </Button>
             ))}
         </WrapperKeypad>
