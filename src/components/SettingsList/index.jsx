@@ -1,14 +1,14 @@
 import React from 'react';
 
 import SETTING_LIST from './config';
-import WrapperSettingsListFC from './styled';
+import Wrapper from './styled';
 
 const SettingsListFC = () => (
-    <WrapperSettingsListFC>
+    <Wrapper>
         {SETTING_LIST.map(({ id, component }) => (
             <li key={id}>{component}</li>
         ))}
-    </WrapperSettingsListFC>
+    </Wrapper>
 );
 
 export default SettingsListFC;

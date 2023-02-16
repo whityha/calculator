@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const WrapperLabel = styled.div`
+const Wrapper = styled.div`
     display: block;
     position: absolute;
     top: 30%;
@@ -8,4 +8,4 @@ const WrapperLabel = styled.div`
     transform: translateX(-50%);
 `;
 
-export default WrapperLabel;
+export default Wrapper;
