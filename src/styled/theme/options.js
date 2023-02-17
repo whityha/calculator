@@ -14,7 +14,7 @@ const colors = {
 const background = {
     primary: COLORS.white,
     secondary: COLORS.blue,
-    special: COLORS.orange,
+    orange: COLORS.orange,
     lightBlue: COLORS.lightBlue,
 };
 

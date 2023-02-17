@@ -38,7 +38,7 @@ export const Button = styled.button`
         color: ${colors.black};
         border: ${original};
         background: ${DRAW_HISTORY_BUTTONS.includes(area)
-            ? background.special
+            ? background.orange
             : ''};
         font-size: ${fontSize.main}px;
     `};
