@@ -1,6 +1,9 @@
 import { SWITCH_THEME, TOGGLE_HISTORY_MODULE } from '@actions/type';
 
-import initialState from '../initialState';
+const initialState = {
+    theme: 'light',
+    isShowHistory: true,
+};
 
 const settingsReducer = (state = initialState, action) => {
     switch (action.type) {

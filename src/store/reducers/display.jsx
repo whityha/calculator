@@ -6,7 +6,11 @@ import {
     DRAW_HISTORY_DISPLAY,
 } from '@actions/type';
 
-import initialState from '../initialState';
+const initialState = {
+    value: 0,
+    historyValue: '',
+    historyList: [],
+};
 
 const displayReducer = (state = initialState, { type, payload }) => {
     switch (type) {
