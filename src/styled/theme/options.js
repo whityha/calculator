@@ -19,8 +19,8 @@ const background = {
 };
 
 const fontSize = {
-    main: '24',
-    secondary: '16',
+    main: 24,
+    secondary: 16,
 };
 
 const heightPercent = {
@@ -33,9 +33,9 @@ const heightPercent = {
 
 const height = {
     auto: 'auto',
-    sm: '30',
-    md: '70',
-    max: '100',
+    sm: 30,
+    md: 70,
+    max: 100,
 };
 
 const gridSizes = {
@@ -57,30 +57,30 @@ const border = {
     original: `1px solid ${colors.black}`,
 };
 const gap = {
-    main: '20',
+    main: 20,
 };
 const textShadow = {
     main: `0px 0px 10px`,
 };
 const maxWidth = {
-    lg: '80',
-    max: '90',
+    lg: 80,
+    max: 90,
 };
 const margin = {
-    m0: '0',
-    m1: '10',
-    m2: '20',
-    m3: '30',
-    m4: '40',
-    m5: '50',
+    m0: 0,
+    m1: 10,
+    m2: 20,
+    m3: 30,
+    m4: 40,
+    m5: 50,
 };
 const padding = {
-    p0: '0',
-    p1: '10',
-    p2: '20',
-    p3: '30',
-    p4: '40',
-    p5: '50',
+    p0: 0,
+    p1: 10,
+    p2: 20,
+    p3: 30,
+    p4: 40,
+    p5: 50,
 };
 const transition = {
     fast: '0.05s',
