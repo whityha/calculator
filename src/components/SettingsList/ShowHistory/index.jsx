@@ -6,7 +6,7 @@ import { Input, Label, Wrapper } from './styled';
 
 const TogglerHistoryFC = () => {
     const dispatch = useDispatch();
-    const checked = useSelector(({ control }) => control.historyIsShow);
+    const checked = useSelector(({ control }) => control.isShowHistory);
     const handleShowHistory = () => {
         dispatch(toggleShowHistory());
     };

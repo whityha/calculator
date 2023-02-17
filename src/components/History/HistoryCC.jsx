@@ -7,10 +7,10 @@ class History extends React.PureComponent {
     render() {
         const {
             display: { historyList },
-            control: { historyIsShow },
+            control: { isShowHistory },
         } = this.props;
         return (
-            <Wrapper isShow={historyIsShow}>
+            <Wrapper isShow={isShowHistory}>
                 <Title>History</Title>
                 <List>
                     {historyList.map(({ expression, id }) => (

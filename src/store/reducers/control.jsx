@@ -12,7 +12,7 @@ const controlReducer = (state = initialState, action = {}) => {
         case TOGGLE_HISTORY_MODULE: {
             return {
                 ...state,
-                historyIsShow: !state.historyIsShow,
+                isShowHistory: !state.isShowHistory,
             };
         }
         default:
