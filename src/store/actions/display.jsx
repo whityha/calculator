@@ -1,21 +1,21 @@
 import {
+    ADD_ITEM_HISTORY_LIST,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
-    DRAW_DISPLAY,
-    DRAW_HISTORY,
-    DRAW_HISTORY_DISPLAY,
+    SET_DISPLAY_VALUE,
+    SET_HISTORY_DISPLAY_VALUE,
 } from './type';
 
 export const setDisplayValue = (payload) => ({
-    type: DRAW_DISPLAY,
+    type: SET_DISPLAY_VALUE,
     payload,
 });
 export const addItemInHistoryList = (payload) => ({
-    type: DRAW_HISTORY,
+    type: ADD_ITEM_HISTORY_LIST,
     payload,
 });
 export const setHistoryDisplayValue = (payload) => ({
-    type: DRAW_HISTORY_DISPLAY,
+    type: SET_HISTORY_DISPLAY_VALUE,
     payload,
 });
 export const clearDisplay = (payload) => ({
