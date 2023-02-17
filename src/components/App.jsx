@@ -12,9 +12,9 @@ import ErrorBoundary from './ErrorBoundary';
 import StyledApp from './styled';
 
 const App = () => {
-    const variant = useSelector(({ control }) => control.theme);
+    const currentTheme = useSelector(({ control }) => control.theme);
     return (
-        <ThemeProvider theme={theme[variant]}>
+        <ThemeProvider theme={theme[currentTheme]}>
             <ErrorBoundary>
                 <StyledApp>
                     <Suspense fallback={<Loader />}>
