@@ -21,6 +21,7 @@ const App = () => {
                         <Routes>
                             {ROUTES.map(({ path, element }) => (
                                 <Route
+                                    exact
                                     key={path}
                                     path={path}
                                     element={element}
