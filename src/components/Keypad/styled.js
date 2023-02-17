@@ -1,4 +1,4 @@
-import { OPERATORS } from '@constants/options';
+import { OPERATORS } from '@constants';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`

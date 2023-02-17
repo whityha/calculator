@@ -5,7 +5,7 @@ import {
 } from '@actions/display';
 import calc from '@command/command';
 import MultiplyCommand from '@command/MultiplyCommand';
-import { CHANGE_SIGN, CLEAR, DIGITS, OPERATORS } from '@constants/options';
+import { CHANGE_SIGN, CLEAR, DIGITS, OPERATORS } from '@constants';
 
 import handleOperators from './handleOperators';
 

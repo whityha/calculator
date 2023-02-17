@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import BUTTONS from '@constants/buttons';
+import { BUTTONS } from '@constants';
 import controller from '@utils/controller';
 
 import { Button, Wrapper } from './styled';

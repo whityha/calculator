@@ -1,9 +1,9 @@
 import {
+    ADD_ITEM_HISTORY_LIST,
     CLEAR_DISPLAY,
     CLEAR_HISTORY,
-    DRAW_DISPLAY,
-    DRAW_HISTORY,
-    DRAW_HISTORY_DISPLAY,
+    SET_DISPLAY_VALUE,
+    SET_HISTORY_DISPLAY_VALUE,
 } from '@actions/type';
 
 const initialState = {
@@ -14,7 +14,7 @@ const initialState = {
 
 const displayReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case DRAW_DISPLAY:
+        case SET_DISPLAY_VALUE:
             return {
                 ...state,
                 value: payload,
@@ -30,12 +30,12 @@ const displayReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 historyList: [],
             };
-        case DRAW_HISTORY:
+        case ADD_ITEM_HISTORY_LIST:
             return {
                 ...state,
                 historyList: [...state.historyList, payload],
             };
-        case DRAW_HISTORY_DISPLAY:
+        case SET_HISTORY_DISPLAY_VALUE:
             return {
                 ...state,
                 historyValue: payload,
