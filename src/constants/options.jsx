@@ -1,6 +1,6 @@
 const MAX_DISPLAY_LENGTH = 9;
 
-const DRAW_BUTTONS = [
+const DIGITS = [
     'zero',
     'one',
     'two',
@@ -13,7 +13,7 @@ const DRAW_BUTTONS = [
     'nine',
     'dot',
 ];
-const DRAW_HISTORY_BUTTONS = [
+const OPERATORS = [
     'divide',
     'plus',
     'minus',
@@ -26,10 +26,4 @@ const DRAW_HISTORY_BUTTONS = [
 const CLEAR = ['C'];
 const CHANGE_SIGN = ['plusmn'];
 
-export {
-    CHANGE_SIGN,
-    CLEAR,
-    DRAW_BUTTONS,
-    DRAW_HISTORY_BUTTONS,
-    MAX_DISPLAY_LENGTH,
-};
+export { CHANGE_SIGN, CLEAR, DIGITS, MAX_DISPLAY_LENGTH, OPERATORS };

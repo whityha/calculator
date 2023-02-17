@@ -1,4 +1,4 @@
-import { DRAW_HISTORY_BUTTONS } from '@constants/options';
+import { OPERATORS } from '@constants/options';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -37,9 +37,7 @@ export const Button = styled.button`
         grid-area: ${area};
         color: ${colors.black};
         border: ${original};
-        background: ${DRAW_HISTORY_BUTTONS.includes(area)
-            ? background.orange
-            : ''};
+        background: ${OPERATORS.includes(area) ? background.orange : ''};
         font-size: ${fontSize.main}px;
     `};
     cursor: pointer;

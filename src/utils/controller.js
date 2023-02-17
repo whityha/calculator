@@ -10,12 +10,7 @@ import DivideCommand from '@command/DivideCommand';
 import MultiplyCommand from '@command/MultiplyCommand';
 import RemainderCommand from '@command/ReminderCommand';
 import SubtractCommand from '@command/SubtractCommand';
-import {
-    CHANGE_SIGN,
-    CLEAR,
-    DRAW_BUTTONS,
-    DRAW_HISTORY_BUTTONS,
-} from '@constants/options';
+import { CHANGE_SIGN, CLEAR, DIGITS, OPERATORS } from '@constants/options';
 
 const controller = (value, name, dispatch) => () => {
     if (name === 'bracketLeft') {
@@ -34,7 +29,7 @@ const controller = (value, name, dispatch) => () => {
             dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
         }
     }
-    if (DRAW_BUTTONS.includes(name)) {
+    if (DIGITS.includes(name)) {
         if (calc.getLastHistoryItem() !== ')') calc.changeCurrentValue(value);
         dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
         dispatch(drawDisplay(calc.getHistoryDisplay()));
@@ -44,7 +39,7 @@ const controller = (value, name, dispatch) => () => {
         dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
         dispatch(drawDisplay(calc.getHistoryDisplay()));
     }
-    if (DRAW_HISTORY_BUTTONS.includes(name)) {
+    if (OPERATORS.includes(name)) {
         let result;
         switch (name) {
             case 'plus':
