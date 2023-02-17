@@ -17,7 +17,7 @@ import {
     DRAW_HISTORY_BUTTONS,
 } from '@constants/options';
 
-const controller = (digit, name, dispatch) => () => {
+const controller = (value, name, dispatch) => () => {
     if (name === 'bracketLeft') {
         if (!calc.commandIsLastItemInExpression && calc.currentValue) {
             calc.appendCommand(new MultiplyCommand());
@@ -35,7 +35,7 @@ const controller = (digit, name, dispatch) => () => {
         }
     }
     if (DRAW_BUTTONS.includes(name)) {
-        if (calc.getLastHistoryItem() !== ')') calc.changeCurrentValue(digit);
+        if (calc.getLastHistoryItem() !== ')') calc.changeCurrentValue(value);
         dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
         dispatch(drawDisplay(calc.getHistoryDisplay()));
     }
@@ -63,11 +63,11 @@ const controller = (digit, name, dispatch) => () => {
                 calc.appendCommand(new RemainderCommand());
                 break;
             case 'equal':
-                result = calc.equal((value) => {
+                result = calc.equal((expressionResult) => {
                     dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
                     dispatch(
                         drawHistory({
-                            expression: `${calc.getHistoryDisplay()} ${value}`,
+                            expression: `${calc.getHistoryDisplay()} ${expressionResult}`,
                             id: Math.random(),
                         })
                     );

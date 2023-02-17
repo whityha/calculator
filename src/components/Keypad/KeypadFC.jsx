@@ -9,14 +9,14 @@ const Keypad = () => {
     const dispatch = useDispatch();
     return (
         <Wrapper>
-            {BUTTONS.map(({ name, digit }) => (
+            {BUTTONS.map(({ name, value }) => (
                 <Button
                     key={name}
                     name={name}
                     area={name}
-                    onClick={controller(digit, name, dispatch)}
+                    onClick={controller(value, name, dispatch)}
                 >
-                    {digit}
+                    {value}
                 </Button>
             ))}
         </Wrapper>
