@@ -3,10 +3,10 @@ import {
     setDisplayValue,
     setHistoryDisplayValue,
 } from '@actions/display';
-import calc from '@command/command';
 import MultiplyCommand from '@command/MultiplyCommand';
 import { CHANGE_SIGN, CLEAR, DIGITS, OPERATORS } from '@constants';
 
+import calc from './Calculator';
 import handleOperators from './handleOperators';
 
 const controller = (value, name, dispatch) => () => {

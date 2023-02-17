@@ -4,11 +4,12 @@ import {
     setHistoryDisplayValue,
 } from '@actions/display';
 import AddCommand from '@command/AddCommand';
-import calc from '@command/command';
 import DivideCommand from '@command/DivideCommand';
 import MultiplyCommand from '@command/MultiplyCommand';
 import RemainderCommand from '@command/ReminderCommand';
 import SubtractCommand from '@command/SubtractCommand';
+
+import calc from './Calculator';
 
 const handleOperators = (name, dispatch) => {
     let result;
