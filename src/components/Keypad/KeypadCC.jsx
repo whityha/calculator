@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import BUTTONS from '@constants/buttons';
 import controller from '@utils/controller';
 
-import Button from './Button/ButtonCC';
-import Wrapper from './styled';
+import { Button, Wrapper } from './styled';
 
 class Keypad extends React.Component {
     render() {

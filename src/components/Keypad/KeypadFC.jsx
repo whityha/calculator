@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import BUTTONS from '@constants/buttons';
 import controller from '@utils/controller';
 
-import Button from './Button/ButtonFC';
-import Wrapper from './styled';
+import { Button, Wrapper } from './styled';
 
 const Keypad = () => {
     const dispatch = useDispatch();
