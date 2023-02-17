@@ -7,7 +7,7 @@ class History extends React.PureComponent {
     render() {
         const {
             display: { historyList },
-            control: { isShowHistory },
+            settings: { isShowHistory },
         } = this.props;
         return (
             <Wrapper isShow={isShowHistory}>
@@ -24,7 +24,7 @@ class History extends React.PureComponent {
 
 const mapStateToProps = (state) => ({
     display: state.display,
-    control: state.control,
+    settings: state.settings,
 });
 
 export default connect(mapStateToProps)(History);

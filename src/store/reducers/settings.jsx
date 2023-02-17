@@ -2,7 +2,7 @@ import { SWITCH_THEME, TOGGLE_HISTORY_MODULE } from '@actions/type';
 
 import initialState from '../initialState';
 
-const controlReducer = (state = initialState, action = {}) => {
+const settingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SWITCH_THEME:
             return {
@@ -20,4 +20,4 @@ const controlReducer = (state = initialState, action = {}) => {
     }
 };
 
-export default controlReducer;
+export default settingsReducer;

@@ -12,7 +12,7 @@ import ErrorBoundary from './ErrorBoundary';
 import StyledApp from './styled';
 
 const App = () => {
-    const currentTheme = useSelector(({ control }) => control.theme);
+    const currentTheme = useSelector(({ settings }) => settings.theme);
     return (
         <ThemeProvider theme={theme[currentTheme]}>
             <ErrorBoundary>
