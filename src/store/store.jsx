@@ -8,7 +8,6 @@ import displayReducer from './reducers/display';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['control'],
 };
 
 const rootReducers = combineReducers({

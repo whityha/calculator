@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const WrapperDisplay = styled.div`
+const Wrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -25,4 +25,4 @@ const WrapperDisplay = styled.div`
     }
 `;
 
-export default WrapperDisplay;
+export default Wrapper;
