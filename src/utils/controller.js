@@ -1,7 +1,7 @@
 import {
     clearDisplay,
-    drawDisplay,
-    drawHistoryDisplay,
+    setDisplayValue,
+    setHistoryDisplayValue,
 } from '@actions/display';
 import calc from '@command/command';
 import MultiplyCommand from '@command/MultiplyCommand';
@@ -16,25 +16,25 @@ const controller = (value, name, dispatch) => () => {
         }
         calc.openBracket();
         calc.commandIsLastItemInExpression = true;
-        dispatch(drawDisplay(calc.getHistoryDisplay()));
-        dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+        dispatch(setDisplayValue(calc.getHistoryDisplay()));
+        dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
     }
     if (name === 'bracketRight') {
         if (calc.openBracketCount && !calc.commandIsLastItemInExpression) {
             calc.closeBracket();
-            dispatch(drawDisplay(calc.getHistoryDisplay()));
-            dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+            dispatch(setDisplayValue(calc.getHistoryDisplay()));
+            dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
         }
     }
     if (DIGITS.includes(name)) {
         if (calc.getLastHistoryItem() !== ')') calc.changeCurrentValue(value);
-        dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
-        dispatch(drawDisplay(calc.getHistoryDisplay()));
+        dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
+        dispatch(setDisplayValue(calc.getHistoryDisplay()));
     }
     if (CHANGE_SIGN.includes(name)) {
         if (!calc.changeSign()) return;
-        dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
-        dispatch(drawDisplay(calc.getHistoryDisplay()));
+        dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
+        dispatch(setDisplayValue(calc.getHistoryDisplay()));
     }
     if (OPERATORS.includes(name)) {
         handleOperators(name, dispatch);

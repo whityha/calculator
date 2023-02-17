@@ -1,4 +1,8 @@
-import { drawDisplay, drawHistory, drawHistoryDisplay } from '@actions/display';
+import {
+    addItemInHistoryList,
+    setDisplayValue,
+    setHistoryDisplayValue,
+} from '@actions/display';
 import AddCommand from '@command/AddCommand';
 import calc from '@command/command';
 import DivideCommand from '@command/DivideCommand';
@@ -26,15 +30,15 @@ const handleOperators = (name, dispatch) => {
             break;
         case 'equal':
             result = calc.equal((expressionResult) => {
-                dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
+                dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
                 dispatch(
-                    drawHistory({
+                    addItemInHistoryList({
                         expression: `${calc.getHistoryDisplay()} ${expressionResult}`,
                         id: Math.random(),
                     })
                 );
             });
-            dispatch(drawDisplay(result));
+            dispatch(setDisplayValue(result));
             break;
         default:
             break;
@@ -45,8 +49,8 @@ const handleOperators = (name, dispatch) => {
         case 'multiply':
         case 'divide':
         case 'remainder':
-            dispatch(drawHistoryDisplay(calc.getHistoryDisplay()));
-            dispatch(drawDisplay(calc.getHistoryDisplay()));
+            dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
+            dispatch(setDisplayValue(calc.getHistoryDisplay()));
             break;
         default:
             break;
