@@ -27,34 +27,33 @@ const changeCurrentValue = (value, currentValue = '') => {
 
 export default (value, expression, history) => {
     const currentValue = history[history.length - 1];
-    const deleteLastItem = () => {
-        history.pop();
-        expression.pop();
+    const deleteLastItem = (...args) => {
+        args.forEach((item) => item.pop());
     };
     const checkBeforePushInExpression = (string) => {
         if (string === '.') return 0;
         if (string === '-.') return 0;
         return Number(string);
     };
-    const addInHistory = (item) => {
+    const addInHistoryAndExpression = (item) => {
         history.push(item.toString());
         expression.push(checkBeforePushInExpression(item));
     };
 
     let resultCurrent = '';
     if (currentValue && !Number.isNaN(Number(currentValue))) {
-        deleteLastItem();
+        deleteLastItem(expression, history);
         resultCurrent = changeCurrentValue(value, currentValue);
-        addInHistory(resultCurrent);
+        addInHistoryAndExpression(resultCurrent);
         return resultCurrent;
     }
     if (currentValue && (currentValue === '.' || currentValue === '-.')) {
-        deleteLastItem();
+        deleteLastItem(expression, history);
         resultCurrent = changeCurrentValue(value, currentValue);
-        addInHistory(resultCurrent);
+        addInHistoryAndExpression(resultCurrent);
         return resultCurrent;
     }
     resultCurrent = changeCurrentValue(value, '');
-    addInHistory(resultCurrent);
+    addInHistoryAndExpression(resultCurrent);
     return value;
 };

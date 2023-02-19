@@ -1,49 +1,40 @@
-import {
-    clearDisplay,
-    setDisplayValue,
-    setHistoryDisplayValue,
-} from '@actions/display';
+import { clearDisplay, setDisplayValue } from '@actions/display';
 import MultiplyCommand from '@command/MultiplyCommand';
-import { CHANGE_SIGN, CLEAR, DIGITS, OPERATORS } from '@constants';
+import { CHANGE_SIGN, CLEAR_BUTTON, DIGITS, OPERATORS } from '@constants';
 
 import calc from './Calculator';
 import handleOperators from './handleOperators';
+import validate from './validate';
 
 const controller = (value, name, dispatch) => () => {
+    if (!validate(name, calc)) return false;
     if (name === 'bracketLeft') {
-        if (!calc.commandIsLastItemInExpression && calc.currentValue) {
+        if (calc.currentValue) {
             calc.appendCommand(new MultiplyCommand());
         }
         calc.openBracket();
-        calc.commandIsLastItemInExpression = true;
         dispatch(setDisplayValue(calc.getHistoryDisplay()));
-        dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
     }
     if (name === 'bracketRight') {
-        if (calc.openBracketCount && !calc.commandIsLastItemInExpression) {
-            calc.closeBracket();
-            dispatch(setDisplayValue(calc.getHistoryDisplay()));
-            dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
-        }
+        calc.closeBracket();
+        dispatch(setDisplayValue(calc.getHistoryDisplay()));
     }
     if (DIGITS.includes(name)) {
-        if (calc.getLastHistoryItem() !== ')') calc.changeCurrentValue(value);
-        dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
+        calc.changeCurrentValue(value);
         dispatch(setDisplayValue(calc.getHistoryDisplay()));
     }
     if (CHANGE_SIGN.includes(name)) {
-        if (!calc.changeSign()) return;
-        dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
+        calc.changeSign();
         dispatch(setDisplayValue(calc.getHistoryDisplay()));
     }
     if (OPERATORS.includes(name)) {
         handleOperators(name, dispatch);
     }
-    if (CLEAR.includes(name)) {
+    if (CLEAR_BUTTON.includes(name)) {
         calc.clearCalculator();
-        calc.clearCurrentValue();
         dispatch(clearDisplay());
     }
+    return false;
 };
 
 export default controller;

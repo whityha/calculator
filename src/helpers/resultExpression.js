@@ -11,37 +11,35 @@ export default (expression) => {
     };
     const getResultLastCommand = () =>
         getLastOperator().execute(getTwoLastOperand());
-
-    expression.forEach((item) => {
-        const checkItem = () => {
-            if (typeof item === 'object') {
-                if (
-                    operatorStackIsEmpty() ||
-                    item.priority > priorityLastElement()
-                ) {
-                    operatorStack.push(item);
-                } else {
+    const checkItem = (item) => {
+        if (typeof item === 'object') {
+            if (
+                operatorStackIsEmpty() ||
+                item.priority > priorityLastElement()
+            ) {
+                operatorStack.push(item);
+            } else {
+                operandStack.push(getResultLastCommand());
+                checkItem(item);
+            }
+            return;
+        }
+        if (typeof item === 'string') {
+            if (item === '(') {
+                operatorStack.push(item);
+            }
+            if (item === ')') {
+                while (showLastOperator() !== '(') {
                     operandStack.push(getResultLastCommand());
-                    checkItem();
                 }
-                return;
+                getLastOperator();
             }
-            if (typeof item === 'string') {
-                if (item === '(') {
-                    operatorStack.push(item);
-                }
-                if (item === ')') {
-                    while (showLastOperator() !== '(') {
-                        operandStack.push(getResultLastCommand());
-                    }
-                    getLastOperator();
-                }
-                return;
-            }
-            operandStack.push(item);
-        };
-
-        checkItem();
+            return;
+        }
+        operandStack.push(item);
+    };
+    expression.forEach((item) => {
+        checkItem(item);
     });
     while (operatorStack.length) {
         operandStack.push(getResultLastCommand());

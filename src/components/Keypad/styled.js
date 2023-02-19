@@ -1,4 +1,4 @@
-import { OPERATORS } from '@constants';
+import { ORANGE_BUTTONS } from '@constants';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -37,7 +37,7 @@ export const Button = styled.button`
         grid-area: ${area};
         color: ${colors.black};
         border: ${original};
-        background: ${OPERATORS.includes(area) ? background.orange : ''};
+        background: ${ORANGE_BUTTONS.includes(area) ? background.orange : ''};
         font-size: ${fontSize.main}px;
     `};
     cursor: pointer;

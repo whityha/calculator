@@ -7,11 +7,6 @@ import {
 class Calculator {
     constructor() {
         this.currentValue = '';
-        this.result = 0;
-
-        this.expressionHasBeenCounted = false;
-        this.expressionCanBeCounted = false;
-        this.commandIsLastItemInExpression = false;
 
         this.history = [];
         this.expression = [];
@@ -20,7 +15,6 @@ class Calculator {
     }
 
     appendCommand(command) {
-        if (this.commandIsLastItemInExpression) return false;
         this.checkLastHistoryItem();
 
         if (this.expression.length === 0) {
@@ -30,9 +24,6 @@ class Calculator {
                 this.history
             );
         }
-        this.commandIsLastItemInExpression = true;
-        this.expressionHasBeenCounted = false;
-        this.expressionCanBeCounted = true;
         this.addItemInExpression(command);
         this.addItemInHistory(command.getSign());
         this.clearCurrentValue();
@@ -40,32 +31,28 @@ class Calculator {
     }
 
     getResult() {
-        this.result = resultExpression(this.expression);
-        this.currentValue = this.result.toString();
-        return this.result;
+        this.currentValue = resultExpression(this.expression).toString();
+        return this.currentValue;
     }
 
-    equal(showDisplayHistoryBeforeClean = false) {
-        if (this.expressionHasBeenCounted) return this.currentValue;
-        if (this.commandIsLastItemInExpression) return this.getHistoryDisplay();
-        if (!this.expressionCanBeCounted)
-            return this.getHistoryDisplay() || '0';
-
+    closeAllBrackets() {
         while (this.openBracketCount) {
             this.addItemInExpression(')');
             this.addItemInHistory(')');
             this.openBracketCount -= 1;
         }
+    }
+
+    equal(showDisplayHistoryBeforeClean = false) {
+        this.closeAllBrackets();
 
         this.history.push('=');
         this.getResult();
-        this.expressionHasBeenCounted = true;
         if (showDisplayHistoryBeforeClean)
             showDisplayHistoryBeforeClean(this.currentValue);
 
-        this.clearCalculator();
-
-        return this.currentValue;
+        this.clearExpression();
+        this.clearHistory();
     }
 
     changeCurrentValue(value) {
@@ -74,17 +61,16 @@ class Calculator {
             this.expression,
             this.history
         );
-        this.commandIsLastItemInExpression = false;
     }
 
     changeSign() {
-        if (this.commandIsLastItemInExpression) return false;
         this.currentValue =
             changeSignCurrent(
                 this.getLastHistoryItem() || this.currentValue,
                 this.history,
                 this.expression
             ) || '';
+
         return this.currentValue;
     }
 
@@ -128,10 +114,7 @@ class Calculator {
     clearCalculator() {
         this.clearHistory();
         this.clearExpression();
-        this.result = 0;
-        this.commandIsLastItemInExpression = false;
-        this.isEqual = false;
-        this.expressionCanBeCounted = false;
+        this.clearCurrentValue();
     }
 
     clearCurrentValue() {
