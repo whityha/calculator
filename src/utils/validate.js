@@ -23,7 +23,6 @@ export default (name, calculator) => {
         if (lastExpressionItem === ')') return false;
     }
     if (OPERATORS.includes(name)) {
-        if (isCommandLastItemInExpression) return false;
         if (lastExpressionItem === '(') return false;
     }
     return true;

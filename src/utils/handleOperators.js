@@ -9,50 +9,40 @@ import MultiplyCommand from '@command/MultiplyCommand';
 import RemainderCommand from '@command/ReminderCommand';
 import SubtractCommand from '@command/SubtractCommand';
 
-import calc from './Calculator';
+const doOperation = (calculator, command, dispatch) => {
+    calculator.appendCommand(command);
+    dispatch(setDisplayValue(calculator.getExpressionDisplay()));
+};
 
-const handleOperators = (name, dispatch) => {
+const handleOperators = (calc, name, dispatch) => {
     switch (name) {
         case 'plus':
-            calc.appendCommand(new AddCommand());
+            doOperation(calc, new AddCommand(), dispatch);
             break;
         case 'minus':
-            calc.appendCommand(new SubtractCommand());
+            doOperation(calc, new SubtractCommand(), dispatch);
             break;
         case 'multiply':
-            calc.appendCommand(new MultiplyCommand());
+            doOperation(calc, new MultiplyCommand(), dispatch);
             break;
         case 'divide':
-            calc.appendCommand(new DivideCommand());
+            doOperation(calc, new DivideCommand(), dispatch);
             break;
         case 'remainder':
-            calc.appendCommand(new RemainderCommand());
+            doOperation(calc, new RemainderCommand(), dispatch);
             break;
-        case 'equal':
-            calc.equal((expressionResult) => {
-                dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
-                dispatch(
-                    addItemInHistoryList({
-                        expression: `${calc.getHistoryDisplay()} ${expressionResult}`,
-                        id: Math.random(),
-                    })
-                );
-                dispatch(setDisplayValue(expressionResult));
-            });
-
+        case 'equal': {
+            const { expression, result } = calc.equal();
+            dispatch(setHistoryDisplayValue(expression));
+            dispatch(
+                addItemInHistoryList({
+                    expression: `${expression} ${result}`,
+                    id: Math.random(),
+                })
+            );
+            dispatch(setDisplayValue(result));
             break;
-        default:
-            break;
-    }
-    switch (name) {
-        case 'plus':
-        case 'minus':
-        case 'multiply':
-        case 'divide':
-        case 'remainder':
-            // dispatch(setHistoryDisplayValue(calc.getHistoryDisplay()));
-            dispatch(setDisplayValue(calc.getHistoryDisplay()));
-            break;
+        }
         default:
             break;
     }

@@ -1,3 +1,5 @@
+import makeNumber from './makeNumber';
+
 export default (expression) => {
     const operandStack = [];
     const operatorStack = [];
@@ -27,16 +29,17 @@ export default (expression) => {
         if (typeof item === 'string') {
             if (item === '(') {
                 operatorStack.push(item);
+                return;
             }
             if (item === ')') {
                 while (showLastOperator() !== '(') {
                     operandStack.push(getResultLastCommand());
                 }
                 getLastOperator();
+                return;
             }
-            return;
+            operandStack.push(makeNumber(item));
         }
-        operandStack.push(item);
     };
     expression.forEach((item) => {
         checkItem(item);

@@ -1,132 +1,110 @@
 import {
+    changeLastItemExpression,
     changeSignCurrent,
     resultExpression,
-    updateHistoryAndExpression,
 } from '../helpers';
 
 class Calculator {
     constructor() {
-        this.currentValue = '';
+        this.currentValue = '0';
 
-        this.history = [];
         this.expression = [];
 
         this.openBracketCount = 0;
     }
 
     appendCommand(command) {
-        this.checkLastHistoryItem();
-
-        if (this.expression.length === 0) {
-            updateHistoryAndExpression(
-                Number(this.currentValue),
-                this.expression,
-                this.history
-            );
+        if (!this.expression.length)
+            this.addItemInExpression(this.currentValue);
+        else if (typeof this.getLastExpressionItem() === 'object') {
+            this.deleteLastExpressionItem();
         }
         this.addItemInExpression(command);
-        this.addItemInHistory(command.getSign());
         this.clearCurrentValue();
+
         return true;
     }
 
     getResult() {
-        this.currentValue = resultExpression(this.expression).toString();
-        return this.currentValue;
+        return resultExpression(this.expression).toString();
     }
 
-    closeAllBrackets() {
-        while (this.openBracketCount) {
-            this.addItemInExpression(')');
-            this.addItemInHistory(')');
-            this.openBracketCount -= 1;
-        }
-    }
-
-    equal(showDisplayHistoryBeforeClean = false) {
+    equal() {
         this.closeAllBrackets();
-
-        this.history.push('=');
-        this.getResult();
-        if (showDisplayHistoryBeforeClean)
-            showDisplayHistoryBeforeClean(this.currentValue);
+        this.currentValue = this.getResult();
+        const r = {
+            expression: `${this.getExpressionDisplay()} = `,
+            result: this.currentValue,
+        };
 
         this.clearExpression();
-        this.clearHistory();
+        return r;
     }
 
     changeCurrentValue(value) {
-        this.currentValue = updateHistoryAndExpression(
-            value,
-            this.expression,
-            this.history
-        );
+        this.currentValue = changeLastItemExpression(value, this.expression);
     }
 
     changeSign() {
-        this.currentValue =
-            changeSignCurrent(
-                this.getLastHistoryItem() || this.currentValue,
-                this.history,
-                this.expression
-            ) || '';
+        this.currentValue = changeSignCurrent(
+            this.currentValue,
+            this.expression
+        );
 
         return this.currentValue;
     }
 
-    getLastHistoryItem() {
-        return this.history[this.history.length - 1];
+    deleteLastExpressionItem() {
+        this.expression.pop();
     }
 
     addItemInExpression(item) {
         this.expression.push(item);
     }
 
-    addItemInHistory(item) {
-        this.history.push(item.toString());
+    getExpressionDisplay() {
+        return this.expression
+            .map((item) => (typeof item === 'object' ? item.getSign() : item))
+            .join(' ');
     }
 
-    getHistoryDisplay() {
-        return this.history.join(' ');
+    getLastExpressionItem() {
+        return this.expression[this.expression.length - 1];
     }
 
     openBracket() {
         this.addItemInExpression('(');
-        this.addItemInHistory('(');
         this.openBracketCount += 1;
     }
 
     closeBracket() {
-        this.addItemInHistory(')');
         this.addItemInExpression(')');
         this.openBracketCount -= 1;
     }
 
-    checkLastHistoryItem() {
-        if (
-            this.getLastHistoryItem() === '.' ||
-            this.getLastHistoryItem() === '-.'
-        ) {
-            this.history[this.history.length - 1] = '0';
+    deleteLastBracket() {
+        this.deleteLastExpressionItem();
+        this.openBracketCount -= 1;
+    }
+
+    closeAllBrackets() {
+        while (this.openBracketCount) {
+            this.addItemInExpression(')');
+            this.openBracketCount -= 1;
         }
     }
 
     clearCalculator() {
-        this.clearHistory();
         this.clearExpression();
         this.clearCurrentValue();
     }
 
     clearCurrentValue() {
-        this.currentValue = '';
+        this.currentValue = '0';
     }
 
     clearExpression() {
         this.expression = [];
-    }
-
-    clearHistory() {
-        this.history = [];
     }
 }
 
