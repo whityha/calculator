@@ -1,32 +1,34 @@
-const changeValue = (value, currentValue = '') => {
-    const containsDot = currentValue.toString().indexOf('.') !== -1;
-    let resultCurrent = currentValue.toString();
+const changeDisplayValue = (value, currentValue = '0') => {
+    const containsDot = currentValue.indexOf('.') !== -1;
+    let resultValue = currentValue;
     switch (value) {
         case '0':
-            if (currentValue === '') {
-                resultCurrent = '0';
-                return resultCurrent;
+            if (currentValue === '0') {
+                return resultValue;
             }
             if (Math.abs(Number(currentValue)) !== 0 || containsDot) {
-                resultCurrent = currentValue + value;
-                return resultCurrent;
+                resultValue = currentValue + value;
+                return resultValue;
             }
-            return resultCurrent;
+            return resultValue || '0';
         case '.':
             if (!containsDot) {
-                resultCurrent = currentValue + value;
-                return resultCurrent;
+                resultValue = currentValue + value;
+                return resultValue;
             }
             return currentValue;
         default:
-            resultCurrent += value;
+            if (currentValue === '0') resultValue = value;
+            else resultValue += value;
 
-            return resultCurrent;
+            return resultValue;
     }
 };
 
 export default (value, expression) => {
     const lastExpressionItem = expression[expression.length - 1];
+    const isNumberLastItem = !Number.isNaN(Number(lastExpressionItem));
+
     const deleteLastItem = () => {
         expression.pop();
     };
@@ -35,22 +37,18 @@ export default (value, expression) => {
     };
 
     let resultCurrent = '';
-    if (lastExpressionItem && !Number.isNaN(Number(lastExpressionItem))) {
-        deleteLastItem(expression);
-        resultCurrent = changeValue(value, lastExpressionItem);
-        addItemInExpression(resultCurrent);
-        return resultCurrent;
-    }
     if (
         lastExpressionItem &&
-        (lastExpressionItem === '.' || lastExpressionItem === '-.')
+        (isNumberLastItem ||
+            lastExpressionItem === '.' ||
+            lastExpressionItem === '-.')
     ) {
         deleteLastItem(expression);
-        resultCurrent = changeValue(value, lastExpressionItem);
+        resultCurrent = changeDisplayValue(value, lastExpressionItem);
         addItemInExpression(resultCurrent);
         return resultCurrent;
     }
-    resultCurrent = changeValue(value, '');
+    resultCurrent = changeDisplayValue(value, '');
     addItemInExpression(resultCurrent);
     return value;
 };

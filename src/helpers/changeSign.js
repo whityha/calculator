@@ -1,4 +1,4 @@
-const changeSign = (item) =>
+const toggleSign = (item) =>
     item.indexOf('-') === -1 ? `-${item}` : item.slice(1);
 
 export default (item, expression) => {
@@ -6,7 +6,7 @@ export default (item, expression) => {
     if (!Number.isNaN(Number(item)) || item === '.' || item === '-.') {
         expression.pop();
     }
-    item = changeSign(item);
+    item = toggleSign(item);
     expression.push(item);
     return item;
 };

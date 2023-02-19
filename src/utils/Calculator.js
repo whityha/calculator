@@ -1,12 +1,12 @@
 import {
     changeLastItemExpression,
-    changeSignCurrent,
+    changeSign,
     resultExpression,
 } from '../helpers';
 
 class Calculator {
     constructor() {
-        this.currentValue = '0';
+        this.displayValue = '0';
 
         this.expression = [];
 
@@ -15,12 +15,12 @@ class Calculator {
 
     appendCommand(command) {
         if (!this.expression.length)
-            this.addItemInExpression(this.currentValue);
+            this.addItemInExpression(this.displayValue);
         else if (typeof this.getLastExpressionItem() === 'object') {
             this.deleteLastExpressionItem();
         }
         this.addItemInExpression(command);
-        this.clearCurrentValue();
+        this.clearDisplayValue();
 
         return true;
     }
@@ -31,27 +31,22 @@ class Calculator {
 
     equal() {
         this.closeAllBrackets();
-        this.currentValue = this.getResult();
+        this.displayValue = this.getResult();
         const r = {
             expression: `${this.getExpressionDisplay()} = `,
-            result: this.currentValue,
+            result: this.displayValue,
         };
 
         this.clearExpression();
         return r;
     }
 
-    changeCurrentValue(value) {
-        this.currentValue = changeLastItemExpression(value, this.expression);
+    changeDisplayValue(value) {
+        this.displayValue = changeLastItemExpression(value, this.expression);
     }
 
-    changeSign() {
-        this.currentValue = changeSignCurrent(
-            this.currentValue,
-            this.expression
-        );
-
-        return this.currentValue;
+    changeSignDisplayValue() {
+        this.displayValue = changeSign(this.displayValue, this.expression);
     }
 
     deleteLastExpressionItem() {
@@ -96,11 +91,11 @@ class Calculator {
 
     clearCalculator() {
         this.clearExpression();
-        this.clearCurrentValue();
+        this.clearDisplayValue();
     }
 
-    clearCurrentValue() {
-        this.currentValue = '0';
+    clearDisplayValue() {
+        this.displayValue = '0';
     }
 
     clearExpression() {

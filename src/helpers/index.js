@@ -1,5 +1,5 @@
 import changeLastItemExpression from './changeLastItemExpression';
-import changeSignCurrent from './changeSignCurrent';
+import changeSign from './changeSign';
 import resultExpression from './resultExpression';
 
-export { changeLastItemExpression, changeSignCurrent, resultExpression };
+export { changeLastItemExpression, changeSign, resultExpression };

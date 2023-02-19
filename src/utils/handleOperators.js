@@ -14,25 +14,25 @@ const doOperation = (calculator, command, dispatch) => {
     dispatch(setDisplayValue(calculator.getExpressionDisplay()));
 };
 
-const handleOperators = (calc, name, dispatch) => {
+const handleOperators = (calculator, name, dispatch) => {
     switch (name) {
         case 'plus':
-            doOperation(calc, new AddCommand(), dispatch);
+            doOperation(calculator, new AddCommand(), dispatch);
             break;
         case 'minus':
-            doOperation(calc, new SubtractCommand(), dispatch);
+            doOperation(calculator, new SubtractCommand(), dispatch);
             break;
         case 'multiply':
-            doOperation(calc, new MultiplyCommand(), dispatch);
+            doOperation(calculator, new MultiplyCommand(), dispatch);
             break;
         case 'divide':
-            doOperation(calc, new DivideCommand(), dispatch);
+            doOperation(calculator, new DivideCommand(), dispatch);
             break;
         case 'remainder':
-            doOperation(calc, new RemainderCommand(), dispatch);
+            doOperation(calculator, new RemainderCommand(), dispatch);
             break;
         case 'equal': {
-            const { expression, result } = calc.equal();
+            const { expression, result } = calculator.equal();
             dispatch(setHistoryDisplayValue(expression));
             dispatch(
                 addItemInHistoryList({

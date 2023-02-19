@@ -9,40 +9,45 @@ import {
     RIGHT_BRACKET,
 } from '@constants';
 
-import calc from './Calculator';
+import calculator from './Calculator';
 import handleOperators from './handleOperators';
 import validate from './validate';
 
-const controller = (value, name, dispatch) => () => {
-    if (!validate(name, calc)) return false;
-    if (LEFT_BRACKET.includes(name)) {
-        if (calc.currentValue) {
-            calc.appendCommand(new MultiplyCommand());
+const controller = (value, name, dispatch) => {
+    const updateDisplayValue = () =>
+        dispatch(setDisplayValue(calculator.getExpressionDisplay()));
+    return () => {
+        if (!validate(name, calculator)) return false;
+        if (LEFT_BRACKET.includes(name)) {
+            if (calculator.displayValue) {
+                calculator.appendCommand(new MultiplyCommand());
+            }
+            calculator.openBracket();
+            updateDisplayValue();
         }
-        calc.openBracket();
-        dispatch(setDisplayValue(calc.getExpressionDisplay()));
-    }
-    if (RIGHT_BRACKET.includes(name)) {
-        if (calc.getLastExpressionItem() === '(') calc.deleteLastBracket();
-        else calc.closeBracket();
-        dispatch(setDisplayValue(calc.getExpressionDisplay()));
-    }
-    if (DIGITS.includes(name)) {
-        calc.changeCurrentValue(value);
-        dispatch(setDisplayValue(calc.getExpressionDisplay()));
-    }
-    if (CHANGE_SIGN.includes(name)) {
-        calc.changeSign();
-        dispatch(setDisplayValue(calc.getExpressionDisplay()));
-    }
-    if (OPERATORS.includes(name)) {
-        handleOperators(calc, name, dispatch);
-    }
-    if (CLEAR_BUTTON.includes(name)) {
-        calc.clearCalculator();
-        dispatch(clearDisplay());
-    }
-    return false;
+        if (RIGHT_BRACKET.includes(name)) {
+            if (calculator.getLastExpressionItem() === '(')
+                calculator.deleteLastBracket();
+            else calculator.closeBracket();
+            updateDisplayValue();
+        }
+        if (DIGITS.includes(name)) {
+            calculator.changeDisplayValue(value);
+            updateDisplayValue();
+        }
+        if (CHANGE_SIGN.includes(name)) {
+            calculator.changeSignDisplayValue();
+            updateDisplayValue();
+        }
+        if (OPERATORS.includes(name)) {
+            handleOperators(calculator, name, dispatch);
+        }
+        if (CLEAR_BUTTON.includes(name)) {
+            calculator.clearCalculator();
+            dispatch(clearDisplay());
+        }
+        return false;
+    };
 };
 
 export default controller;
