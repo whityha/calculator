@@ -13,13 +13,13 @@ class Calculator {
         this.openBracketCount = 0;
     }
 
-    appendCommand(command) {
+    appendCommandOptions(commandOptions) {
         if (!this.expression.length)
             this.addItemInExpression(this.displayValue);
         else if (typeof this.getLastExpressionItem() === 'object') {
             this.deleteLastExpressionItem();
         }
-        this.addItemInExpression(command);
+        this.addItemInExpression(commandOptions);
         this.clearDisplayValue();
 
         return true;
@@ -59,7 +59,7 @@ class Calculator {
 
     getExpressionDisplay() {
         return this.expression
-            .map((item) => (typeof item === 'object' ? item.getSign() : item))
+            .map((item) => (typeof item === 'object' ? item.sign : item))
             .join(' ');
     }
 

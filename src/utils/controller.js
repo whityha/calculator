@@ -1,5 +1,5 @@
 import { clearDisplay, setDisplayValue } from '@actions/display';
-import MultiplyCommand from '@command/MultiplyCommand';
+import { MultiplyCommandOptions } from '@command/config';
 import {
     CHANGE_SIGN,
     CLEAR_BUTTON,
@@ -19,8 +19,8 @@ const controller = (value, name, dispatch) => {
     return () => {
         if (!validate(name, calculator)) return false;
         if (LEFT_BRACKET.includes(name)) {
-            if (calculator.displayValue) {
-                calculator.appendCommand(new MultiplyCommand());
+            if (calculator.displayValue && calculator.displayValue !== '0') {
+                calculator.appendCommandOptions(MultiplyCommandOptions);
             }
             calculator.openBracket();
             updateDisplayValue();

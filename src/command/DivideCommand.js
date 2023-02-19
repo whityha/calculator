@@ -1,24 +1,11 @@
 export default class DivideCommand {
     constructor(valueToDivide) {
-        this.currentValue = null;
-        this.priority = 2;
         this.value = valueToDivide;
-        this.sign = '÷';
     }
 
-    execute(items) {
-        if (this.currentValue) return this;
-        const [num1, num2] = items;
-        const res = num1 / num2;
+    execute(value) {
+        const res = this.value / value;
         const fixed = res !== Infinity ? res.toFixed(3) : Infinity;
         return res % 1 ? Number(fixed) : res;
-    }
-
-    getSign() {
-        return this.sign;
-    }
-
-    getName() {
-        return this.name;
     }
 }

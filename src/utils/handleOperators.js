@@ -3,33 +3,35 @@ import {
     setDisplayValue,
     setHistoryDisplayValue,
 } from '@actions/display';
-import AddCommand from '@command/AddCommand';
-import DivideCommand from '@command/DivideCommand';
-import MultiplyCommand from '@command/MultiplyCommand';
-import RemainderCommand from '@command/ReminderCommand';
-import SubtractCommand from '@command/SubtractCommand';
+import {
+    AddCommandOptions,
+    DivideCommandOptions,
+    MultiplyCommandOptions,
+    RemainderCommandOptions,
+    SubtractCommandOptions,
+} from '@command/config';
 
-const doOperation = (calculator, command, dispatch) => {
-    calculator.appendCommand(command);
+const doOperation = (calculator, commandOptions, dispatch) => {
+    calculator.appendCommandOptions(commandOptions);
     dispatch(setDisplayValue(calculator.getExpressionDisplay()));
 };
 
 const handleOperators = (calculator, name, dispatch) => {
     switch (name) {
         case 'plus':
-            doOperation(calculator, new AddCommand(), dispatch);
+            doOperation(calculator, AddCommandOptions, dispatch);
             break;
         case 'minus':
-            doOperation(calculator, new SubtractCommand(), dispatch);
+            doOperation(calculator, SubtractCommandOptions, dispatch);
             break;
         case 'multiply':
-            doOperation(calculator, new MultiplyCommand(), dispatch);
+            doOperation(calculator, MultiplyCommandOptions, dispatch);
             break;
         case 'divide':
-            doOperation(calculator, new DivideCommand(), dispatch);
+            doOperation(calculator, DivideCommandOptions, dispatch);
             break;
         case 'remainder':
-            doOperation(calculator, new RemainderCommand(), dispatch);
+            doOperation(calculator, RemainderCommandOptions, dispatch);
             break;
         case 'equal': {
             const { expression, result } = calculator.equal();

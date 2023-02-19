@@ -1,41 +1,53 @@
+import CalculatorCommand from '@command/CalculatorCommand';
+
 import makeNumber from './makeNumber';
 
 export default (expression) => {
+    let calculatorCommand = false;
+
     const operandStack = [];
-    const operatorStack = [];
-    const operatorStackIsEmpty = () => operatorStack.length === 0;
-    const getTwoLastOperand = () => operandStack.splice(-2);
-    const getLastOperator = () => operatorStack.pop();
-    const showLastOperator = () => operatorStack[operatorStack.length - 1];
+    const commandsStack = [];
+
+    const commandsStackIsEmpty = () => commandsStack.length === 0;
+    const getLastOperand = () => operandStack.splice(-1)[0];
+    const getLastCommand = () => commandsStack.pop();
+    const showLastCommand = () => commandsStack[commandsStack.length - 1];
     const priorityLastElement = () => {
-        const last = operatorStack[operatorStack.length - 1];
+        const last = commandsStack[commandsStack.length - 1];
         return typeof last === 'object' ? last.priority : -10;
     };
-    const getResultLastCommand = () =>
-        getLastOperator().execute(getTwoLastOperand());
+
+    const getResultLastCommand = () => {
+        if (!calculatorCommand)
+            calculatorCommand = new CalculatorCommand(getLastOperand());
+        const Command = getLastCommand().command;
+        const currentCommand = new Command(getLastOperand());
+        return calculatorCommand.execute(currentCommand);
+    };
+
     const checkItem = (item) => {
         if (typeof item === 'object') {
             if (
-                operatorStackIsEmpty() ||
+                commandsStackIsEmpty() ||
                 item.priority > priorityLastElement()
             ) {
-                operatorStack.push(item);
+                commandsStack.push(item);
             } else {
-                operandStack.push(getResultLastCommand());
+                getResultLastCommand();
                 checkItem(item);
             }
             return;
         }
         if (typeof item === 'string') {
             if (item === '(') {
-                operatorStack.push(item);
+                commandsStack.push(item);
                 return;
             }
             if (item === ')') {
-                while (showLastOperator() !== '(') {
-                    operandStack.push(getResultLastCommand());
+                while (showLastCommand() !== '(') {
+                    getResultLastCommand();
                 }
-                getLastOperator();
+                getLastCommand();
                 return;
             }
             operandStack.push(makeNumber(item));
@@ -44,8 +56,8 @@ export default (expression) => {
     expression.forEach((item) => {
         checkItem(item);
     });
-    while (operatorStack.length) {
-        operandStack.push(getResultLastCommand());
+    while (commandsStack.length) {
+        getResultLastCommand();
     }
-    return operandStack.pop();
+    return calculatorCommand.getResult();
 };
