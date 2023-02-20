@@ -18,10 +18,10 @@ export default (expression) => {
     };
 
     const getResultLastCommand = () => {
-        if (!calculatorCommand)
-            calculatorCommand = new CalculatorCommand(getLastOperand());
         const Command = getLastCommand().command;
         const currentCommand = new Command(getLastOperand());
+        if (!calculatorCommand)
+            calculatorCommand = new CalculatorCommand(getLastOperand());
         return calculatorCommand.execute(currentCommand);
     };
 

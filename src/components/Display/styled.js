@@ -35,3 +35,7 @@ export const HistoryDisplay = styled.div`
         color: ${colorPrimary};
     `}
 `;
+
+export const DisplayValue = styled.h1`
+    color: ${({ theme: colorPrimary }) => colorPrimary};
+`;

@@ -19,4 +19,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducers);
 
 const store = createStore(persistedReducer);
 export const persistor = persistStore(store);
+
+if (window.Cypress) {
+    window.store = store;
+}
 export default store;

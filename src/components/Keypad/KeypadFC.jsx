@@ -13,6 +13,7 @@ const Keypad = () => {
                 <Button
                     key={name}
                     name={name}
+                    data-test={value}
                     area={name}
                     onClick={controller(value, name, dispatch)}
                 >

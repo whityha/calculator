@@ -10,7 +10,7 @@ const History = () => {
         ({ display: { historyList: expressions } }) => expressions
     );
     return (
-        <Wrapper isShow={isShow}>
+        <Wrapper data-test="history" isShow={isShow}>
             <Title>History</Title>
             <List>
                 {historyList.map(({ expression, id }) => (

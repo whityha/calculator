@@ -24,7 +24,7 @@ export const MultiplyCommandOptions = {
 
 export const DivideCommandOptions = {
     command: DivideCommand,
-    sign: '-',
+    sign: '/',
     priority: 2,
 };
 export const RemainderCommandOptions = {

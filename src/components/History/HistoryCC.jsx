@@ -11,7 +11,7 @@ class History extends React.PureComponent {
             settings: { isShowHistory },
         } = this.props;
         return (
-            <Wrapper isShow={isShowHistory}>
+            <Wrapper data-test="history" isShow={isShowHistory}>
                 <Title>History</Title>
                 <List>
                     {historyList.map(({ expression, id }) => (

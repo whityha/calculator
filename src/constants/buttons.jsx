@@ -41,15 +41,15 @@ const BUTTONS = [
     },
     {
         name: 'plus',
-        value: ' + ',
+        value: '+',
     },
     {
         name: 'minus',
-        value: ' - ',
+        value: '-',
     },
     {
         name: 'equal',
-        value: ' = ',
+        value: '=',
     },
     {
         name: 'C',
@@ -61,15 +61,15 @@ const BUTTONS = [
     },
     {
         name: 'divide',
-        value: ' / ',
+        value: '/',
     },
     {
         name: 'remainder',
-        value: ' % ',
+        value: '%',
     },
     {
         name: 'multiply',
-        value: ' * ',
+        value: '*',
     },
     {
         name: 'bracketRight',
