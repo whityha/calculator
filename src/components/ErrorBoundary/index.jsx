@@ -6,7 +6,6 @@ export default class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hasError: false,
             errorText: '',
             errorInfo: '',
         };
@@ -14,19 +13,18 @@ export default class ErrorBoundary extends React.Component {
 
     componentDidCatch(e, errorInfo) {
         this.setState({
-            hasError: true,
-            errorText: `произошла ошибка ${e}`,
+            errorText: `${e}`,
             errorInfo,
         });
     }
 
     render() {
-        const { hasError, errorText, errorInfo } = this.state;
+        const { errorText, errorInfo } = this.state;
         const { children } = this.props;
-        return hasError ? (
+        return errorText ? (
             <ErrorWrapper>
                 <Title>Что-то пошло не так</Title>
-                <Description>Упс, {errorText}</Description>
+                <Description>Упс, произошла ошибка {errorText}</Description>
                 <Details>{errorInfo.componentStack}</Details>
             </ErrorWrapper>
         ) : (

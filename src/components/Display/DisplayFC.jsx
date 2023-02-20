@@ -1,16 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import HistoryDisplay from './HistoryDisplay/HistoryDisplayFC';
-import Wrapper from './styled';
+import { HistoryDisplay, Wrapper } from './styled';
 
 const Display = () => {
-    const value = useSelector(({ display: { value: val } }) => val);
-
+    const { value: val, historyValue: history } = useSelector(
+        ({ display: { value, historyValue } }) => ({
+            value,
+            historyValue,
+        })
+    );
     return (
         <Wrapper>
-            <HistoryDisplay />
-            <h1>{value}</h1>
+            <HistoryDisplay>{history}</HistoryDisplay>
+            <h1>{val}</h1>
         </Wrapper>
     );
 };

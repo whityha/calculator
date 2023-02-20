@@ -1,4 +1,4 @@
-import { CC_PATH, FC_PATH, SETTINGS_PATH } from '@constants/paths';
+import { CC_PATH, FC_PATH, SETTINGS_PATH } from '@constants';
 
 const LINKS = [
     {

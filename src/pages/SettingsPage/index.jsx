@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '@components/Header/HeaderFC';
-import SettingsList from '@components/SettingsList';
+import Settings from '@components/Settings';
 
 import { Wrapper } from './styled';
 
-const Settings = () => (
+const SettingsPage = () => (
     <Wrapper>
         <Header>Settings</Header>
-        <SettingsList />
+        <Settings />
     </Wrapper>
 );
 
-export default Settings;
+export default SettingsPage;

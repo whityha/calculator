@@ -1,24 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import BUTTONS from '@constants/buttons';
+import BUTTONS from '@constants';
 import controller from '@utils/controller';
 
-import Button from './Button/ButtonCC';
-import Wrapper from './styled';
+import { Button, Wrapper } from './styled';
 
 class Keypad extends React.Component {
     render() {
         const { dispatch } = this.props;
         return (
             <Wrapper>
-                {BUTTONS.map(({ name, digit }) => (
+                {BUTTONS.map(({ name, value }) => (
                     <Button
                         key={name}
                         name={name}
                         area={name}
-                        onClick={controller(digit, name, dispatch)}
+                        onClick={controller(value, name, dispatch)}
                     >
-                        {digit}
+                        {value}
                     </Button>
                 ))}
             </Wrapper>

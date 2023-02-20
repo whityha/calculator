@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import HistoryDisplay from './HistoryDisplay/HistoryDisplayCC';
-import Wrapper from './styled';
+import { HistoryDisplay, Wrapper } from './styled';
 
 class Display extends React.PureComponent {
     render() {
-        const { value } = this.props;
+        const { value, historyValue } = this.props;
         return (
             <Wrapper>
-                <HistoryDisplay />
+                <HistoryDisplay>{historyValue}</HistoryDisplay>
                 <h1>{value}</h1>
             </Wrapper>
         );

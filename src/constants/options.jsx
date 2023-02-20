@@ -1,6 +1,6 @@
 const MAX_DISPLAY_LENGTH = 9;
 
-const DRAW_BUTTONS = [
+const DIGITS = [
     'zero',
     'one',
     'two',
@@ -13,7 +13,10 @@ const DRAW_BUTTONS = [
     'nine',
     'dot',
 ];
-const DRAW_HISTORY_BUTTONS = [
+const OPERATORS = ['divide', 'plus', 'minus', 'multiply', 'equal', 'remainder'];
+const LEFT_BRACKET = ['bracketLeft'];
+const RIGHT_BRACKET = ['bracketRight'];
+const ORANGE_BUTTONS = [
     'divide',
     'plus',
     'minus',
@@ -23,13 +26,16 @@ const DRAW_HISTORY_BUTTONS = [
     'bracketLeft',
     'bracketRight',
 ];
-const CLEAR = ['C'];
+const CLEAR_BUTTON = ['C'];
 const CHANGE_SIGN = ['plusmn'];
 
 export {
     CHANGE_SIGN,
-    CLEAR,
-    DRAW_BUTTONS,
-    DRAW_HISTORY_BUTTONS,
+    CLEAR_BUTTON,
+    DIGITS,
+    LEFT_BRACKET,
     MAX_DISPLAY_LENGTH,
+    OPERATORS,
+    ORANGE_BUTTONS,
+    RIGHT_BRACKET,
 };

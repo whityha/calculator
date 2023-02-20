@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { switchTheme } from '@actions/control';
+import { switchTheme } from '@actions/settings';
 
 import OPTIONS from './config';
 import { Option, Switcher, Title } from './styled';
 
 const SwitcherThemeFC = () => {
-    const theme = useSelector(({ control }) => control.theme);
+    const theme = useSelector(({ settings }) => settings.theme);
     const dispatch = useDispatch();
 
     const handleTheme = (e) => {

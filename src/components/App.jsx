@@ -12,15 +12,16 @@ import ErrorBoundary from './ErrorBoundary';
 import StyledApp from './styled';
 
 const App = () => {
-    const variant = useSelector(({ control }) => control.theme);
+    const currentTheme = useSelector(({ settings }) => settings.theme);
     return (
-        <ThemeProvider theme={theme[variant]}>
+        <ThemeProvider theme={theme[currentTheme]}>
             <ErrorBoundary>
                 <StyledApp>
                     <Suspense fallback={<Loader />}>
                         <Routes>
                             {ROUTES.map(({ path, element }) => (
                                 <Route
+                                    exact
                                     key={path}
                                     path={path}
                                     element={element}

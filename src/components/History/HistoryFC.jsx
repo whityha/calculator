@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { List, ListItem, Title, Wrapper } from './styled';
 
 const History = () => {
-    const isShow = useSelector(({ control }) => control.historyIsShow);
+    const isShow = useSelector(({ settings }) => settings.isShowHistory);
 
     const historyList = useSelector(
         ({ display: { historyList: expressions } }) => expressions

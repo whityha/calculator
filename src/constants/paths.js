@@ -1,4 +1,4 @@
-export const FC_PATH = '/function';
+export const FC_PATH = '/';
 export const CC_PATH = '/class';
 export const SETTINGS_PATH = '/settings';
-export const DEFAULT = '/';
+export const DEFAULT = '*';

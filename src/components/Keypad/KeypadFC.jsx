@@ -1,23 +1,22 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import BUTTONS from '@constants/buttons';
+import { BUTTONS } from '@constants';
 import controller from '@utils/controller';
 
-import Button from './Button/ButtonFC';
-import Wrapper from './styled';
+import { Button, Wrapper } from './styled';
 
 const Keypad = () => {
     const dispatch = useDispatch();
     return (
         <Wrapper>
-            {BUTTONS.map(({ name, digit }) => (
+            {BUTTONS.map(({ name, value }) => (
                 <Button
                     key={name}
                     name={name}
                     area={name}
-                    onClick={controller(digit, name, dispatch)}
+                    onClick={controller(value, name, dispatch)}
                 >
-                    {digit}
+                    {value}
                 </Button>
             ))}
         </Wrapper>

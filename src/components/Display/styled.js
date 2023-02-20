@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const WrapperDisplay = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -25,4 +25,13 @@ const WrapperDisplay = styled.div`
     }
 `;
 
-export default WrapperDisplay;
+export const HistoryDisplay = styled.div`
+    display: block;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    ${({ theme: { colorPrimary, fontSize } }) => css`
+        font-size: ${fontSize.secondary}px;
+        color: ${colorPrimary};
+    `}
+`;

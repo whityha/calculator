@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { clearHistory } from '@actions/display';
+import { clearHistoryList } from '@actions/display';
 
 import Button from './styled';
 
 const ClearButton = () => {
     const dispatch = useDispatch();
     const handleClear = () => {
-        dispatch(clearHistory());
+        dispatch(clearHistoryList());
     };
     return (
         <Button type="button" onClick={handleClear}>

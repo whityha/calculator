@@ -1,6 +1,7 @@
+import { ORANGE_BUTTONS } from '@constants';
 import styled, { css } from 'styled-components';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     grid-area: keypad;
     display: grid;
     grid-template-areas:
@@ -23,4 +24,27 @@ const Wrapper = styled.div`
     `};
 `;
 
-export default Wrapper;
+export const Button = styled.button`
+    ${({
+        area,
+        theme: {
+            fontSize,
+            colors,
+            background,
+            border: { original },
+        },
+    }) => css`
+        grid-area: ${area};
+        color: ${colors.black};
+        border: ${original};
+        background: ${ORANGE_BUTTONS.includes(area) ? background.orange : ''};
+        font-size: ${fontSize.main}px;
+    `};
+    cursor: pointer;
+    &:focus-visible {
+        outline: none;
+    }
+    &:active {
+        background-color: white;
+    }
+`;
