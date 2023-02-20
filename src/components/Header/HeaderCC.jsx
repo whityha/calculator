@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import LINKS from './config';
 import { Nav, NavItem, Title, Wrapper } from './styled';
@@ -21,5 +22,9 @@ class Header extends React.Component {
         );
     }
 }
+
+Header.propTypes = {
+    children: PropTypes.string,
+};
 
 export default Header;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Description, Details, ErrorWrapper, Title } from './styled';
 
@@ -32,3 +33,7 @@ export default class ErrorBoundary extends React.Component {
         );
     }
 }
+
+ErrorBoundary.propTypes = {
+    children: PropTypes.node,
+};

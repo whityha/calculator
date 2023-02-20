@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { List, ListItem, Title, Wrapper } from './styled';
 
@@ -21,6 +22,18 @@ class History extends React.PureComponent {
         );
     }
 }
+
+History.propTypes = {
+    display: PropTypes.shape({
+        value: PropTypes.number,
+        historyValue: PropTypes.string,
+        historyList: PropTypes.shape,
+    }),
+    settings: PropTypes.shape({
+        theme: PropTypes.string,
+        isShowHistory: PropTypes.bool,
+    }),
+};
 
 const mapStateToProps = (state) => ({
     display: state.display,

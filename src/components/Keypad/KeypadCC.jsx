@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BUTTONS from '@constants';
 import controller from '@utils/controller';
+import PropTypes from 'prop-types';
 
 import { Button, Wrapper } from './styled';
 
@@ -24,6 +25,10 @@ class Keypad extends React.Component {
         );
     }
 }
+
+Keypad.propTypes = {
+    dispatch: PropTypes.func,
+};
 
 const mapDispatchToProps = (dispatch) => ({
     dispatch: (action) => {
