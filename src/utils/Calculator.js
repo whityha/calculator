@@ -6,7 +6,7 @@ import {
 
 class Calculator {
     constructor() {
-        this.displayValue = '0';
+        this.currentValue = '0';
 
         this.expression = [];
 
@@ -15,12 +15,12 @@ class Calculator {
 
     appendCommandOptions(commandOptions) {
         if (!this.expression.length)
-            this.addItemInExpression(this.displayValue);
+            this.addItemInExpression(this.currentValue);
         else if (typeof this.getLastExpressionItem() === 'object') {
             this.deleteLastExpressionItem();
         }
         this.addItemInExpression(commandOptions);
-        this.clearDisplayValue();
+        this.clearCurrentValue();
 
         return true;
     }
@@ -31,22 +31,22 @@ class Calculator {
 
     equal() {
         this.closeAllBrackets();
-        this.displayValue = this.getResult();
+        this.currentValue = this.getResult();
         const r = {
             expression: `${this.getExpressionDisplay()} = `,
-            result: this.displayValue,
+            result: this.currentValue,
         };
 
         this.clearExpression();
         return r;
     }
 
-    changeDisplayValue(value) {
-        this.displayValue = changeLastItemExpression(value, this.expression);
+    changeCurrentValue(value) {
+        this.currentValue = changeLastItemExpression(value, this.expression);
     }
 
-    changeSignDisplayValue() {
-        this.displayValue = changeSign(this.displayValue, this.expression);
+    changeSignCurrentValue() {
+        this.currentValue = changeSign(this.currentValue, this.expression);
     }
 
     deleteLastExpressionItem() {
@@ -91,11 +91,11 @@ class Calculator {
 
     clearCalculator() {
         this.clearExpression();
-        this.clearDisplayValue();
+        this.clearCurrentValue();
     }
 
-    clearDisplayValue() {
-        this.displayValue = '0';
+    clearCurrentValue() {
+        this.currentValue = '0';
     }
 
     clearExpression() {

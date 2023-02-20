@@ -19,7 +19,7 @@ const controller = (value, name, dispatch) => {
     return () => {
         if (!validate(name, calculator)) return false;
         if (LEFT_BRACKET.includes(name)) {
-            if (calculator.displayValue && calculator.displayValue !== '0') {
+            if (calculator.currentValue && calculator.currentValue !== '0') {
                 calculator.appendCommandOptions(MultiplyCommandOptions);
             }
             calculator.openBracket();
@@ -32,11 +32,11 @@ const controller = (value, name, dispatch) => {
             updateDisplayValue();
         }
         if (DIGITS.includes(name)) {
-            calculator.changeDisplayValue(value);
+            calculator.changeCurrentValue(value);
             updateDisplayValue();
         }
         if (CHANGE_SIGN.includes(name)) {
-            calculator.changeSignDisplayValue();
+            calculator.changeSignCurrentValue();
             updateDisplayValue();
         }
         if (OPERATORS.includes(name)) {
