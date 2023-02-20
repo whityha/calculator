@@ -1,4 +1,4 @@
-const changeDisplayValue = (value, currentValue = '0') => {
+const changeCurrentValue = (value, currentValue = '0') => {
     const containsDot = currentValue.indexOf('.') !== -1;
     let resultValue = currentValue;
     switch (value) {
@@ -44,11 +44,11 @@ export default (value, expression) => {
             lastExpressionItem === '-.')
     ) {
         deleteLastItem(expression);
-        resultCurrent = changeDisplayValue(value, lastExpressionItem);
+        resultCurrent = changeCurrentValue(value, lastExpressionItem);
         addItemInExpression(resultCurrent);
         return resultCurrent;
     }
-    resultCurrent = changeDisplayValue(value, '');
+    resultCurrent = changeCurrentValue(value, '');
     addItemInExpression(resultCurrent);
     return value;
 };
