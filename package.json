@@ -29,7 +29,7 @@
         "cypress": "cypress open",
         "eject": "craco eject",
         "prepare": "husky install",
-        "lint": "eslint --fix",
+        "lint": "eslint --fix .",
         "prettier:fix": "npx prettier --write .",
         "prettier:check": "npx prettier --check ."
     },
