@@ -7,7 +7,7 @@ import {
 } from '@actions/type';
 
 const initialState = {
-    value: 0,
+    value: '0',
     historyValue: '',
     historyList: [],
 };

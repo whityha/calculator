@@ -14,6 +14,7 @@ import {
 const addOperationInExpression = (calculator, commandOptions, dispatch) => {
     calculator.appendCommandOptions(commandOptions);
     dispatch(setDisplayValue(calculator.getExpressionDisplay()));
+    dispatch(setHistoryDisplayValue(''));
 };
 
 const handleOperators = (calculator, name, dispatch) => {

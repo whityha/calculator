@@ -10,7 +10,7 @@ export default (expression) => {
 
     const commandsStackIsEmpty = () => commandsStack.length === 0;
     const getLastOperand = () => operandStack.splice(-1)[0];
-    const getLastCommand = () => commandsStack.pop();
+    const getLastCommandOptions = () => commandsStack.pop();
     const showLastCommand = () => commandsStack[commandsStack.length - 1];
     const priorityLastElement = () => {
         const last = commandsStack[commandsStack.length - 1];
@@ -18,7 +18,7 @@ export default (expression) => {
     };
 
     const getResultLastCommand = () => {
-        const Command = getLastCommand().command;
+        const Command = getLastCommandOptions().command;
         const currentCommand = new Command(getLastOperand());
         if (!calculatorCommand)
             calculatorCommand = new CalculatorCommand(getLastOperand());
@@ -47,7 +47,7 @@ export default (expression) => {
                 while (showLastCommand() !== '(') {
                     getResultLastCommand();
                 }
-                getLastCommand();
+                getLastCommandOptions();
                 return;
             }
             operandStack.push(makeNumber(item));

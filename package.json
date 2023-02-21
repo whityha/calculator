@@ -22,6 +22,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "webpack:dev": "webpack serve --open --config webpack.dev.js",
+    "webpack:prod": "webpack --config webpack.prod.js",
     "test": "craco test",
     "test:cypress": "start-server-and-test start http://localhost:3000 cypress",
     "cypress": "cypress open",

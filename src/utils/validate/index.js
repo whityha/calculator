@@ -11,7 +11,7 @@ export default (name, calculator) => {
     }
     if (name === 'equal') {
         if (isCommandLastItemInExpression) return false;
-        if (expression.length === 0) return false;
+        if (expression.length < 2) return false;
         if (lastExpressionItem === '(') return false;
     }
     if (DIGITS.includes(name)) {

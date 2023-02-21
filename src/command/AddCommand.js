@@ -4,7 +4,7 @@ export default class AddCommand {
     }
 
     execute(value) {
-        const res = this.value + value;
+        const res = value + this.value;
         const fixed = res !== Infinity ? res.toFixed(3) : Infinity;
         return res % 1 ? Number(fixed) : res;
     }

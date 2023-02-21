@@ -1,4 +1,8 @@
-import { clearDisplay, setDisplayValue } from '@actions/display';
+import {
+    clearDisplay,
+    setDisplayValue,
+    setHistoryDisplayValue,
+} from '@actions/display';
 import { MultiplyCommandOptions } from '@command/config';
 import {
     CHANGE_SIGN,
@@ -24,6 +28,7 @@ const controller = (value, name, dispatch) => {
             }
             calculator.openBracket();
             updateDisplayValue();
+            dispatch(setHistoryDisplayValue(''));
         }
         if (RIGHT_BRACKET.includes(name)) {
             if (calculator.getLastExpressionItem() === '(')
@@ -34,6 +39,7 @@ const controller = (value, name, dispatch) => {
         if (DIGITS.includes(name)) {
             calculator.changeCurrentValue(value);
             updateDisplayValue();
+            dispatch(setHistoryDisplayValue(''));
         }
         if (CHANGE_SIGN.includes(name)) {
             calculator.changeSignCurrentValue();

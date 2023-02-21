@@ -25,9 +25,9 @@ class History extends React.PureComponent {
 
 History.propTypes = {
     display: PropTypes.shape({
-        value: PropTypes.number,
+        value: PropTypes.string,
         historyValue: PropTypes.string,
-        historyList: PropTypes.shape,
+        historyList: PropTypes.arrayOf(PropTypes.shape),
     }),
     settings: PropTypes.shape({
         theme: PropTypes.string,
