@@ -10,6 +10,7 @@ import {
     RemainderCommandOptions,
     SubtractCommandOptions,
 } from '@command/config';
+import { successToast } from '@utils/toast';
 
 const addOperationInExpression = (calculator, commandOptions, dispatch) => {
     calculator.appendCommandOptions(commandOptions);
@@ -52,6 +53,7 @@ const handleOperators = (calculator, name, dispatch) => {
             break;
         case 'equal': {
             const { expression, result } = calculator.equal();
+            successToast('Expression has been counted');
             dispatch(setHistoryDisplayValue(expression));
             dispatch(
                 addItemInHistoryList({

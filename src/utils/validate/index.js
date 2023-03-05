@@ -1,4 +1,5 @@
 import { CHANGE_SIGN, DIGITS, OPERATORS, RIGHT_BRACKET } from '@constants';
+import { errorToast } from '@utils/toast';
 
 export default (name, calculator) => {
     const { expression, openBracketCount } = calculator;
@@ -10,9 +11,14 @@ export default (name, calculator) => {
         if (isCommandLastItemInExpression || !openBracketCount) return false;
     }
     if (name === 'equal') {
-        if (isCommandLastItemInExpression) return false;
-        if (expression.length < 2) return false;
-        if (lastExpressionItem === '(') return false;
+        if (
+            isCommandLastItemInExpression ||
+            expression.length < 2 ||
+            lastExpressionItem === '('
+        ) {
+            errorToast('Enter correct expression');
+            return false;
+        }
     }
     if (DIGITS.includes(name)) {
         if (lastExpressionItem === ')') return false;
